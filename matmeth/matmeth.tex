@@ -1,4 +1,7 @@
+\documentclass[../main.tex]{subfiles}
 
+\begin{document}
+\setcounter{section}{0}
 \part{Materials and Methods}
 
 \section{Buffers}
@@ -20,7 +23,7 @@ Prepare growth media with appropriate antibiotic. Add appropriate inducers to fo
 \begin{tabular}{c|c}
 \textbf{Inducer}&\textbf{Concentration}\\\hline
 Arabinose&\SI{100}{\micro\gram\per\milli\litre}\\
-IPTG&\SI{25}{\micro\molar}
+IPTG&\SI{25}{\micro\Molar}
 \end{tabular}
 \end{center}
 
@@ -28,7 +31,7 @@ IPTG&\SI{25}{\micro\molar}
 
 \begin{center}
 \begin{tabular}{c|c|c}
-&\textbf{Stock Concentration} (\si{\milli\mole})&\textbf{Volume} (\si{\micro\litre})\\\hline
+&\textbf{Stock Concentration} (\si{\milli\Molar})&\textbf{Volume} (\si{\micro\litre})\\\hline
 PEG-8000					&	25\%		&	\SI{0.75}{\gram}\\
 Tris-\ce{HCl} pH 7.5		&	500		&	1500\\
 \ce{MgCl2}				&	50		&	75\\
@@ -80,10 +83,10 @@ Meanwhile, prewarm \SI{500}{\milli\litre} LB and two \SI{1}{\litre} or one \SI{2
 Also cool 16 \SI{1.5}{\milli\litre} microcentrifuge tubes.
 Add the overnight culture to the warmed \SI{500}{\milli\litre} in the conical flask(s) and incubate in a shaking incubator for \SIrange{2}{3}{\hour}.
 Incubate cells on ice for \si{10}{\minute}.
-Spin down cells for \SI{3}{\minute} at 6krpm. Resuspend cells in \SI{10}{\milli\litre} \SI{0.1}{\milli\molar} \ce{CaCl}.
+Spin down cells for \SI{3}{\minute} at 6krpm. Resuspend cells in \SI{10}{\milli\litre} \SI{0.1}{\milli\Molar} \ce{CaCl}.
 Incubate cells on ice for \SI{10}{\minute}.
 Spin down cells for \SI{3}{\minute} at 6krpm.
-Resuspend cells in \SI{5}{\milli\litre} \SI{0.1}{\milli\molar} \ce{CaCl} in 15\% glycerol.
+Resuspend cells in \SI{5}{\milli\litre} \SI{0.1}{\milli\Molar} \ce{CaCl} in 15\% glycerol.
 Alliquot \SI{300}{\micro\litre} into each of the cooled microcentrifuge tubes.
 Freeze at \SI{-80}{\degree}.
 
@@ -147,7 +150,58 @@ Incubate the mixture at \SI{37}{\degree} for 1-2 hours.
 
 \subsection{PCR}
 
+Prepare in \SI{200}{\micro\litre} PCR tubes in chilled racks the following, in order.
+
+\begin{center}
+\begin{tabular}{c|c|c}
+&\textbf{Stock Concentration}&\textbf{Volume} (\si{\micro\litre})\\\hline
+Reaction Buffer 		&	10X						&	10\\
+dNTP					&	\SI{10}{\milli\Molar}	&	5\\
+Primer A				&	\SI{100}{\micro\Molar}	&	2.5\\
+Primer B				&	\SI{100}{\micro\Molar}	&	2.5\\
+Template				&							&	\SI{50}{\nano\gram}\\
+\ce{MgCl2}			&	\SI{50}{\micro\Molar}	&	3\\
+Polymerase			&							&	1\\
+MilliQ water			&							& 	to 50\\\hline
+\textbf{Total}		&							&	\textbf{50}
+\end{tabular}
+\end{center}
+
+Place in a PCR machine and run on the following program.
+
+\begin{center}
+\begin{tabular}{c|cc}
+\textbf{Step}&\textbf{Temperature}&\textbf{Time}\\\hline
+Initial Denaturation	& \SI{98}{\degree} & \SI{120}{\second}\\\hline
+\textbf{Loop}&\multicolumn{2}{c}{\textbf{30 times}}\\
+Denaturation		&	\SI{98}{\degree}		&	\SI{30}{\second}\\
+Annealing 		&	Optimal for primer	&	\SI{30}{\second}\\
+Extension		&	\SI{72}{\degree}		&	\SI{30}{\second\per\kilo\base}\\
+\textbf{End Loop}	&	& \\\hline
+Final extension	&	\SI{72}{\degree}		&	\SI{7}{\minute}\\
+Hold				&	\SI{4}{\degree}		&	\(\infty\)
+\end{tabular}
+\end{center}
+
+\subsection{Gel Extraction}
+
 \subsection{Gibson Assembly}
+
+Perform PCR as appropriate to obtain overlapping DNA.
+Gel extract required bands.
+In a PCR tube on ice, add in a 1:1 ratio the overlapping DNA to the 1.33X Gibson Master Mix in a ratio of 1:3 DNA:GMM to a total volume of \SIrange{6}{20}{\micro\litre}.
+Incubate the reaction for \SI{1}{\hour} at \SI{50}{\degree}. Incubate on ice or freeze until ready to transform/run on gel.
 
 
 \subsection{DNA Precipitation}
+
+Prepare on ice the following in a \SI{1.5}{\milli\litre} microcentrifuge tube.
+\begin{itemize}
+\item At least \SI{50}{\micro\litre} DNA; make up with water as required. This counts as one volume.
+\item 1/10 volume \SI{3}{\milli\Molar} \ce{NaOAc}.
+\item 2-2.5 volume 100\% \ce{EtOH}.
+\end{itemize}
+Incubate overnight at \SI{-20}{\degree} or for \SI{1}{\hour} at \SI{-80}{\degree}. Spin down at maximum speed for \SI{30}{\minute} in cooled centrifuge. Suck off supernatent. Resuspend in \SI{100}{\micro\litre} 100\% \ce{EtOH}. Spin down as before in cooled centrifuge. Suck off supernatent. Air dry in flow hood until completely dry. Resuspend in water/TE to volume as appropriate.
+
+
+\end{document}

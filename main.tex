@@ -7,14 +7,28 @@
 \parskip 7.2pt         
 \linespread{1.3}
 
+\setcounter{tocdepth}{1}
+
+
+\usepackage{subfiles}
+
 \usepackage[alsoload=synchem]{siunitx}		% just nice
 \usepackage{gensymb}							% for degree symbol, probably others
 \usepackage[version=3]{mhchem}				% for chemical equations
+\usepackage{multirow}
+
+\DeclareSIUnit\Molar{\textsc{M}}
+\DeclareSIUnit\base{bp}
 
 
 
 \begin{document}
 
-\include{matmeth/matmeth}
+\tableofcontents
+\cleardoublepage
+
+%TC:fileinclude \subfile 1
+\subfile{matmeth/matmeth}
+\cleardoublepage
 
 \end{document}
