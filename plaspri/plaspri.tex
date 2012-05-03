@@ -1,0 +1,128 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\setcounter{section}{0}
+\part{Plasmids and Primers}
+
+\section{Plasmids}
+\begin{table}[h!]
+\begin{center}
+\begin{tabular}{c|c|c|c|c}
+\textbf{Plasmid Name} 	&	\textbf{Backbone}	&	\textbf{Antibiotic}	&		\textbf{Inducer}	&	\textbf{Gene}\\\hline
+\textbf{pWAC1}			&	pBAD33				&	Cam					&		Ara				&	\textit{eyfp\textsubscript{A206K}-cheZ}\\
+\textbf{pWAC2}			&	pTRC99a				&	Amp					&		IPTG				&	\textit{tsr-eyfp\textsubscript{A206K}}\\
+\textbf{pWAC3}			&	pTRC99a				&	Amp					&		IPTG				&	\textit{eyfp\textsubscript{A206K}-cheZ}\\
+\textbf{pWAC4}			&	pTRC99a				&	Amp					&		IPTG				&	\textit{tar-eyfp\textsubscript{A206K}}
+\end{tabular}
+\caption{Plasmids created by me.}
+\label{tbl:myplasmids}
+\end{center}
+\end{table}
+
+\section{Primers}
+\begin{table}[h!]
+\begin{center}
+\begin{threeparttable}
+\begin{tabular}{c|l|p{5cm}|c|c|p{5cm}}
+\textbf{Primer}
+	&\textbf{Name}
+	&\textbf{Sequence}
+	&\textbf{Length}
+	&\textbf{Tm\si{\degree}C} \tnote{1}
+	&\textbf{Description}
+	\\\hline
+\textbf{WAC1}
+	&eYFP A206K
+	&\dna{TACCTGAGCTACCAGTCCAAACTGAGCAAAGACCCCAAC}
+	&39
+	&81
+	&A206K mutation in eYFP
+	\\
+\textbf{WAC2}
+	&eYFP A206K anti
+	&\dna{GTTGGGGTCTTTGCTCAGTTTGGACTGGTAGCTCAGGTA}
+	&39
+	&81
+	&A206K mutation in eYFP
+	\\
+\textbf{WAC5}
+	&mVenusF	
+	&\dna{tagct{\underline{ggagctcaagctt}}ATGGTGAGCAAGGGCGAGG}
+	&37
+	&83
+	&Extract mVenus and add SacI and HindIII restriction sites
+	\\
+\textbf{WAC6}
+	&mVenusR
+	&\dna{aggtCT{\underline{TGTACA}}GCTCGTCCATGCCG}
+	&26
+	&75
+	&Extract mVenus to include BsrGI
+	\\
+\textbf{WAC7}
+	&pBAD33-split-ccw
+	&\dna{GGACAGCTGATAGAAACAGAAGC}
+	&23
+	&63
+	&Split pBAD33 in counter-clockwise direction
+	\\
+\textbf{WAC8}
+	&pBAD33-split-cw
+	&\dna{TTTTTGAGGTGCTCCAGTGG}
+	&20
+	&66
+	&Split pBAD33 in clockwise direction
+	\\
+\textbf{WAC9}
+	&pTRC99a-split-ccw
+	&\dna{TTCCTCGCTCACTGACTCGC}
+	&20
+	&69
+	&Split pTRC99a in counter-clockwise direction
+	\\
+\textbf{WAC10}
+	&pTRC99a-split-cw
+	&\dna{GCCGAACGACCGAGCG}
+	&16
+	&70
+	&Split pTRC99a in clockwise direction
+	\\
+\textbf{WAC11}
+	&e*FP-vector-ccw
+	&\dna{CCACCCCGGTGAACAGC}
+	&17
+	&68
+	&Delete e*FP\tnote{2} from plasmid leaving overhang
+	\\
+\textbf{WAC12}
+	&e*FP-vector-cw
+	&\dna{TCCTGCTGGAGTTCGTGACC}
+	&20
+	&68
+	&Complementary to \textbf{WAC11}
+	\\
+\textbf{WAC13}
+	&e*FP-insert-ccw
+	&\dna{GTCCATGCCGAGAGTGATCC}
+	&20
+	&67
+	&Extract most of e*FP with correct overhangs for use with \textbf{WAC11} and \textbf{WAC12}
+	\\
+\textbf{WAC14}
+	&e*FP-insert-cw
+	&\dna{GGTGAGCAAGGGCGAGG}
+	&17
+	&68
+	&Complementary to \textbf{WAC14}
+\end{tabular}
+\begin{tablenotes}
+\item [1] \url{ http://www.finnzymes.fi/tm_determination.html } using modified Breslaur 
+\item [2] e*FP refers to any GFP derivative containing no mutations between nucleotide 20 and nucleotide 685.
+\end{tablenotes}
+\caption{Primers used in this report. In the sequences, upper case letters correspond to complementary sequences to the template DNA. Lower case letters correspond to extensions, and underlined portions highlight restriction sites.}
+\end{threeparttable}
+\label{tbl:primers}
+\end{center}
+\end{table}
+
+\end{document}

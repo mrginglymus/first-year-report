@@ -10,16 +10,21 @@
 \setcounter{tocdepth}{1}
 
 
-\usepackage{subfiles}
-
+\usepackage{subfiles}						% for including files but compiling separately when needed
 \usepackage[alsoload=synchem]{siunitx}		% just nice
 \usepackage{gensymb}							% for degree symbol, probably others
 \usepackage[version=3]{mhchem}				% for chemical equations
-\usepackage{multirow}
+\usepackage{multirow}						% for multi row/columns in tables
+\usepackage{fixltx2e}						% subscript and superscript in text
+\usepackage{hyperref}						% for urls
+\usepackage{threeparttable}					% for footnotes in tables (tablenotes)
+\usepackage{seqsplit}						% for inserting linebreaks into DNA sequences 
 
-\DeclareSIUnit\Molar{\textsc{M}}
-\DeclareSIUnit\base{bp}
+\DeclareSIUnit\Molar{\textsc{M}}				% molar unit definition
+\DeclareSIUnit\base{bp}						% basepair unit definition
+\DeclareSIUnit\unit{U}						% enzyme unit definition
 
+\newcommand{\dna}[1]{\texttt{\seqsplit{#1}}}	% DNA monotype
 
 
 \begin{document}
@@ -29,6 +34,10 @@
 
 %TC:fileinclude \subfile 1
 \subfile{matmeth/matmeth}
+\cleardoublepage
+
+%TC:fileinclude \subfile 1
+\subfile{plaspri/plaspri}
 \cleardoublepage
 
 \end{document}
