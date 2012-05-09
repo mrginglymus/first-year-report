@@ -7,3 +7,7 @@
 *.dvi
 *.toc
 *.out
+*.xml
+*.bbl
+*.blg
+*-blx.bib

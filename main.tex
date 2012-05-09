@@ -1,15 +1,10 @@
-\documentclass[12pt,twoside]{article}
-\topmargin -1.5cm
-\oddsidemargin -0.04cm
-\evensidemargin 0.04cm
-\textwidth 16.59cm
-\textheight 21.94cm 
-\parskip 7.2pt         
+\documentclass[12pt]{article}
 \linespread{1.3}
 
 \setcounter{tocdepth}{1}
 
 
+\usepackage[style=nature]{biblatex}			% Ronseal
 \usepackage{subfiles}						% for including files but compiling separately when needed
 \usepackage[alsoload=synchem]{siunitx}		% just nice
 \usepackage{gensymb}							% for degree symbol, probably others
@@ -19,6 +14,10 @@
 \usepackage{hyperref}						% for urls
 \usepackage{threeparttable}					% for footnotes in tables (tablenotes)
 \usepackage{seqsplit}						% for inserting linebreaks into DNA sequences 
+\usepackage[top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\usepackage{color}							% coloured text
+\input{rgb.tex}
+
 
 \DeclareSIUnit\Molar{\textsc{M}}				% molar unit definition
 \DeclareSIUnit\base{bp}						% basepair unit definition
@@ -26,6 +25,7 @@
 
 \newcommand{\dna}[1]{\texttt{\seqsplit{#1}}}	% DNA monotype
 
+\bibliography{refs}
 
 \begin{document}
 
@@ -33,11 +33,21 @@
 \cleardoublepage
 
 %TC:fileinclude \subfile 1
-\subfile{matmeth/matmeth}
+\subfile{introduction/introduction}
+
+%TC:fileinclude \subfile 1
+\subfile{matmeth/matmeth2}
 \cleardoublepage
 
 %TC:fileinclude \subfile 1
-\subfile{plaspri/plaspri}
+\subfile{results/results}
 \cleardoublepage
+
+%TC:fileinclude \subfile 1
+\subfile{future/future}
+\cleardoublepage
+
+\addcontentsline{toc}{section}{\numberline {}References}
+\printbibliography
 
 \end{document}

@@ -1,0 +1,38 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\section{Materials and Methods}
+
+\subsection{Microscopy}
+
+A substantial amount of work for this project has been on determining the optimal microscopy technique from which to infer conclusions.
+
+\subsection{Techniques}
+
+\subsubsection{Gibson Assembly}
+
+Gibson Assembly was developed by Daniel Gibson\cite{gibson09} in 2009 whilst working with J. Craig Venter on his synthetic genome\cite{venter10}. In brief, it allows for seamless assembly of multiple lengths of DNA. The process requires short (\SIrange{20}{40}{\base}) homologous overlaps between each length to be assembled. These can be created using PCR, as described in figure~\ref{fig:gibsonPCR}.
+\begin{figure}
+\texttt{
+Left side of join\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Right side of join\\
+\color{DarkGreen}5'-TCTGGAATTCGCGGCCGCTTCTAGAG-3'\color{black}\ \ \ \ \ \ \ \color{DarkBlue}5'-TACTAGTAGCGGCCGCTGCAGTCCGG-3'\\
+\color{DarkGreen}3'-AGACCTTAAGCGCCGGCGAAGATCTC-5'\color{black}\ \ \ \ \ \ \ \color{DarkBlue}3'-ATGATCATCGCCGGCGACGTCAGGCC-5'\\
+\\
+\color{DarkGreen}5'-TCTGGAATTCGCGGCCGCTTCTAGAG-3'\color{black}\\
+\color{DarkRed}\ \ \ \ \ \ \ \ \ < < \ 3'-GGCGAAGATCTCTACTAGTAGCGGCC-5'\color{black}
+\\\\
+\color{DarkRed}\ \ \ \ \ \ \ \ \ \ \  \ \  \ 5'-CCGCTTCTAGAGATGATCATCGCCGG-3' > >\color{black}
+\\
+\color{DarkBlue}~~~~~~~~~~~~~~~~~~~~~~~~~~3'-ATGATCATCGCCGGCGACGTCAGGCC-5'\\\\
+}
+\caption{Description of the primers required to create overlap between two lengths of arbitrary DNA. The two lengths of DNA are labelled in green and blue, and the primers in red. Complementary primers for the other end of each length of DNA are designed as appropriate. Diagram from the BioBrick Foundataion Request for Comments 57\cite{rfc57}.}
+\end{figure}
+
+Once this overlap has been created, the lengths of DNA may be assembled in a single isothermal step. The 
+
+
+\subsection{Image Processing}
+
+
+\end{document}
