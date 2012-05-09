@@ -12,11 +12,34 @@
 \usepackage{multirow}						% for multi row/columns in tables
 \usepackage{fixltx2e}						% subscript and superscript in text
 \usepackage{hyperref}						% for urls
-\usepackage{threeparttable}					% for footnotes in tables (tablenotes)
 \usepackage{seqsplit}						% for inserting linebreaks into DNA sequences 
 \usepackage[top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\usepackage{subfigure}
 \usepackage{color}							% coloured text
 \input{rgb.tex}
+
+
+
+
+\newcounter{myfootertablecounter}
+
+\newcommand\myfootnotemark{%
+%\refstepcounter{footnote}%
+\addtocounter{footnote}{1}%
+\footnotemark[\thefootnote]%
+}%
+
+\newcommand\myfootnotetext[1]{%
+\addtocounter{myfootertablecounter}{1}
+\footnotetext[\value{myfootertablecounter}]{#1}
+}
+
+% from now on, myfootnote has to be used rather than footnote to
+% adapt the myfootercounter
+\newcommand\myfootnote[1]{%
+\addtocounter{myfootertablecounter}{1}
+\footnote{#1}
+}%
 
 
 \DeclareSIUnit\Molar{\textsc{M}}				% molar unit definition
@@ -25,13 +48,13 @@
 
 \newcommand{\dna}[1]{\texttt{\seqsplit{#1}}}	% DNA monotype
 
+\newcommand{\ecoli}{\textit{E.coli}}			% E. coli
+
 \bibliography{refs}
 
 \begin{document}
-
 \tableofcontents
 \cleardoublepage
-
 %TC:fileinclude \subfile 1
 \subfile{introduction/introduction}
 

@@ -12,27 +12,138 @@ A substantial amount of work for this project has been on determining the optima
 
 \subsubsection{Gibson Assembly}
 
-Gibson Assembly was developed by Daniel Gibson\cite{gibson09} in 2009 whilst working with J. Craig Venter on his synthetic genome\cite{venter10}. In brief, it allows for seamless assembly of multiple lengths of DNA. The process requires short (\SIrange{20}{40}{\base}) homologous overlaps between each length to be assembled. These can be created using PCR, as described in figure~\ref{fig:gibsonPCR}.
+Gibson Assembly was developed by Daniel Gibson\cite{gibson9} in 2009 whilst working with J. Craig Venter on his synthetic genome\cite{venter10}. In brief, it allows for seamless assembly of multiple lengths of DNA. The process requires short (\SIrange{20}{40}{\base}) homologous overlaps between each length to be assembled. These can be created using PCR, as described in figure~\ref{fig:gibsonPCR}.
 \begin{figure}
-\texttt{
-Left side of join\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Right side of join\\
-\color{DarkGreen}5'-TCTGGAATTCGCGGCCGCTTCTAGAG-3'\color{black}\ \ \ \ \ \ \ \color{DarkBlue}5'-TACTAGTAGCGGCCGCTGCAGTCCGG-3'\\
-\color{DarkGreen}3'-AGACCTTAAGCGCCGGCGAAGATCTC-5'\color{black}\ \ \ \ \ \ \ \color{DarkBlue}3'-ATGATCATCGCCGGCGACGTCAGGCC-5'\\
-\\
-\color{DarkGreen}5'-TCTGGAATTCGCGGCCGCTTCTAGAG-3'\color{black}\\
-\color{DarkRed}\ \ \ \ \ \ \ \ \ < < \ 3'-GGCGAAGATCTCTACTAGTAGCGGCC-5'\color{black}
-\\\\
-\color{DarkRed}\ \ \ \ \ \ \ \ \ \ \  \ \  \ 5'-CCGCTTCTAGAGATGATCATCGCCGG-3' > >\color{black}
-\\
-\color{DarkBlue}~~~~~~~~~~~~~~~~~~~~~~~~~~3'-ATGATCATCGCCGGCGACGTCAGGCC-5'\\\\
+\subfigure[Two ends of DNA to be joined, in green and blue.]{
+\shortstack[l]{
+\texttt{\color{DarkGreen}5'-TCTGGAATTCGCGGCCGCTTCTAGAG-3'\color{black}\ \ \ \ \ \ \ \color{DarkBlue}5'-TACTAGTAGCGGCCGCTGCAGTCCGG-3'}\\
+\texttt{\color{DarkGreen}3'-AGACCTTAAGCGCCGGCGAAGATCTC-5'\color{black}\ \ \ \ \ \ \ \color{DarkBlue}3'-ATGATCATCGCCGGCGACGTCAGGCC-5'}
 }
-\caption{Description of the primers required to create overlap between two lengths of arbitrary DNA. The two lengths of DNA are labelled in green and blue, and the primers in red. Complementary primers for the other end of each length of DNA are designed as appropriate. Diagram from the BioBrick Foundataion Request for Comments 57\cite{rfc57}.}
+\label{fig:gibsonPCR:before}
+}\\
+\subfigure[Primers required to create overlap in red, in this case giving an overlap of \SI{24}{\base}.]{
+\shortstack[l]{
+\texttt{\color{DarkGreen}5'-TCTGGAATTCGCGGCCGCTTCTAGAG-3'\color{black}}\\
+\texttt{\color{DarkRed}\ \ \ \ \ \ \ \ \ < < \ 3'-GGCGAAGATCTCTACTAGTAGCGGCC-5'\color{black}}
+\\\\
+\texttt{\color{DarkRed}\ \ \ \ \ \ \ \ \ \ \  \ \  \ 5'-CCGCTTCTAGAGATGATCATCGCCGG-3' > >\color{black}}
+\\
+\texttt{\color{DarkBlue}~~~~~~~~~~~~~~~~~~~~~~~~~~3'-ATGATCATCGCCGGCGACGTCAGGCC-5'}
+}
+\label{fig:gibsonPCR:primer}
+}
+\caption{Depiction of the primers required to create overlap between two strands of arbitrary DNA For each strand of DNA, another primer is required at its other end, which may be either a normal primer if no further assembly is required, or another extension primer as appropriate. Figure adapted from BioBrick Foundataion Request For Comments 57\cite{rfc57}.}
+\label{fig:gibsonPCR}
 \end{figure}
 
-Once this overlap has been created, the lengths of DNA may be assembled in a single isothermal step. The 
+Once this overlap has been created, the lengths of DNA may be assembled in a single isothermal step, as shown in figure~\ref{fig:gibson}. 
+
+\begin{figure}
+\subfigure[Starting DNA with overlaps (note that outside ends of DNA extend further than shown).]{
+\shortstack[l]{
+\texttt{\color{DarkGreen}5'-TCTGGAATTCGCGGCCGCTTCTAGAG\color{DarkSalmon}TACTAGTAGCGGCCGC-3'}
+\\
+\texttt{\color{DarkGreen}3'-AGACCTTAAGCGCCGGCGAAGATCTC\color{DarkSalmon}ATGATCATCGCCGGCG-5'}
+\\
+\texttt{\color{DarkSalmon}\ \ \ \ \ \ \ \ \ \ 5'-GCGGCCGCTTCTAGAG\color{DarkBlue}TACTAGTAGCGGCCGCTGCAGTCCGG-3'}
+\\
+\texttt{\color{DarkSalmon}\ \ \ \ \ \ \ \ \ \ 3'-CGCCGGCGAAGATCTC\color{DarkBlue}ATGATCATCGCCGGCGACGTCAGGCC-5'}
+}
+\label{fig:gibson:1}
+}
+\subfigure[DNA is chewed back from 5' end]{
+\shortstack[l]{
+\texttt{\color{DarkGreen}5'-TCTGGAATTCGCGGCCGCTTCTAGAG\color{DarkSalmon}TACTAGTAGCGGCCGC-3'}
+\\
+\texttt{\color{DarkGreen}3'-AGA-5'\color{black}<--}
+\\
+\texttt{\color{DarkBlue}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \color{black}-->\color{DarkBlue}5'-CGG-3'}
+\\
+\texttt{\color{DarkSalmon}\ \ \ \ \ \ \ \ \ \ 3'-CGCCGGCGAAGATCTC\color{DarkBlue}ATGATCATCGCCGGCGACGTCAGGCC-5'}
+}
+\label{fig:gibson:2}
+}
+\subfigure[The two sticky ends anneal]{
+\shortstack[l]{
+\texttt{\color{DarkGreen}5'-TCTGGAATTCGCGGCCGCTTCTAGAG\color{DarkSalmon}TACTAGTAGCGGCCGC-3'\ \color{DarkBlue}5'-CGG-3'}
+\\
+\texttt{\color{DarkGreen}3'-AGA-5'\ \color{DarkSalmon}3'-CGCCGGCGAAGATCTC\color{DarkBlue}ATGATCATCGCCGGCGACGTCAGGCC-5'}
+}
+\label{fig:gibson:3}
+}
+\subfigure[The gaps are filled up]{
+\shortstack[l]{
+\texttt{\color{black}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -->\ \ \ \ }
+\\
+\texttt{\color{DarkGreen}5'-TCTGGAATTCGCGGCCGCTTCTAGAG\color{DarkSalmon}TACTAGTAGCGGCCGC\color{DarkMagenta}TGCAGTC\color{DarkBlue}CGG-3'}
+\\
+\texttt{\color{DarkGreen}3'-AGA\color{DarkMagenta}CCTTAAG\color{DarkSalmon}CGCCGGCGAAGATCTC\color{DarkBlue}ATGATCATCGCCGGCGACGTCAGGCC-5'}
+\\
+\texttt{\color{black}\ \ \ \ \ \ \ \ \ \ <--}
+}
+\label{fig:gibson:4}
+}
+\subfigure[The gaps are ligated]{
+\shortstack[l]{
+\texttt{\color{black}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ><}
+\\
+\texttt{\color{DarkGreen}5'-TCTGGAATTCGCGGCCGCTTCTAGAG\color{DarkSalmon}TACTAGTAGCGGCCGC\color{DarkMagenta}TGCAGTC\color{DarkBlue}CGG-3'}
+\\
+\texttt{\color{DarkGreen}3'-AGA\color{DarkMagenta}CCTTAAG\color{DarkSalmon}CGCCGGCGAAGATCTC\color{DarkBlue}ATGATCATCGCCGGCGACGTCAGGCC-5'}
+\\
+\texttt{\color{black}\ \ \ \ \ ><\ \ \ }
+}
+\label{fig:gibson:5}
+}
+\caption{Overview of the Gibson Assembly Process. All steps occur in the same isothermal reaction. Figure adapted from BBF RFC 57\cite{rfc57}.}
+\label{fig:gibson}
+\end{figure}
 
 
 \subsection{Image Processing}
+Unless otherwise stated, all image processing has been done in Matlab. All processing scripts are open source and have been made available on \url{www.github.com}.
+
+\subsubsection{Cluster Detection}
+One basic objective was to determine the size or protein density of the chemotaxis protein clusters on the poles of the \ecoli. At the start of the project there were existing scripts that identified clusters through threshold detection. Whilst this performed reasonably well on high contrast images, it struggled on more noisy images, and could not identify cells with more than one cluster, or none at all.
+
+A brief description of the two scripts written to identify the size and density of clusters follows:
+
+\paragraph{cell\_finder.m}
+
+
+\texttt{[ cell\_mask, all\_cells, masks ] = cell\_finder( image, pixel\_size, search\_radius, minimum\_size, maximum\_size, eccentricity, solidity, max\_brightness ) }
+
+This function takes as its input the image of the cells, along with the following parameters:
+\begin{tabular}{rl}
+Pixel Size		&	Length of pixel in microns\\
+Search Radius 	&	Largest size of cluster to consider in microns\\
+Minimum Size		&	Smallest cell size in square microns\\
+Maximum Size		&	Largest cell size in square microns\\
+Eccentricity		&	Minimum ratio of cell length to cell width\\
+Solidity			&	Minimum solidity\myfootnotemark.\\
+Maximum Brightness	&	Maximum total brightness of cell
+\end{tabular}
+\myfootnotetext{The solidity gives a measure of the curvature of the cell. It measures the proportion of the convex hull of the cell that is occupied by the cell itself. If it is less than 0.8 then the cell is curved, or T-shaped, and so probably not worth considering.}
+
+
+As its output the function gives an image mask to identify all cells identified as valid (\texttt{cell\_mask}), an image mask to identify all cells (\texttt{all\_cells}), and a series of other masks identifying all cells disqualified for being too small, large, round, bright, or not solid enough.
+
+To generate the mask of cells, the script first performs edge detection using the Canny method\cite{canny}. This is particularly effective for detecting edges in noisy images. The lines are then thickened and the gaps closed to give the outline of cells. These are filled in, and then the image is opened with a disk shaped element to remove any small blobs or bridges. This intermediate image is now \texttt{all\_cells}. Subsequently, each constraint on cell shape or size is applied individually to determine which cells to reject.
+
+
+\paragraph{cluster\_finder.m}
+\texttt{[ cluster\_fraction, com\_pass, com\_fail ] = cluster\_finder( image, cell\_mask, all\_cells, pixel\_size, threshold, search\_radius, min\_cluster\_size, max\_cluster\_size ) }
+
+This function takes as its inputs the image of the cells, and the first two cell masks as described in the previous function. Along with these it takes the following parameters:
+
+\begin{tabular}{r|l}
+Pixel Size		&	Length of pixel in microns\\
+Threshold		&	Minimum intensity for peak of cluster, relative to mean cell intensity\\
+Minimum cluster size	&	Smallest radius of cluster in microns\\
+Maximum cluster size	&	Maximum radius of cluster in microns
+\end{tabular}
+
+
 
 
 \end{document}
