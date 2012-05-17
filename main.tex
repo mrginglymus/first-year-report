@@ -1,10 +1,12 @@
 \documentclass[12pt]{article}
 \linespread{1.3}
 
+\newcommand{\docroot}{/Users/Bill/Dropbox/Work/PhD/reports/first-year-report/}
+
 \setcounter{tocdepth}{1}
 
-
-\usepackage[style=nature]{biblatex}			% Ronseal
+\usepackage[parfill]{parskip}
+\usepackage[style=nature]{biblatex}			% bibliography with nature style
 \usepackage{subfiles}						% for including files but compiling separately when needed
 \usepackage[alsoload=synchem]{siunitx}		% just nice
 \usepackage{gensymb}							% for degree symbol, probably others
@@ -15,8 +17,10 @@
 \usepackage{seqsplit}						% for inserting linebreaks into DNA sequences 
 \usepackage[top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}                % See geometry.pdf to learn the layout options. There are lots.
 \usepackage{subfigure}
+\usepackage{threeparttable}
+\usepackage{datatool}
 \usepackage{color}							% coloured text
-\input{rgb.tex}
+\input{\docroot rgb.tex}
 
 
 
@@ -26,6 +30,10 @@
 \newcommand\myfootnotemark{%
 %\refstepcounter{footnote}%
 \addtocounter{footnote}{1}%
+\footnotemark[\thefootnote]%
+}%
+
+\newcommand\myfootnotemarkhold{%
 \footnotemark[\thefootnote]%
 }%
 
@@ -50,13 +58,25 @@
 
 \newcommand{\ecoli}{\textit{E.coli}}			% E. coli
 
-\bibliography{refs}
+\newcommand{\plasmidtable}[1]{%
+\DTLloaddb{#1}{\docroot #1.csv}
+\begin{tabular}{lllcc}
+\bfseries Plasmid Name &
+\bfseries Gene &
+\bfseries Backbone &
+\bfseries Antibiotic &
+\bfseries Inducer
+\DTLforeach{#1}{\plasmidname=Plasmid Name,\gene=Gene,\backbone=Backbone,\antibiotic=Antibiotic,\inducer=Inducer}{\\\textbf{\plasmidname} & \textit{\gene} & \backbone & \antibiotic & \inducer}
+\end{tabular}}
+
+\bibliography{\docroot refs}
 
 \begin{document}
 \tableofcontents
 \cleardoublepage
 %TC:fileinclude \subfile 1
 \subfile{introduction/introduction}
+\cleardoublepage
 
 %TC:fileinclude \subfile 1
 \subfile{matmeth/matmeth2}
@@ -67,7 +87,15 @@
 \cleardoublepage
 
 %TC:fileinclude \subfile 1
+\subfile{discussion/discussion}
+\cleardoublepage
+
+%TC:fileinclude \subfile 1
 \subfile{future/future}
+\cleardoublepage
+
+%TC:fileinclude \subfile 1
+\subfile{plaspri/plaspri}
 \cleardoublepage
 
 \addcontentsline{toc}{section}{\numberline {}References}

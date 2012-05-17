@@ -1,26 +1,11 @@
 \documentclass[../main.tex]{subfiles}
 
 \begin{document}
-\setcounter{section}{0}
-\part{Plasmids and Primers}
+\section{Primers, plasmids and Strains}
+\label{sec:plaspri}
 
-\section{Plasmids}
-\begin{table}[h!]
-\begin{center}
-\begin{tabular}{c|c|c|c|c}
-\textbf{Plasmid Name} 	&	\textbf{Backbone}	&	\textbf{Antibiotic}	&		\textbf{Inducer}	&	\textbf{Gene}\\\hline
-\textbf{pWAC1}			&	pBAD33				&	Cam					&		Ara				&	\textit{eyfp\textsubscript{A206K}-cheZ}\\
-\textbf{pWAC2}			&	pTRC99a				&	Amp					&		IPTG				&	\textit{tsr-eyfp\textsubscript{A206K}}\\
-\textbf{pWAC3}			&	pTRC99a				&	Amp					&		IPTG				&	\textit{eyfp\textsubscript{A206K}-cheZ}\\
-\textbf{pWAC4}			&	pTRC99a				&	Amp					&		IPTG				&	\textit{tar-eyfp\textsubscript{A206K}}
-\end{tabular}
-\caption{Plasmids created by me.}
-\label{tbl:myplasmids}
-\end{center}
-\end{table}
-
-\section{Primers}
-
+\subsection{Primers}
+\label{sec:plaspri:pri}
 \begin{table}[h!]
 \begin{center}
 \begin{threeparttable}
@@ -127,5 +112,25 @@
 \label{tbl:primers}
 \end{center}
 \end{table}
+
+\subsection{Plasmids}
+\label{sec:plaspri:plas}
+\begin{table}[h!]
+\begin{center}
+\plasmidtable{plaspri/myplasmids}
+\caption{Plasmids created by me.}
+\label{tbl:myplasmids}
+\end{center}
+\end{table}
+
+\begin{table}[h!]
+\begin{center}
+\plasmidtable{plaspri/vsplasmids}
+\caption{Plasmids from Viktor Sourjik}
+\label{tbl:myplasmids}
+\end{center}
+\end{table}
+
+\subsection{Strains}
 
 \end{document}
