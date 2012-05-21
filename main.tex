@@ -3,7 +3,7 @@
 
 \newcommand{\docroot}{/Users/Bill/Dropbox/Work/PhD/reports/first-year-report/}
 
-\setcounter{tocdepth}{1}
+\setcounter{tocdepth}{2}
 
 \usepackage[parfill]{parskip}
 \usepackage[style=nature]{biblatex}			% bibliography with nature style
@@ -19,6 +19,7 @@
 \usepackage{subfigure}
 \usepackage{threeparttable}
 \usepackage{datatool}
+\usepackage{lipsum}
 \usepackage{color}							% coloured text
 \input{\docroot rgb.tex}
 
@@ -56,7 +57,7 @@
 
 \newcommand{\dna}[1]{\texttt{\seqsplit{#1}}}	% DNA monotype
 
-\newcommand{\ecoli}{\textit{E.coli}}			% E. coli
+\newcommand{\ecoli}{\textit{E. coli\~}}			% E. coli
 
 \newcommand{\plasmidtable}[1]{%
 \DTLloaddb{#1}{\docroot #1.csv}
@@ -71,7 +72,16 @@
 
 \bibliography{\docroot refs}
 
+\title{Something Something Chemotaxis Something Microscopy}
+\date{June 2012}
+\author{William Collins\\Cambridge Systems Biology Centre}
+
 \begin{document}
+\maketitle
+\begin{abstract}
+\lipsum[1]
+\end{abstract}
+\newpage
 \tableofcontents
 \cleardoublepage
 %TC:fileinclude \subfile 1

@@ -4,8 +4,36 @@
 
 \section{Introduction}
 
-\subsection{Chemotaxis}
+\subsection*{Bacterial Chemotaxis as a Model System}
+The benefits of using model organisms in science are comprehensive. In the field of systems biology, model systems take this central role, and amongst them bacterial chemotaxis in \ecoli is one of the most extensively studied. The stoichiometry is well established\cite{li04}, the structure of many of the constituent proteins have been determined\cite{milligan87, stock89}, and the feedback loops involved described\cite{kentner09} and robustness tested\cite{yi00}. The \ecoli system has also been used as the basis for study of chemotaxis in other bacterium\cite{hamadeh11}.
+
+In more recent times with the advent of more and more powerful computers, chemotaxis in \ecoli has presented itself as an ideal target for the development of advanced simulation packages, allowing researchers to postulate new and more detailed mechanisms of control\cite{lipkow06}. Together with advances in high resolution microscopy\cite{greenfield09} this has opened the door to new insights into the behaviour of the \ecoli chemotaxis network.
+
+The outcome of this research is the following model of chemotaxis:
 
 
+/* DIAGRAM HERE */
+
+Transmembrane methyl-accepting chemotaxis proteins (MCPs) sit in a cluster at one or both poles of the cell. The presence of repellents or attractants is transduced through a piston like motion\cite{hall11}, with the level of transduction modulated by the level of methylation. The methyltransferase CheR, localised to the MCP, constitutively methylates the MCPs. Phosphorylated methylesterase CheB competes with CheR to demthylate the MCPs. CheB activity is regulated by histidine kinease CheA, whose autophosphorylation is regulated by the activity of the  MCPs. Herein we find the first feedback mechanism, in which an increase in activity causes a decrease in sensitivity.
+
+Phosphrylated CheA also phosphyrlates CheY, a messenger protein which diffuses throughout the cell. Downstream of this there is a bistable-like system which regulates the response of the motors to CheYp, but this is independent of all activity upstream of CheYp. The last significant protein in the \ecoli chemotaxis pathway is the phosphotase CheZ, which removes the phosphate group from CheY.
+
+Despite the extensive coverage of research, there are many areas yet to be fully resolved. Amongst these is that simulations of the system as described above make it apparent that it does not have the same dynamic range as \ecoli do; that is, \ecoli can respond to small changes as well at already high concentrations as low concentrations. Another feedback loop is therefore required to allow the system to retain sensitivity as concentrations change.
+
+This feedback loop is what is covered in the work presented in this report. CheZ forms clusters at the poles of the cells, as well as being found distributed throughout the cytoplasm. Models show that dynamic localisation of CheZ in response to chemotactic activity would increase the dynamic range of the system to match that observed in \ecoli\cite{lipkow06}. To verify this, it is necessary to demonstrate that a greater or lesser proportion of CheZ can be found in the polar clusters while the cell is responding to a chemotactic stimulant.
+
+\subsection*{Microscopy}
+
+Microscopy is a rapidly changing field, with advancements coming from all areas. Improvements in optics are yielding diminishing returns in increasing optical resolution, but new illumination and image processing techniques are allowing for finer and finer imaging using otherwise standard equipment, and most manufacturers are now emphasising this area of development more and more in their brochures.
+
+\subsubsection*{STORM/PALM super-resolution}
+In the context of our challenge - localising proteins and determining density - it would be ideal if we could locate each protein within the \ecoli cell. However, as an \ecoli cell is normally not more than \SI{0.5}{\micro\meter}, and the optical resolution of the microscope is on the order of \SI{200}{\nano\meter}, this is unfeasible using epifluorescent techniques. However, by stochastically illuminating a small arbitrary subset of all the fluorophores over and over and then identifying each fluorescent point as a fluorescently labelled protein it is possible to build up a composite picture of all the proteins. This has already been demonstrated to work for chemotactixis proteins in \ecoli.
+
+This stochastic illumination can be achieved in two ways. In STORM\footnote{Stochastic Optical Reconstruction Microscopy}, the excitation laser is simply turned down such that only a few fluorophores at a time obtain the required activation energy to fluoresce. By contrast, in PALM\footnote{Photoactivated Localisation Microscopy} the activation laser operates at normal levels but a very powerful bleaching laser forces all but a few fluorophores back to the ground state before they have a chance to fluoresce.
+
+PALM requires a relatively powerful bleaching laser, and both require highly sensitive and very fast cameras. They do not require very high resolution optics however, as all that is taken from the optics is the location of a 2D Gaussian. Even so, the higher the resolution the more fluorophores can be imaged simultaneously and the shorter each capture takes. The number of frames required for an image to be built up varies depending on how many fluorophores you are imaging - the more frames the better - but 10,000 is considered to be a reasonable number. Even with some of the fastest cameras available today this would take several seconds.
+
+\subsubsection*{TIRF Microscopy}
+As this project is looking at proteins localised near the membrane of the cell, TIRF\footnote{Total Internal Reflectance Fluorescence} should have been an ideal technique. By firing a laser at an extremely oblique angle at the sample an effervescent field is created where the laser reflects inside the coverslip. This extends about \SI{100}{\nano\meter} into the sample, depending on the angle at which the laser is incident.
 
 \end{document}
