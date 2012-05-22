@@ -61,13 +61,24 @@
 
 \newcommand{\plasmidtable}[1]{%
 \DTLloaddb{#1}{\docroot #1.csv}
-\begin{tabular}{lllcc}
-\bfseries Plasmid Name &
+\begin{tabular}{p{3cm}p{4cm}lcc}
+\bfseries Name &
 \bfseries Gene &
 \bfseries Backbone &
 \bfseries Antibiotic &
 \bfseries Inducer
-\DTLforeach{#1}{\plasmidname=Plasmid Name,\gene=Gene,\backbone=Backbone,\antibiotic=Antibiotic,\inducer=Inducer}{\\\textbf{\plasmidname} & \textit{\gene} & \backbone & \antibiotic & \inducer}
+\DTLforeach{#1}{\plasmidname=Name,\gene=Gene,\backbone=Backbone,\antibiotic=Antibiotic,\inducer=Inducer}{\\\textbf{\plasmidname} & \textit{\gene} & \backbone & \antibiotic & \inducer}
+\end{tabular}}
+
+\newcommand{\straintable}[1]{%
+\DTLloaddb{#1}{\docroot #1.csv}
+\begin{tabular}{p{2cm}p{2cm}ccc}
+\bfseries Name &
+\bfseries Strain &
+\multicolumn{2}{c}{\bfseries Plasmid(s)} &
+\bfseries Phenotype
+\DTLforeach{#1}{\strainname=Name, \strain=Strain, \plasmidi=PlasmidI, \plasmidii=PlasmidII, \phenotype=Phenotype}
+{\\\textbf{\strainname} & \strain & \plasmidi & \plasmidii & \textit{\phenotype} }
 \end{tabular}}
 
 \bibliography{\docroot refs}
