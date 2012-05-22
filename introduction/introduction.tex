@@ -45,5 +45,24 @@ As opposed to STORM/PALM microscopy, which measure the location of fluorophores 
 
 Rather than measuring the conversion of emission from one fluorophore to the emission of another by filtering out different wavelengths as in hetero-FRET, homo-FRET exploits the polarising properties of fluorophores. Fluorophores fluoresce in the same polarisation as they are excited, and they may only be excited by light polarised in alignment with them. FRET, however, is polarisation independent. One fluorophore which is excited by polarised light can transfer its excited state through FRET to a fluorophore which may not be aligned with the polarisation. 
 
-This results in a degree of cross-polarised light being emitted from the sample, which corresponds to the proximity of fluorophores to each other. This technique does not require lasers, but does need monomeric fluorophores that do not spin too fast. If they do, it is likely that they will be excited by the polarised light, but by the time they fluoresce they have spun into a cross-polarised orientation. 
+This results in a degree of cross-polarised light being emitted from the sample, which corresponds to the proximity of fluorophores to each other. This technique does not require lasers, but does need monomeric fluorophores that do not spin too fast. If they do, it is likely that they will be excited by the polarised light, but by the time they fluoresce they have spun into a cross-polarised orientation.
+
+\subsection{Objective}
+It is the objective of this project to prove whether CheZ dynamically clusters to the pole of \ecoli cells in response to a chemotactic stimulant. This will be measured ultimately using homo-FRET. The stimulant will be an attractant, a repellent, or a simulated stimulant, blue light at \SI{440}{\nano\meter}\cite{wright06}. Levels of chemotactic stimulant will be varied using a microfluidic device.
+
+The primary challenges of this project are threefold:
+\begin{enumerate}
+\item Design and implement a microscopy set-up for homo-FRET
+\item Design and implement a microfluidics set-up for media exchange
+\item Design and implement \ecoli strains with the necessary protein fusions
+\end{enumerate}
+
+The secondary challenges of this project include
+\begin{enumerate}
+\item Replicate homo-FRET results for clustering of tar proteins
+\item Develop image processing tools for cluster identification
+\item Link advanced homo-FRET microscopy techniques to basic epifluorescence techniques
+\end{enumerate}
+The motivation behind this third point is that if we can demonstrate that simple epifluorescence techniques can also provide the same results as more complex techniques (like homo-FRET), then it will be much easier in the future for other people to work on similar projects.
+
 \end{document}
