@@ -4,7 +4,7 @@
 
 \section{Introduction}
 
-\subsection*{Bacterial Chemotaxis as a Model System}
+\subsection{Bacterial Chemotaxis as a Model System}
 The benefits of using model organisms in science are comprehensive. In the field of systems biology, model systems take this central role, and amongst them bacterial chemotaxis in \ecoli is one of the most extensively studied. The stoichiometry is well established\cite{li04}, the structure of many of the constituent proteins have been determined\cite{milligan87, stock89}, and the feedback loops involved described\cite{kentner09} and robustness tested\cite{yi00}. The \ecoli system has also been used as the basis for study of chemotaxis in other bacterium\cite{hamadeh11}.
 
 In more recent times with the advent of more and more powerful computers, chemotaxis in \ecoli has presented itself as an ideal target for the development of advanced simulation packages, allowing researchers to postulate new and more detailed mechanisms of control\cite{lipkow06}. Together with advances in high resolution microscopy\cite{greenfield09} this has opened the door to new insights into the behaviour of the \ecoli chemotaxis network.
@@ -22,18 +22,28 @@ Despite the extensive coverage of research, there are many areas yet to be fully
 
 This feedback loop is what is covered in the work presented in this report. CheZ forms clusters at the poles of the cells, as well as being found distributed throughout the cytoplasm. Models show that dynamic localisation of CheZ in response to chemotactic activity would increase the dynamic range of the system to match that observed in \ecoli\cite{lipkow06}. To verify this, it is necessary to demonstrate that a greater or lesser proportion of CheZ can be found in the polar clusters while the cell is responding to a chemotactic stimulant.
 
-\subsection*{Microscopy}
+\subsection{Microscopy}
 
 Microscopy is a rapidly changing field, with advancements coming from all areas. Improvements in optics are yielding diminishing returns in increasing optical resolution, but new illumination and image processing techniques are allowing for finer and finer imaging using otherwise standard equipment, and most manufacturers are now emphasising this area of development more and more in their brochures.
 
-\subsubsection*{STORM/PALM super-resolution}
-In the context of our challenge - localising proteins and determining density - it would be ideal if we could locate each protein within the \ecoli cell. However, as an \ecoli cell is normally not more than \SI{0.5}{\micro\meter}, and the optical resolution of the microscope is on the order of \SI{200}{\nano\meter}, this is unfeasible using epifluorescent techniques. However, by stochastically illuminating a small arbitrary subset of all the fluorophores over and over and then identifying each fluorescent point as a fluorescently labelled protein it is possible to build up a composite picture of all the proteins. This has already been demonstrated to work for chemotactixis proteins in \ecoli.
+\subsubsection{STORM/PALM super-resolution}
+In the context of our challenge - localising proteins and determining density - it would be ideal if we could locate each protein within the \ecoli cell. However, as an \ecoli cell is normally not more than \SI{0.5}{\micro\meter}, and the optical resolution of the microscope is on the order of \SI{200}{\nano\meter}, this is unfeasible using epifluorescent techniques. However, by stochastically illuminating a small arbitrary subset of all the fluorophores over and over and then identifying each fluorescent point as a fluorescently labelled protein it is possible to build up a composite picture of all the proteins. This has already been demonstrated to work for \ecoli chemotaxis proteins.
 
-This stochastic illumination can be achieved in two ways. In STORM\footnote{Stochastic Optical Reconstruction Microscopy}, the excitation laser is simply turned down such that only a few fluorophores at a time obtain the required activation energy to fluoresce. By contrast, in PALM\footnote{Photoactivated Localisation Microscopy} the activation laser operates at normal levels but a very powerful bleaching laser forces all but a few fluorophores back to the ground state before they have a chance to fluoresce.
+This stochastic illumination can be achieved in two ways. In STORM\footnote{STochastic Optical Reconstruction Microscopy}, a photo-switching fluorophore is required. A weak activation laser is used such that only a few fluorophores at a time are activated; these are then read off by normal excitation illumination. By contrast, in PALM\footnote{PhotoActivated Localisation Microscopy} `normal' fluorophores are used but a very powerful bleaching laser forces all but a few of them back to the ground state before they have a chance to fluoresce, achieving the same effect.
 
 PALM requires a relatively powerful bleaching laser, and both require highly sensitive and very fast cameras. They do not require very high resolution optics however, as all that is taken from the optics is the location of a 2D Gaussian. Even so, the higher the resolution the more fluorophores can be imaged simultaneously and the shorter each capture takes. The number of frames required for an image to be built up varies depending on how many fluorophores you are imaging - the more frames the better - but 10,000 is considered to be a reasonable number. Even with some of the fastest cameras available today this would take several seconds.
 
-\subsubsection*{TIRF Microscopy}
-As this project is looking at proteins localised near the membrane of the cell, TIRF\footnote{Total Internal Reflectance Fluorescence} should have been an ideal technique. By firing a laser at an extremely oblique angle at the sample an effervescent field is created where the laser reflects inside the coverslip. This extends about \SI{100}{\nano\meter} into the sample, depending on the angle at which the laser is incident.
+The image processing techniques required to convert the set of images into a set of locations are not terribly advanced but do require some understanding. Many microscope manufacturers are beginning to offer their own software to do this processing.
 
+\subsubsection{TIRF Microscopy}
+As this project is looking at proteins localised near the membrane of the cell, TIRF\footnote{Total Internal Reflectance Fluorescence} should have been an ideal technique. By firing a laser at an extremely oblique angle at the sample an effervescent field is created where the laser reflects inside the coverslip. This extends about \SI{100}{\nano\meter} into the sample, depending on the angle at which the laser is incident. Only fluorophores within this field are activated, removing a lot of background noise.
+
+However, aside from requiring a laser this is also a very tricky technique to set up and does not always give tangible benefits, especially given that the chemotaxis clusters have no particular reason to be located on the underside of the cell.
+
+\subsubsection{FRET Microscopy}
+As opposed to STORM/PALM microscopy, which measure the location of fluorophores and then infer the density, it is possible to measure the density of a population directly. FRET\footnote{F\"orster Resonance Energy Transfer} is more commonly used to determine the separation of two different fluorophores (Hetero-FRET), but it can also be used to determine the separation of two identical fluorophores (Homo-FRET).
+
+Rather than measuring the conversion of emission from one fluorophore to the emission of another by filtering out different wavelengths as in hetero-FRET, homo-FRET exploits the polarising properties of fluorophores. Fluorophores fluoresce in the same polarisation as they are excited, and they may only be excited by light polarised in alignment with them. FRET, however, is polarisation independent. One fluorophore which is excited by polarised light can transfer its excited state through FRET to a fluorophore which may not be aligned with the polarisation. 
+
+This results in a degree of cross-polarised light being emitted from the sample, which corresponds to the proximity of fluorophores to each other. This technique does not require lasers, but does need monomeric fluorophores that do not spin too fast. If they do, it is likely that they will be excited by the polarised light, but by the time they fluoresce they have spun into a cross-polarised orientation. 
 \end{document}

@@ -3,7 +3,7 @@
 
 \newcommand{\docroot}{/Users/Bill/Dropbox/Work/PhD/reports/first-year-report/}
 
-\setcounter{tocdepth}{2}
+\setcounter{tocdepth}{1}
 
 \usepackage[parfill]{parskip}
 \usepackage[style=nature]{biblatex}			% bibliography with nature style
@@ -57,7 +57,7 @@
 
 \newcommand{\dna}[1]{\texttt{\seqsplit{#1}}}	% DNA monotype
 
-\newcommand{\ecoli}{\textit{E. coli\~}}			% E. coli
+\newcommand{\ecoli}{\textit{E. coli~}}			% E. coli
 
 \newcommand{\plasmidtable}[1]{%
 \DTLloaddb{#1}{\docroot #1.csv}
@@ -104,8 +104,13 @@
 \subfile{future/future}
 \cleardoublepage
 
+\appendix
 %TC:fileinclude \subfile 1
 \subfile{plaspri/plaspri}
+\cleardoublepage
+
+%TC:fileinclude \subfile 1
+\subfile{acknowledgements/acknowledgements}
 \cleardoublepage
 
 \addcontentsline{toc}{section}{\numberline {}References}
