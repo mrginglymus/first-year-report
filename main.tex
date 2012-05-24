@@ -22,6 +22,7 @@
 \usepackage{lipsum}
 \usepackage{doi}
 \usepackage{ordinalref}
+\usepackage{graphicx}
 \usepackage{color}							% coloured text
 \input{\docroot rgb.tex}
 
@@ -74,7 +75,7 @@
 
 \newcommand{\straintable}[1]{%
 \DTLloaddb{#1}{\docroot #1.csv}
-\begin{tabular}{p{2cm}p{2cm}ccc}
+\begin{tabular}{p{2cm}p{2cm}p{1.5cm}p{1.5cm}c}
 \bfseries Name &
 \bfseries Strain &
 \multicolumn{2}{c}{\bfseries Plasmid(s)} &
@@ -118,11 +119,9 @@ The chemotaxis system in \ecoli is one of the better understood signalling pathw
 \cleardoublepage
 
 \appendix
-%TC:fileinclude \subfile 1
 \subfile{plaspri/plaspri}
 \cleardoublepage
 
-%TC:fileinclude \subfile 1
 \subfile{acknowledgements/acknowledgements}
 \cleardoublepage
 
