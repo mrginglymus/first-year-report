@@ -8,14 +8,13 @@
 \label{sec:plaspri:pri}
 \begin{table}[h!]
 \begin{center}
-\begin{threeparttable}
 {\footnotesize
 \begin{tabular}{c|l|p{4cm}|c|c|p{5cm}}
 \textbf{Primer}
 	&\textbf{Name}
 	&\textbf{Sequence}
 	&\textbf{Length}
-	&\textbf{Tm\linebreak(\si{\degree}C})\tnote{1}
+	&\textbf{Tm\linebreak(\si{\degree}C})\myfootnotemark
 	&\textbf{Description}
 	\\\hline
 \textbf{WAC1}
@@ -79,7 +78,7 @@
 	&\dna{CCACCCCGGTGAACAGC}
 	&17
 	&68
-	&Delete e*FP\tnote{2} from plasmid leaving overhang
+	&Delete e*FP\myfootnotemark~from plasmid leaving overhang
 	\\
 \textbf{WAC12}
 	&e*FP-vector-cw
@@ -103,15 +102,12 @@
 	&Complementary to \textbf{WAC14}
 \end{tabular}
 }
-\begin{tablenotes}
-\item [1] \url{ http://www.finnzymes.fi/tm_determination.html } using modified Breslaur 
-\item [2] e*FP refers to any GFP derivative containing no mutations between nucleotide 20 and nucleotide 685.
-\end{tablenotes}
 \caption{Primers used in this report. In the sequences, upper case letters correspond to complementary sequences to the template DNA. Lower case letters correspond to extensions, and underlined portions highlight restriction sites.}
-\end{threeparttable}
 \label{tbl:primers}
 \end{center}
 \end{table}
+\myfootnotetext{\url{ http://www.finnzymes.fi/tm_determination.html } using modified Breslaur}
+\myfootnotetext{e*FP refers to any GFP derivative containing no mutations between nucleotide 20 and nucleotide 685.}
 The primers \textbf{WAC7} through \textbf{WAC14} comprise a toolkit to exchange any one GFP derivative with any other GFP derivative (subject to the constraints described in table~\ref{tbl:primers}). \textbf{WAC13} and \textbf{WAC14} cut out and amplify the new fluorescent protein. \textbf{WAC11} and \textbf{WAC12} cut out and discard the old fluorescent protein, amplifying whatever is left. \textbf{WAC7} and \textbf{8} and \textbf{WAC9} and \textbf{10} split pBAD33 and pTRC99a respectively about halfway round, to reduce the maximum run length for polymerase in the PCR.
 
 As an example, to replace the GFP tagging a protein in pBAD33 with YFP, the three following PCR reactions must be done:

@@ -3,7 +3,7 @@
 
 \newcommand{\docroot}{/Users/Bill/Dropbox/Work/PhD/reports/first-year-report/}
 
-\setcounter{tocdepth}{1}
+\setcounter{tocdepth}{2}
 
 \usepackage[parfill]{parskip}
 \usepackage[style=nature]{biblatex}			% bibliography with nature style
@@ -22,7 +22,8 @@
 \usepackage{lipsum}
 \usepackage{doi}
 \usepackage{ordinalref}
-\usepackage{graphicx}
+\usepackage[pdftex]{graphicx}
+\usepackage{epstopdf}
 \usepackage{color}							% coloured text
 \input{\docroot rgb.tex}
 
@@ -93,7 +94,13 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-The chemotaxis system in \ecoli is one of the better understood signalling pathways in bacteria, and is used as a springboard for research into similar pathways in other systems.
+The chemotaxis system in \ecoli is one of the better understood signalling pathways in bacteria, and is used as a springboard for research into similar pathways in other systems. Whilst much of the stoichiometry and kinetics of the pathway have been well established, the localisation of many of the proteins remains relatively unknown yet has been shown through computer simulations to have a crucial influence on the dynamics of the system. Through advanced microscopy techniques and image processing we intend to prove the validity of some of these models and observe chemotaxis protein localisation in real time.
+
+
+The proposed experiments require the generation of new strains of bacteria. This was done with the pioneering new technique for DNA manipulation called Gibson Assembly, removing the need for multifarious restriction enzymes but requiring the complex design of primers.
+
+
+We show here the image processing and microscopy set-up developed to meet the challenging requirements of real-time protein localisation. Also presented are some of the early results from imaging, showing tentative support for the proposed models. For future work we consider the prospects for automating and optimising primers, specifically for use in Gibson Assembly but also more generally for conventional PCR.
 \end{abstract}
 \newpage
 \tableofcontents
