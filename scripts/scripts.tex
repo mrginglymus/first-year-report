@@ -1,0 +1,47 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\section{Scripts}
+
+This appendix contains links to and brief descriptions of all the scripts mentioned throughout this report:
+
+\subsection{Cluster Spotting}
+Repository location: \url{https://github.com/mrginglymus/cluster-spotting}
+
+Files required from this repository are:
+
+
+\begin{tabular}{ll}
+\texttt{cell\_finder.m}	&	\\
+\texttt{cluster\_finder.m}	&	\\
+\texttt{cluster\_fraction.m}	&	Top level script to be called for an interactive prompt	\\
+\texttt{cluster\_gui.m}		&	Experimental GUI \\
+\texttt{cluster\_gui.fig}	&	
+\end{tabular}
+
+\subsection{Anisotropy/OptoSplit}
+Repository location: \url{https://github.com/mrginglymus/anisotropy}
+
+Files required from this repository are:
+
+
+\begin{tabular}{lp{12cm}}
+\texttt{MyRect.m}	&	Matlab class to handle rectangle properties \\
+\texttt{alignment.m}	&	Creates alignment for OptoSplit \\
+\texttt{optosplit.m}	&	Converts a 3D set of images (XYt) into a 4D set of images (XYCt) based on an image, an alignment file from the above script or an alignment file from ImageJ
+\end{tabular}
+
+\subsection{MicroManager Scripts}
+
+Repository location: \url{https://github.com/mrginglymus/mm-scripts}
+
+Files required from this repository are:
+
+
+\begin{tabular}{lp{12cm}}
+\texttt{syringe-pump.bsh}	&	Interface for sending simple commands to Aladdin syringe pumps on a serial connection \\
+\texttt{bluelight.bsh}	&	Script for running experiments using blue light activation of the chemotaxis response
+\end{tabular}
+
+\end{document}
