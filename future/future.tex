@@ -4,4 +4,37 @@
 
 \section{Future Directions}
 
+Designing primers, even for the most basic PCR, entails a tedious process following a long list of rules, mostly of thumb. Whilst there are software tools that will assist with a few of these rules, there are few if any solutions to consider and balance all of the requirements. There is nothing currently that can offer much help for designing primers for use with Gibson Assembly, save for a proof of concept tool written in 2010 by myself. Whilst translating the rules of thumb into rules that software can enforce is no trivial, it is achievable. Firstly, each rule needs to be validated - does this rule actually make any difference to the performance of a primer - and then quantified - how much does difference does this rule make - before it is implemented. The objectives of the tool are to 
+\begin{enumerate}
+\item{Determine the influence of each rule on primer design}
+\item{Reduce the rules to the minimum stringency to maximise flexibility}
+\item{Amalgamate the rules into one intelligent design package}
+\end{enumerate}
+
+\subsection{The Rules}
+
+\paragraph{Melting Temperature} is something of a misnomer as a rule; rather, it is an output characteristic. Whilst there are upper and lower bounds given by the temperature at which your polymerase operates and specificity respectively, due to the wildly varying methods used for its calculation it is hardly a reliable metric by which to design primers. A primer of around \SI{20}{\base} can vary by over \SI{10}{\degree} and below \SI{7}{\base} many of the calculations bottom out at zero - between this and \SI{20}{\base} it is unclear at what point the calculations become reliable \footnote{Using the Finnzymes tm calculator (see section~\ref{sec:plaspri:pri}) on the DNA \texttt{gcttagggcttggatctgat}, three different methods produce temperatures of \SI{62.53}{\degree}, \SI{55.69}{\degree} and \SI{51.78}{\degree}. This is for a large sample of random \SI{20}{\base} primers.}.
+
+As the lower bound is governed by specificity, it makes sense to design for this first, and only then worry about melting temperature to ensure it is matched well for the other PCR primer to be used. Rather than calculating the melting temperature, it would be better to have a lookup table based on length, and local and global\footnote{If it's 50\% GC, is that all in one place or spread evenly?} GC content. This should improve the performance of primers.
+
+\paragraph{Specificity} of the primer is critical to avoid mis-primings. In most cases this can be achieved through choosing a long enough primer; however, should you need to amplify at the start or end of a highly repetitive sequence you are bound to have problems. The questions to be checked are: in how many places will the primer attach, and in how many of these do the 3' end attach. This will require research into how crucial 3' attachment is, and how badly it will affect mispriming. Being able to accept primers that do not mis-prime even though they have some homology with undesired sites will be beneficial as, whilst it will decrease PCR efficiency it will allow for a lot more flexibility in the design of the primer.
+
+\paragraph{The 3' GC end} is generally held as a good rule for primer design. G/C bonds have a higher affinity than A/T bonds, so ending a primer with one or two Gs or Cs will give a primer that is more likely to fire. Studying exactly how true this is could again allow for more flexibility in the design of primers.
+
+\paragraph{Secondary structures/self priming} is a problem caused by near palindromic sequences. This will affect specificity as it can alter the sequence presented by the primer. When considering this, the rule generally compares the Gibbs free energy of the secondary structure to some threshold. However, this does not consider the location of the secondary structure. As above - if it is at the 5' end, will it be a problem at all? Whilst designing primers with very specific secondary structures could be difficult, it would allow a great deal more flexibility should it be shown that 5' secondary structures may be ignored.
+
+As been said, there are already tools to help you with primer design - BLAST for specificity, MFold for secondary structures and a bewildering array of melting temperature calculators. However, aside from melting temperature calculators they all require a great deal of manual manipulation to convert the results into sensible outputs, and subsequently for you to know exactly what changes to make to fix any problems. You must then return to each tool with your modified design, to be repeated \emph{ad nauseam}.
+
+\subsection{The Implementation}
+
+The philosophy behind the tool proposed is to go from a list of desired features and source material data, to a primer list and full protocol without the user ever having to worry about the sequence of the DNA beneath. Through a web interface, with access to a library of parts available, the user can visually design the desired construct, enter any specifics relevant to his personal protocol preferences.
+
+A web based tool is used, mostly to avoid distribution and platform specific issues, but also to enable sharing and collaboration between laboratories. It would also ease integration with other design tools. Microsoft's Genetic Engineering of Cells (GEC)\footnote{\url{http://lepton.research.microsoft.com/webgec/}} has already had a system implemented to communicate designs to the proposed tool, with other companies also showing interest in integration.
+
+Whilst a great deal of time will be spent developing the framework under which this will all run, there are practically limitless opportunities to undertake original research into optimisation of the design rules.
+
+\subsection{Testing}
+
+The two main benefits that the tool will provide are in time taken to design primers, and their eventual cost. At the same time, efficacy of the primers should not be decreased, if not actually improved as a result of modified rules. Whilst time and cost savings are trivial to demonstrate, it will be more difficult to prove that new primers 
+
 \end{document}
