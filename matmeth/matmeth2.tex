@@ -102,14 +102,14 @@ t=0	&	Inoculate	&	Inoculate \& Induce\\
 
 \begin{center}
 \begin{tabular}{ccc}
-Initial Denaturation	& \SI{98}{\degree} & \SI{120}{\second}\\
+Initial Denaturation	& \SI{98}{\degreeCelsius} & \SI{120}{\second}\\
 \multicolumn{3}{c}{\textbf{Loop 30 times}}\\
-Denaturation		&	\SI{98}{\degree}		&	\SI{30}{\second}\\
+Denaturation		&	\SI{98}{\degreeCelsius}		&	\SI{30}{\second}\\
 Annealing 		&	Optimal for primer	&	\SI{30}{\second}\\
-Extension		&	\SI{72}{\degree}		&	\SI{30}{\second\per\kilo\base}\\
+Extension		&	\SI{72}{\degreeCelsius}		&	\SI{30}{\second\per\kilo\base}\\
 \multicolumn{3}{c}{\textbf{End Loop}}\\
-Final extension	&	\SI{72}{\degree}		&	\SI{7}{\minute}\\
-Hold				&	\SI{4}{\degree}		&	\(\infty\)
+Final extension	&	\SI{72}{\degreeCelsius}		&	\SI{7}{\minute}\\
+Hold				&	\SI{4}{\degreeCelsius}		&	\(\infty\)
 \end{tabular}
 \end{center}
 
@@ -333,6 +333,6 @@ Flow cells were constructed from PDMS before being bonded to \#1.5 glass coversl
 
 \subsection{MicroManager}
 
-In order to give maximum flexibility, the microscope and all related equipment were controlled using MicroManager, an open source software package for control of microscope and associated devices. A beanshell driver was written for the syringe pumps to allow easy integration into experimental workflow, along with several scripts to run experiments. Latest versions of these may be found on github.
+In order to give maximum flexibility, the microscope and all related equipment were controlled using MicroManager\cite{micromanager}, an open source software package for control of microscope and associated devices. A beanshell driver was written for the syringe pumps to allow easy integration into experimental workflow, along with several scripts to run experiments. Latest versions of these may be found on github.
 
 \end{document}
