@@ -24,12 +24,12 @@
 \usepackage{ordinalref}
 \usepackage[pdftex]{graphicx}
 \usepackage{epstopdf}
+\usepackage{xspace}
 \usepackage{color}							% coloured text
 \input{\docroot rgb.tex}
 
 
-
-
+\renewcommand*\abstractname{Summary}
 \newcounter{myfootertablecounter}
 
 \newcommand\myfootnotemark{%
@@ -61,7 +61,7 @@
 
 \newcommand{\dna}[1]{\texttt{\seqsplit{#1}}}	% DNA monotype
 
-\newcommand{\ecoli}{\textit{E. coli~}}			% E. coli
+\newcommand{\ecoli}{\textit{E. coli}\xspace}			% E. coli
 
 \newcommand{\plasmidtable}[1]{%
 \DTLloaddb{#1}{\docroot #1.csv}

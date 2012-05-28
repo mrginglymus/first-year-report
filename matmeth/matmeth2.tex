@@ -6,11 +6,11 @@
 
 \subsection{Microscopy}
 
-A substantial amount of work for this project has been on determining the optimal microscopy technique from which to infer conclusions.
+A substantial amount of work for this project has been on determining the optimal microscopy technique for the live imaging of protein clustering.
 
 \subsubsection{Main Microscopy Setup}
 
-The main microscope used after microscope trialing was as follows:
+The microscope used after trialling was as follows:
 
 \begin{itemize}
 \item{Nikon Eclipse Ti-E Inverted Microscope}
@@ -29,15 +29,15 @@ Inside the OptoSplit II is a dichroic and two filters (one in the case of anisot
 \textbf{Description}	&	\textbf{LED wavelength}	&	\textbf{Filter}	&	\textbf{Location} \\\hline
 mCherry	&	White	&	560/40x	&	Back	\\
 YFP		&	505		&	500/20x	&	Back\\
-CFP		&	470		&	470/40x	&	Back\\
+GFP		&	470		&	470/40x	&	Back\\
 Blue		&	White	&	440/10x	&	Back\\
 Bright Field		&	White	&	590	&	Top
 \end{tabular}
 \end{center}
 
-Only one blue (CFP or Blue) LED could be used at any one time. Lights from the back were combined sequentially with a \SI{515}{\nano\meter} and \SI{495}{\nano\meter} dichroic.
+Only one blue (GFP or Blue) LED could be used at any one time. Lights from the back were combined sequentially with a \SI{515}{\nano\meter} and \SI{495}{\nano\meter} dichroic.
 
-The white light for bright field has a red (\SI{590}{\nano\meter}) filter placed in front of it as the white LED requires a phosphorescent element to achieve the right spread of wavelengths. This phosphorescent element can be excited by fluorescence excitation, causing a high level of light to be reflected back through the lens and into the camera. The red filter blocks this transmission and allows for rapid switching between bright field and fluorescent excitation.
+The white light for bright field has a red (\SI{590}{\nano\meter}) filter placed in front of it as the white LED requires a phosphorescent element to achieve the right spread of wavelengths. This phosphorescent element can be excited by fluorescence excitation, causing a high level of light to be reflected back through the lens and into the camera. The red filter blocks this transmission and allows for rapid switching between bright field and fluorescent excitation without having to block the light path.
 
 For anisotropy measurements, a rotating linear polariser could be inserted in front of the YFP LED.
 
@@ -231,11 +231,21 @@ The following protocol was followed for preparing cells for microscopy.
 
 The final resuspension volume should be adjusted to match cell density depending on mounting method. Initial volume may also be adjusted with corresponding changes to subsequent volumes.
 
-\paragraph{Cell Mounting}
+\paragraph{STED} microscopy requires special cell preparation to help protect against bleaching. The following protocol was used from Jackson ImmunoResearch\myfootnote{\url{http://www.jacksonimmuno.com/technical/anti-fade.asp}}:
+
+\begin{enumerate}
+\item Prepare and wash cells as above
+\item Make up 90\% glycerol in 10X PBS
+\item Make up 20\% w/v n-propyl gallate in dimethyl sulfoxide
+\item Add 1/100 volume of 20\% NPG to 90\% glycerol/1x PBS dropwise with rapid stirring
+\item Resuspend cells in \SI{500}{\micro\litre} of the above
+\end{enumerate}
+
+\paragraph{Cell Mounting} Cells were mounted on \#1.5 slides for imaging. Work is still ongoing to optimise a poly-l-lysine protocol to hold the cells in place.
 
 \subsection{Image Processing}
 \label{sec:methods:imageprocessing}
-Unless otherwise stated, all image processing has been done in Matlab. All processing scripts are open source and have been made available on \url{www.github.com}.
+Unless otherwise stated, all image processing has been done in Matlab. All processing scripts are open source and have been made publicly available, see section~\ref{sec:scripts:clusters}.
 
 \subsubsection{Cluster Detection}
 One basic objective was to determine the size or protein density of the chemotaxis protein clusters on the poles of the \ecoli. At the start of the project there were existing scripts that identified clusters through threshold detection. Whilst this performed reasonably well on high contrast images, it struggled on more noisy images, and could not identify cells with more than one cluster, or none at all.
@@ -321,6 +331,8 @@ The two images are extracted with a \(\simeq10\%\) safety border. A mean is take
 
 This provides the six data points required to align all future images taken until the OptoSplit II is adjusted again - the size of the image, and both of the locations.
 
+Again, all scripts are available online, see section~\ref{sec:scripts:anisotropy}.
+
 \subsection{Microfluidics}
 
 In order to obtain live imaging of the direct response to chemotactic proteins\myfootnote{As opposed to responses induced by blue light}, we must be able to replace the media in which the cells are contained with media of differing concentrations of attractant or repellent. Inspired by Howard Berg and Steven Block's work\cite{berg84} we set out to create a microfluidics flow cell that would allow for precise exchange of media. Aladdin pumps from WPI-Europe were used due to their relatively well documented scripting capabilities and economy - precision was not as pressing concern as normally found in microfluidic applications. Two different microfluidic channels were required.
@@ -333,6 +345,6 @@ Flow cells were constructed from PDMS before being bonded to \#1.5 glass coversl
 
 \subsection{MicroManager}
 
-In order to give maximum flexibility, the microscope and all related equipment were controlled using MicroManager\cite{micromanager}, an open source software package for control of microscope and associated devices. A beanshell driver was written for the syringe pumps to allow easy integration into experimental workflow, along with several scripts to run experiments. Latest versions of these may be found on github.
+In order to give maximum flexibility, the microscope and all related equipment were controlled using MicroManager\cite{micromanager}, an open source software package for control of microscope and associated devices. A beanshell driver was written for the syringe pumps to allow easy integration into experimental workflow, along with several scripts to run experiments. Latest versions of these may be found online, see section~\ref{sec:scripts:micromanager}.
 
 \end{document}
