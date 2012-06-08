@@ -337,9 +337,24 @@ Again, all scripts are available online, see section~\ref{sec:scripts:anisotropy
 
 In order to obtain live imaging of the direct response to chemotactic proteins\myfootnote{As opposed to responses induced by blue light}, we must be able to replace the media in which the cells are contained with media of differing concentrations of attractant or repellent. Inspired by Howard Berg and Steven Block's work\cite{berg84} we set out to create a microfluidics flow cell that would allow for precise exchange of media. Aladdin pumps from WPI-Europe were used due to their relatively well documented scripting capabilities and economy - precision was not as pressing concern as normally found in microfluidic applications. Two different microfluidic channels were required.
 
-The first is a simple Y shaped splitter with only one syringe active at any time. One syringe would be filled with a plain media, and the other with media with attractant/repellent at a set concentration. This allows for rapid switching on and off of the attractant/repellent.
+\begin{figure}[h!]
+\begin{center}
+\subfigure[Simple microfluidics device for step changes]{
+\includegraphics[scale=1]{\docroot matmeth/figs/simplemicrofluidic.eps}
+\label{fig:microfluidics:simple}
+}
+\subfigure[Complex microfluidics device for smooth mixing]{
+\includegraphics[scale=1]{\docroot matmeth/figs/complexmicrofluidic.eps}
+\label{fig:microfluidics:complex}
+}
+\caption{Schematics (not to scale) representative of the two types of microfluidics devices planned. The channels (parallel lines) are about \SI{1}{\milli\meter} wide and \SI{100}{\micro\meter} deep.}
+\label{fig:microfluidics}
+\end{center}
+\end{figure}
 
-The second is a more complex splitter to allow for thorough mixing of the two inputs. This takes the form of a zig-zag style channel between the two inputs and the chamber containing bacteria. Again, one syringe would be filled with a plain media, and the other with media with attractant/repellent at a set concentration. By varying the relative rates of the two pumps but keeping the total constant the concentration of attractant/repellent can be varied between zero and the aforementioned concentration. The drawback of this system is firstly the lag between changing pump speeds and observing a change in concentration in the bacterial chamber, and secondly the smoothing of a step change in concentration due to forward and backward diffusion of the attractant/repellent.
+The first, in figure~\ref{fig:microfluidics:simple}, is a simple Y shaped splitter with only one syringe active at any time. One syringe would be filled with a plain media, and the other with media with attractant/repellent at a set concentration. This allows for rapid switching on and off of the attractant/repellent.
+
+The second, in figure~\ref{fig:microfluidics:complex}, is a more complex splitter to allow for thorough mixing of the two inputs. This takes the form of a zig-zag style channel between the two inputs and the chamber containing bacteria. Again, one syringe would be filled with a plain media, and the other with media with attractant/repellent at a set concentration. By varying the relative rates of the two pumps but keeping the total constant the concentration of attractant/repellent can be varied between zero and the aforementioned concentration. The drawback of this system is firstly the lag between changing pump speeds and observing a change in concentration in the bacterial chamber, and secondly the smoothing of a step change in concentration due to forward and backward diffusion of the attractant/repellent.
 
 Flow cells were constructed from PDMS before being bonded to \#1.5 glass coverslips. Poly-l-lysine was used to coat the inside of the bacterial chamber by infusing a small amount, withdrawing and then flushing with water. Bacterial cells were then applied by infusing a prepared sample, then flushing with PBS.
 
