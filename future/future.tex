@@ -4,6 +4,26 @@
 
 \section{Future Directions}
 
+There are two main phases to be completed during this PhD. The first is completion of the work described in this report, the second is development of a tool to assist with primer design for Gibson Assembly, with a corresponding proof of concept.
+
+\subsection{Microscopy}
+
+The majority of the preparation for microscopy has been completed, as described in this report. The few last remaining challenges are to calibrate inducer concentrations to obtain optimal protein expression levels, and configure the microfluidics devices. Once this is completed there are a number of experiments to undertake.
+
+\begin{itemize}
+
+\item {Replicate image processing results} with CheZ protein to determine whether the results were valid
+
+\item {Measure anisotropic response} to blue light inducement of the chemotaxis response
+
+\item {Measure anisotropic response} to step change in attractant and repellent
+
+\item {Measure anisotropic response} to series of step changes in attractant or repellent
+
+\end{itemize}
+
+\subsection{Gibson Assembly}
+
 Designing primers, even for the most basic PCR, entails a tedious process following a long list of rules, mostly of thumb. Whilst there are software tools that will assist with a few of these rules, there are few if any solutions to consider and balance all of the requirements. There is nothing currently that can offer much help for designing primers for use with Gibson Assembly, save for a proof of concept tool written in 2010 by myself. Whilst translating the rules of thumb into rules that software can enforce is no trivial, it is achievable. Firstly, each rule needs to be validated - does this rule actually make any difference to the performance of a primer - and then quantified - how much does difference does this rule make - before it is implemented. The objectives of the tool are to 
 \begin{enumerate}
 \item{Determine the influence of each rule on primer design}
@@ -11,7 +31,7 @@ Designing primers, even for the most basic PCR, entails a tedious process follow
 \item{Amalgamate the rules into one intelligent design package}
 \end{enumerate}
 
-\subsection{The Rules}
+\subsubsection{The Rules}
 
 \paragraph{Melting Temperature} is something of a misnomer as a rule; rather, it is an output characteristic. Whilst there are upper and lower bounds given by the temperature at which your polymerase operates and specificity respectively, due to the wildly varying methods used for its calculation it is hardly a reliable metric by which to design primers. A primer of around \SI{20}{\base} can vary by over \SI{10}{\degreeCelsius} and below \SI{7}{\base} many of the calculations bottom out at zero - between this and \SI{20}{\base} it is unclear at what point the calculations become reliable \myfootnote{Using the Finnzymes tm calculator (see section~\ref{sec:plaspri:pri}) on the DNA \texttt{gcttagggcttggatctgat}, three different methods produce temperatures of \SI{62.53}{\degreeCelsius}, \SI{55.69}{\degreeCelsius} and \SI{51.78}{\degreeCelsius}. This is for a large sample of random \SI{20}{\base} primers.}.
 
@@ -25,7 +45,7 @@ As the lower bound is governed by specificity, it makes sense to design for this
 
 As been said, there are already tools to help you with primer design - BLAST for specificity, MFold for secondary structures and a bewildering array of melting temperature calculators. However, aside from melting temperature calculators they all require a great deal of manual manipulation to convert the results into sensible outputs, and subsequently for you to know exactly what changes to make to fix any problems. You must then return to each tool with your modified design, to be repeated \emph{ad nauseam}.
 
-\subsection{The Implementation}
+\subsubsection{The Implementation}
 
 The principle behind the tool proposed is to go from a list of desired features and source material data, to a primer list and full protocol without the user ever having to worry about the sequence of the DNA beneath. Through a web interface, with access to a library of parts available, the user can visually design the desired construct, enter any specifics relevant to his personal protocol preferences.
 
@@ -33,7 +53,7 @@ A web based tool is used, mostly to avoid distribution and platform specific iss
 
 Whilst a great deal of time will be spent developing the framework under which this will all run, there are practically limitless opportunities to undertake original research into optimisation of the design rules.
 
-\subsection{Testing}
+\subsubsection{Testing}
 
 The two main benefits that the tool will provide are in time taken to design primers, and their eventual cost. At the same time, efficacy of the primers should not be decreased, if not actually improved as a result of modified rules. Whilst time and cost savings are trivial to demonstrate, it will require more work to prove that there is no decrease in efficacy.
 
