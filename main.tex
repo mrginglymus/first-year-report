@@ -6,7 +6,7 @@
 \setcounter{tocdepth}{1}
 
 \usepackage[parfill]{parskip}
-\usepackage[style=nature]{biblatex}			% bibliography with nature style
+\usepackage{cite}			% bibliography with nature style
 \usepackage{subfiles}						% for including files but compiling separately when needed
 \usepackage[alsoload=synchem]{siunitx}		% just nice
 \usepackage{gensymb}							% for degree symbol, probably others
@@ -88,7 +88,7 @@
 {\\\textbf{\strainname} & \strain & \plasmidi & \plasmidii & \textit{\genotype} }
 \end{tabular}}
 
-\bibliography{\docroot refs}
+%\bibliography{\docroot refs}
 
 \title{Development of Advanced Microscopy Techniques for Live Imaging of Dynamically Forming Chemotaxis Protein Clusters in \ecoli}
 \date{June 2012}
@@ -154,6 +154,8 @@ We show here the image processing and microscopy set-up developed to meet the ch
 \cleardoublepage
 
 \addcontentsline{toc}{section}{\numberline {}References}
-\printbibliography
+\bibliography{\docroot refs}
+\bibliographystyle{bill}
+%\printbibliography
 %TC:endignore
 \end{document}
