@@ -36,14 +36,14 @@
 	&\dna{tagct{\underline{ggagctcaagctt}}ATGGTGAGCAAGGGCGAGG}
 	&37
 	&83
-	&Extract mVenus and add SacI and HindIII restriction sites
+	&Extract mVenus and add \textsl{Sac}I and \textsl{Hind}III restriction sites
 	\\
 \textbf{WAC6}
 	&mVenusR
 	&\dna{aggtCT{\underline{TGTACA}}GCTCGTCCATGCCG}
 	&26
 	&75
-	&Extract mVenus to include BsrGI
+	&Extract mVenus to include \textsl{Bsr}GI
 	\\
 \textbf{WAC7}
 	&pBAD33-split-ccw
@@ -102,13 +102,13 @@
 	&Complementary to \textbf{WAC14}
 \end{tabular}
 }
-\caption{Primers used in this report. In the sequences, upper case letters correspond to complementary sequences to the template DNA. Lower case letters correspond to extensions, and underlined portions highlight restriction sites.}
+\caption[Primers]{Primers used in this report. In the sequences, upper case letters correspond to complementary sequences to the template DNA. Lower case letters correspond to extensions, and underlined portions highlight restriction sites.}
 \label{tbl:primers}
 \end{center}
 \end{table}
 \myfootnotetext{\url{ http://www.finnzymes.fi/tm_determination.html } using modified Breslaur}
 \myfootnotetext{e*FP refers to any GFP derivative containing no mutations between nucleotide 20 and nucleotide 685.}
-The primers \textbf{WAC7} through \textbf{WAC14} comprise a toolkit to exchange any one GFP derivative with any other GFP derivative (subject to the constraints described in table~\ref{tbl:primers}). \textbf{WAC13} and \textbf{WAC14} cut out and amplify the new fluorescent protein. \textbf{WAC11} and \textbf{WAC12} cut out and discard the old fluorescent protein, amplifying whatever is left. \textbf{WAC7} and \textbf{8} and \textbf{WAC9} and \textbf{10} split pBAD33 and pTRC99a respectively about halfway round, to reduce the maximum run length for polymerase in the PCR.
+Primers \textbf{WAC1} and \textbf{WAC2} are for site directed mutagensis of e*FP to e*FP\textsuperscript{A206K}, never performed. Primers \textbf{WAC5} an \textbf{WAC6} are for standard cloning to replace eYFP with mVenus. The primers \textbf{WAC7} through \textbf{WAC14} comprise a toolkit to exchange any one GFP derivative with any other GFP derivative (subject to the constraints described in table~\ref{tbl:primers}). \textbf{WAC13} and \textbf{WAC14} cut out and amplify the new fluorescent protein. \textbf{WAC11} and \textbf{WAC12} cut out and discard the old fluorescent protein, amplifying whatever is left. \textbf{WAC7} and \textbf{8} and \textbf{WAC9} and \textbf{10} split pBAD33 and pTRC99a respectively about halfway round, to reduce the maximum run length for polymerase in the PCR.
 
 As an example, to replace the GFP tagging a protein in pBAD33 with YFP, the three following PCR reactions must be done:
 \begin{center}
@@ -125,38 +125,34 @@ The three products of these can then be put into a Gibson Assembly reaction to o
 \subsection{Plasmids}
 \label{sec:plaspri:plas}
 ~
-\begin{table}[h!]
-\begin{center}
-\plasmidtable{plaspri/myplasmids}
-\caption{Plasmids created during the course of this project. All are derivatives of plasmids from Victor Sourjik (table~\ref{tbl:vsplasmids})}
-\label{tbl:myplasmids}
-\end{center}
-\end{table}
 
 \begin{table}[h!]
 \begin{center}
 \plasmidtable{plaspri/vsplasmids}
-\caption{Plasmids from Viktor Sourjik}
+\caption[Plasmids (Victor Sourjik)]{Plasmids from Victor Sourjik}
 \label{tbl:vsplasmids}
 \end{center}
 \end{table}
 
+\begin{table}[h!]
+\begin{center}
+\plasmidtable{plaspri/myplasmids}
+\caption[Plasmids]{Plasmids created during the course of this project. All are derivatives of plasmids from Victor Sourjik (table~\ref{tbl:vsplasmids})}
+\label{tbl:myplasmids}
+\end{center}
+\end{table}
+
 \subsection{Strains}
+
+\subsection{Transformants}
 ~
 \begin{table}[h!]
 \begin{center}
 \straintable{plaspri/klstrains}
-\caption{Strains used in the project}
+\caption[Transformants]{Transformants used in the project}
 \label{tbl:klstrains}
 \end{center}
 \end{table}
 
-\begin{table}[h!]
-\begin{center}
-\straintable{plaspri/newstrains}
-\caption{Strains created during the course of this project}
-\label{tbl:newstrains}
-\end{center}
-\end{table}
 
 \end{document}

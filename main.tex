@@ -79,13 +79,13 @@
 
 \newcommand{\straintable}[1]{%
 \DTLloaddb{#1}{\docroot #1.csv}
-\begin{tabular}{p{2cm}p{2cm}p{1.5cm}p{1.5cm}c}
+\begin{tabular}{p{2cm}p{2cm}p{1.5cm}p{1.5cm}l}
 \bfseries Name &
 \bfseries Strain &
 \multicolumn{2}{c}{\bfseries Plasmid(s)} &
-\bfseries Phenotype
-\DTLforeach{#1}{\strainname=Name, \strain=Strain, \plasmidi=PlasmidI, \plasmidii=PlasmidII, \phenotype=Phenotype}
-{\\\textbf{\strainname} & \strain & \plasmidi & \plasmidii & \textit{\phenotype} }
+\bfseries Genotype
+\DTLforeach{#1}{\strainname=Name, \strain=Strain, \plasmidi=PlasmidI, \plasmidii=PlasmidII, \genotype=Genotype}
+{\\\textbf{\strainname} & \strain & \plasmidi & \plasmidii & \textit{\genotype} }
 \end{tabular}}
 
 \bibliography{\docroot refs}
@@ -97,6 +97,7 @@
 \begin{document}
 \maketitle
 \newpage
+%TC:ignore
 \begin{abstract}
 The chemotaxis system in \ecoli is arguably the best understood signalling pathways in all biology, and is used as a springboard for research into similar pathways in other systems. Whilst much of the stoichiometry and kinetics of the pathway have been well established, the localisation of many of the proteins remains relatively unknown, yet has been shown through computer simulations to have a crucial influence on the dynamics of the system. Through advanced microscopy techniques and image processing we intend to prove the validity of some of these models and observe chemotaxis protein localisation in real time.
 
@@ -108,10 +109,11 @@ We show here the image processing and microscopy set-up developed to meet the ch
 \end{abstract}
 \newpage
 \tableofcontents
+\newpage
 \listoffigures
 \listoftables
 \cleardoublepage
-
+%TC:endignore
 %TC:fileinclude \subfile 1
 \subfile{introduction/introduction}
 \cleardoublepage
@@ -127,7 +129,7 @@ We show here the image processing and microscopy set-up developed to meet the ch
 
 \subfile{future/future}
 \cleardoublepage
-
+%TC:ignore
 \appendix
 \subfile{plaspri/plaspri}
 \cleardoublepage
@@ -140,5 +142,5 @@ We show here the image processing and microscopy set-up developed to meet the ch
 
 \addcontentsline{toc}{section}{\numberline {}References}
 \printbibliography
-
+%TC:endignore
 \end{document}

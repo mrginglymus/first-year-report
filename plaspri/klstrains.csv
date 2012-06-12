@@ -1,1 +1,1 @@
-Name,Strain,PlasmidI,PlasmidII,PhenotypeKL1001,VS149,pVS49,~,$\Delta$RBYZKL1005,VS149,pVS49,pVS783,$\Delta$RBYZKL1019,VS149,pVS63,~,$\Delta$RBYZ
+Name,Strain,PlasmidI,PlasmidII,GenotypeKL1001,VS149,pVS49,~,"$\Delta$RBYZ, eYFP-cheZ"KL1005,VS149,pVS49,pVS783,"$\Delta$RBYZ, eYFP-cheZ, cheY-mCherry"KL1019,VS149,pVS63,~,"$\Delta$RBYZ, eYFP-cheZ"KL1025,VS292,pWAC2,~,"$\Delta$tsr, tsr-eYFP\textsuperscript{A206K}"KL1026,VS280,pWAC4,~,"$\Delta$tar, tar-eYFP\textsuperscript{A206K}"KL1027,VS149,pWAC3,~,"$\Delta$RBYZ, eYFP\textsuperscript{A206K}-cheZ"
