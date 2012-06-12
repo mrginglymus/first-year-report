@@ -1,4 +1,6 @@
 *.*~
+*.lot
+*.lof
 .DS_Store
 *.log
 *.aux

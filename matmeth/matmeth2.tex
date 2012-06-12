@@ -8,32 +8,34 @@
 
 A substantial amount of work for this project has been on determining the optimal microscopy technique for the live imaging of protein clustering.
 
-\subsubsection{Main Microscopy Setup}
-
 The microscope used after trialling was as follows:
 
 \begin{itemize}
 \item{Nikon Eclipse Ti-E Inverted Microscope}
 \item{40X 0.6NA long working distance plan objective}
 \item{100X 1.49NA TIRF oil plan apo objective}
-\item{Andor iXon 897 Ultra 512x512 pixel \SI{16}{\micro\meter} EM CCD camera}
+\item{Andor iXon 897 Ultra 512x512 pixel \SI{16}{\micro\meter} EMCCD camera}
 \end{itemize}
 
-An OptoSplit II system from Cairn was employed to visualise Homo- and Hetero- FRET measurements simultaneously. This unit is placed in the lightpath between the microscope and the camera. Within it, a dichroic and pair of filters project the same half of the image onto each half of the camera sensor in different wavelengths or polarisation orientations. It is also possible to block one light path and allow the other to fully occupy the camera sensor by means of adjusting mirrors and shutters.
+An OptoSplit II system from Cairn was employed to visualise both channels of Homo- or Hetero- FRET measurements simultaneously. This unit is placed in the lightpath between the microscope and the camera. Within it, a dichroic and pair of filters project the same half of the image onto each half of the camera sensor in different wavelengths or polarisation orientations. It is also possible to block one light path and allow the other to fully occupy the camera sensor by means of adjusting mirrors and shutters.
 
 Inside the OptoSplit II is a dichroic and two filters (one in the case of anisotropy). Whilst there is already good wavelength filtering by the excitation and emission dichroics, the filters are required to clean up the signal and remove any longer wavelengths.
 
-\paragraph{Excitation} was achieved with the following LED lighting system
+\paragraph{Excitation} was achieved with system described in table~\ref{table:ledlighting}.
+\begin{table}[h!]
 \begin{center}
 \begin{tabular}{l|c|c|l}
-\textbf{Description}	&	\textbf{LED wavelength}	&	\textbf{Filter}	&	\textbf{Location} \\\hline
+\textbf{Fluorophore}	&	\textbf{LED wavelength}	&	\textbf{Filter}	&	\textbf{Location} \\\hline
 mCherry	&	White	&	560/40x	&	Back	\\
-YFP		&	505		&	500/20x	&	Back\\
-GFP		&	470		&	470/40x	&	Back\\
+YFP		&	\SI{505}{\nano\meter}		&	500/20x	&	Back\\
+GFP		&	\SI{470}{\nano\meter}		&	470/40x	&	Back\\
 Blue		&	White	&	440/10x	&	Back\\
-Bright Field		&	White	&	590	&	Top
+Bright Field		&	White	&	\SI{590}{\nano\meter}	&	Top
 \end{tabular}
+\caption[LED lighting system]{LED lighting system for microscope. White LEDs comprised LED and phosphorescent elements. Excitation filter specifications give central wavelength and width of filter, both in \si{\nano\meter}, with the x denoting excitation.}
+\label{table:ledlighting}
 \end{center}
+\end{table}
 
 Only one blue (GFP or Blue) LED could be used at any one time. Lights from the back were combined sequentially with a \SI{515}{\nano\meter} and \SI{495}{\nano\meter} dichroic.
 
@@ -41,69 +43,37 @@ The white light for bright field has a red (\SI{590}{\nano\meter}) filter placed
 
 For anisotropy measurements, a rotating linear polariser could be inserted in front of the YFP LED.
 
-The entire microscope is mounted on a ThorLabs PerformancePlus Series II breadboard fitted to a ThorLabs Active Isolation frame. This was felt necessary due to the presence of noisy machinery in adjacent rooms and high foot traffic.
+The entire microscope is mounted on a ThorLabs PerformancePlus Series II breadboard fitted to a ThorLabs Active Isolation frame. This was felt necessary due to the presence of noisy machinery in adjacent rooms, high foot traffic, and small size of the samples being observed (\(\sim\)\SI{2.5}{\micro\meter} in the largest dimension).
 
-\paragraph{Emission} was controlled with the following set of filters.
+\paragraph{Emission} was controlled with the filters described in table~\ref{table:filterset}.
+\begin{table}[h!]
 \begin{center}
 \begin{tabular}{l|c|c|c|c|c}
 &	\multicolumn{2}{c|}{Filter Wheel}	&	\multicolumn{3}{c}{OptoSplit II}	\\
 \textbf{Description}	&	\textbf{Dichroic}	&	\textbf{Filter}		& \textbf{Dichroic}	&	\textbf{Filter 1}	&	\textbf{Filter 2}	\\\hline
-YFP		&	515		&	535/30	&	-	&	-	&	-	\\
-mCherry	&	585		&	630/75	&	-	&	-	&	-	\\
-GFP		&	495		&	525/50	&	-	&	-	&	-	\\
-YFP/mCherry Fret	&	515	&	-	&	565	&	545/40	&	630/75	\\
-YFP Anisotropy	&	515	&	535/30	&	Polarising	&	Polarising	&	-	\\
+YFP		&	\SI{515}{\nano\meter}		&	535/30m	&	-	&	-	&	-	\\
+mCherry	&	\SI{585}{\nano\meter}		&	630/75m	&	-	&	-	&	-	\\
+GFP		&	\SI{495}{\nano\meter}		&	525/50m	&	-	&	-	&	-	\\
+YFP\(\rightarrow\)mCherry Fret	&	\SI{515}{\nano\meter}	&	-	&	\SI{565}{\nano\meter}	&	545/40m	&	630/75m	\\
+YFP Anisotropy	&	\SI{515}{\nano\meter}	&	535/30m	&	Polarising	&	Polarising	&	-	\\
 Bright field		&	-	&	-	&	-	&	-	&	-	
 \end{tabular}
+\caption[Microscope filter set]{Filter set. Emission filter specifications give central wavelength and width of filter, both in \si{\nano\meter}, with the m denoting emission.}
+\label{table:filterset}
 \end{center}
+\end{table}
 
 
-\subsubsection{Fluorescent Proteins}
-
-With kind support from other sources (see section~\ref{sec:plaspri:plas}) we built up a library of many fluorescent protein-chemotaxis protein fusions. However, it was still necessary to exchange many of these. Many fluorescent proteins\myfootnote{CFP, YFP, BFP and further derivatives} are all derivatives of GFP through only a few amino acid substitutions\cite{tsien98}. In most modernly used GFP derivatives, these all lie between amino acid 64 and amino acid 206, inclusive. Therefore, through careful design of PCR primers Gibson assembly can be used to exchange one GFP derivative for another with the same set of primers (see section~\ref{sec:plaspri:pri}).
-
-Primarily EYFP was used for the proteins being imaged. However, a monomeric form was required for anisotropy\cite{vaknin07}, requiring the mutation A206K. Another EYFP varaent, known as Venus, was described as being a better FRET receiver\cite{nagai02} as well as a generally improved fluorophore, and therefore ideal for our anisotropy experiments. However, only the monomeric EYFP variant was available to us, and we have not yet had time to perform the five amino acid substitutions required for Venus.
-
-\subsubsection{Inducer Calibration}
-
-Most fusion proteins were available, or could easily be made available, in both the pBAD33 or pTRC99a plasmid, induced by arabinose or IPTG respectively. As in some experiments we planned to induce two proteins using both, it was important to be able to balance the production of each, by performing inducer titres and timecourses. Three experiments were performed.
-
-\paragraph{Inducement time.} Generally it is recommended to induce some time after inoculating fresh media with overnight cultures; however this is not necessary if the proteins being induced are not toxic. Two parallel growths were done, OD measurements taken every two hours, and images recorded 4 hours after induction and four hours after inoculation.
-\begin{center}
-\begin{tabular}{ccc}
-t=0	&	Inoculate	&	Inoculate \& Induce\\
-2	&	Induce	&\\
-4	&	Image	&	Image\\
-6	&	Image	&
-\end{tabular}
-\end{center}
-
-\paragraph{Inducer Titre} A logarithmic course of inducer concentrations was checked for expression of the same fusion protein under different promoters.
-
-\begin{center}
-\begin{tabular}{cc}
-\textbf{Arabinose}	&	\textbf{IPTG} 	\\
-0.001\%	&	\SI{1}{\micro\Molar}\\
-0.003\%	&	\SI{3}{\micro\Molar}\\
-0.01\%	&	\SI{10}{\micro\Molar}\\
-0.03\%	&	\SI{30}{\micro\Molar}\\
-0.1\%	&	\SI{100}{\micro\Molar}\\
-
-\end{tabular}
-\end{center}
-
-\paragraph{Time Course}	A selection of inducer concentration from the inducer titre were re-run with samples being removed and imaged at \SI{2}{\hour}, \SI{3}{\hour} and \SI{4}{\hour} to find optimal expression.
-  
 \subsection{Laboratory Techniques}
 
 \subsubsection{Standard Protocols}
-\paragraph{MiniPreps} were performed with either a GeneJet kit (for sequencing) or boiling lysis protocol (for anything else).
+\paragraph{MiniPreps} were performed with either a Fermentas GeneJet kit (for sequencing) or boiling lysis protocol (for anything else).
 \paragraph{PCR} was performed with phusion polymerase according to the following scheme:
 
 \begin{center}
-\begin{tabular}{ccc}
+\begin{tabular}{lcc}
 Initial Denaturation	& \SI{98}{\degreeCelsius} & \SI{120}{\second}\\
-\multicolumn{3}{c}{\textbf{Loop 30 times}}\\
+\multicolumn{3}{c}{\textbf{Loop 30 times:}}\\
 Denaturation		&	\SI{98}{\degreeCelsius}		&	\SI{30}{\second}\\
 Annealing 		&	Optimal for primer	&	\SI{30}{\second}\\
 Extension		&	\SI{72}{\degreeCelsius}		&	\SI{30}{\second\per\kilo\base}\\
@@ -113,97 +83,10 @@ Hold				&	\SI{4}{\degreeCelsius}		&	\(\infty\)
 \end{tabular}
 \end{center}
 
-\paragraph{Transformation} was performed on \ce{Ca+} competent cells.
+\paragraph{Transformation} was performed on \ce{CaCl} competent cells.
 
 \subsubsection{Gibson Assembly}
 
-Gibson Assembly was developed by Daniel Gibson\cite{gibson09} in 2009 whilst working with J. Craig Venter on his synthetic genome\cite{venter10}. In brief, it allows for sequence independent seamless assembly of multiple lengths of DNA. The process requires short (\SIrange{20}{40}{\base}) homologous overlaps between each length to be assembled. These can be created using PCR, as described in figure~\ref{fig:gibsonPCR}.
-\begin{figure}[p]
-\subfigure[Two ends of DNA to be joined, in green and blue.]{
-\shortstack[l]{
-\texttt{\color{DarkGreen}5'-TCTGGAATTCGCGGCCGCTTCTAGAG-3'\color{black}\ \ \ \ \ \ \ \color{DarkBlue}5'-TACTAGTAGCGGCCGCTGCAGTCCGG-3'}\\
-\texttt{\color{DarkGreen}3'-AGACCTTAAGCGCCGGCGAAGATCTC-5'\color{black}\ \ \ \ \ \ \ \color{DarkBlue}3'-ATGATCATCGCCGGCGACGTCAGGCC-5'}
-}
-\label{fig:gibsonPCR:before}
-}\\
-\subfigure[Primers required to create overlap in red, in this case giving an overlap of \SI{24}{\base}.]{
-\shortstack[l]{
-\texttt{\color{DarkGreen}5'-TCTGGAATTCGCGGCCGCTTCTAGAG-3'\color{black}}\\
-\texttt{\color{DarkRed}\ \ \ \ \ \ \ \ \ < < \ 3'-GGCGAAGATCTCTACTAGTAGCGGCC-5'\color{black}}
-\\\\
-\texttt{\color{DarkRed}\ \ \ \ \ \ \ \ \ \ \  \ \  \ 5'-CCGCTTCTAGAGATGATCATCGCCGG-3' > >\color{black}}
-\\
-\texttt{\color{DarkBlue}~~~~~~~~~~~~~~~~~~~~~~~~~~3'-ATGATCATCGCCGGCGACGTCAGGCC-5'}
-}
-\label{fig:gibsonPCR:primer}
-}
-\caption{Depiction of the primers required to create overlap between two strands of arbitrary DNA For each strand of DNA, another primer is required at its other end, which may be either a normal primer if no further assembly is required, or another extension primer as appropriate. Figure adapted from BBF RFC57\cite{rfc57}.}
-\label{fig:gibsonPCR}
-\end{figure}
-
-Once this overlap has been created, the lengths of DNA may be assembled in a single isothermal step, as shown in figure~\ref{fig:gibson}. 
-
-\begin{figure}[p]
-\centering
-\subfigure[Starting DNA with overlaps.]{
-\shortstack[l]{
-\texttt{\color{DarkGreen}5'-TCTGGAATTCGCGGCCGCTTCTAGAG\color{DarkSalmon}TACTAGTAGCGGCCGC-3'}
-\\
-\texttt{\color{DarkGreen}3'-AGACCTTAAGCGCCGGCGAAGATCTC\color{DarkSalmon}ATGATCATCGCCGGCG-5'}
-\\
-\texttt{\color{DarkSalmon}\ \ \ \ \ \ \ \ \ \ 5'-GCGGCCGCTTCTAGAG\color{DarkBlue}TACTAGTAGCGGCCGCTGCAGTCCGG-3'}
-\\
-\texttt{\color{DarkSalmon}\ \ \ \ \ \ \ \ \ \ 3'-CGCCGGCGAAGATCTC\color{DarkBlue}ATGATCATCGCCGGCGACGTCAGGCC-5'}
-}
-\label{fig:gibson:1}
-}
-\subfigure[DNA is chewed back from 5' end]{
-\shortstack[l]{
-\texttt{\color{DarkGreen}5'-TCTGGAATTCGCGGCCGCTTCTAGAG\color{DarkSalmon}TACTAGTAGCGGCCGC-3'}
-\\
-\texttt{\color{DarkGreen}3'-AGA-5'\color{black}<--}
-\\
-\texttt{\color{DarkBlue}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \color{black}-->\color{DarkBlue}5'-CGG-3'}
-\\
-\texttt{\color{DarkSalmon}\ \ \ \ \ \ \ \ \ \ 3'-CGCCGGCGAAGATCTC\color{DarkBlue}ATGATCATCGCCGGCGACGTCAGGCC-5'}
-}
-\label{fig:gibson:2}
-}
-\subfigure[The two sticky ends anneal]{
-\shortstack[l]{
-\texttt{\color{DarkGreen}5'-TCTGGAATTCGCGGCCGCTTCTAGAG\color{DarkSalmon}TACTAGTAGCGGCCGC-3'\ \color{DarkBlue}5'-CGG-3'}
-\\
-\texttt{\color{DarkGreen}3'-AGA-5'\ \color{DarkSalmon}3'-CGCCGGCGAAGATCTC\color{DarkBlue}ATGATCATCGCCGGCGACGTCAGGCC-5'}
-}
-\label{fig:gibson:3}
-}
-\subfigure[The gaps are filled up]{
-\shortstack[l]{
-\texttt{\color{black}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -->\ \ \ \ }
-\\
-\texttt{\color{DarkGreen}5'-TCTGGAATTCGCGGCCGCTTCTAGAG\color{DarkSalmon}TACTAGTAGCGGCCGC\color{DarkMagenta}TGCAGTC\color{DarkBlue}CGG-3'}
-\\
-\texttt{\color{DarkGreen}3'-AGA\color{DarkMagenta}CCTTAAG\color{DarkSalmon}CGCCGGCGAAGATCTC\color{DarkBlue}ATGATCATCGCCGGCGACGTCAGGCC-5'}
-\\
-\texttt{\color{black}\ \ \ \ \ \ \ \ \ \ <--}
-}
-\label{fig:gibson:4}
-}
-\subfigure[The gaps are ligated]{
-\shortstack[l]{
-\texttt{\color{black}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ><}
-\\
-\texttt{\color{DarkGreen}5'-TCTGGAATTCGCGGCCGCTTCTAGAG\color{DarkSalmon}TACTAGTAGCGGCCGC\color{DarkMagenta}TGCAGTC\color{DarkBlue}CGG-3'}
-\\
-\texttt{\color{DarkGreen}3'-AGA\color{DarkMagenta}CCTTAAG\color{DarkSalmon}CGCCGGCGAAGATCTC\color{DarkBlue}ATGATCATCGCCGGCGACGTCAGGCC-5'}
-\\
-\texttt{\color{black}\ \ \ \ \ ><\ \ \ }
-}
-\label{fig:gibson:5}
-}
-\caption{Overview of the Gibson Assembly Process. Green and blue DNA extend outwards. Pink DNA represents PCR extension, and purple DNA represents bases added during the Gibson Assembly Process. All steps occur in the same isothermal reaction. Figure adapted from BBF RFC 57\cite{rfc57}.}
-\label{fig:gibson}
-\end{figure}
 
 \subsubsection{Preparation of Cells for Microscopy}
 
@@ -212,15 +95,16 @@ The following protocol was followed for preparing cells for microscopy.
 \begin{enumerate}
 \item Prepare \SI{2}{\milli\litre} overnight culture with appropriate antibiotic.
 \item Pellet the cells in a \SI{1.5}{\milli\litre} microcentrifuge tube.
+\item Aspirate off supernatant
 \item \paragraph{If fixing}
 \begin{enumerate}
-\item Resuspend in \SI{500}{\micro\litre} PBS, with or without cobalt.
+\item Resuspend in \SI{500}{\micro\litre} PBS, with or without \ce{CoSO4}.
 \item Add \SI{12.5}{\micro\litre} 37-41\% formaldehyde to make 1\%.
 \item Incubate for 10 minutes at room temperature.
 \end{enumerate}
 \item \paragraph{If only adding cobalt}
 \begin{enumerate}
-\item Resuspend in \SI{500}{\micro\litre} cobalt in PBS.
+\item Resuspend in \SI{500}{\micro\litre} PBS with \ce{CoSO4}.
 \end{enumerate}
 \item[] \paragraph{Then}
 \item Spin down cells.
@@ -229,9 +113,9 @@ The following protocol was followed for preparing cells for microscopy.
 \item Resuspend in \SI{500}{\micro\litre} PBS.
 \end{enumerate}
 
-The final resuspension volume should be adjusted to match cell density depending on mounting method. Initial volume may also be adjusted with corresponding changes to subsequent volumes.
+The final resuspension volume was be adjusted to match cell density depending on mounting method. Initial volume was also be adjusted with corresponding changes to subsequent volumes. Concentratin of \ce{CoSO4} was varied according to requirements.
 
-\paragraph{STED} microscopy requires special cell preparation to help protect against bleaching. The following protocol was used from Jackson ImmunoResearch\myfootnote{\url{http://www.jacksonimmuno.com/technical/anti-fade.asp}}:
+\paragraph{STED} microscopy requires special cell preparation to help protect against bleaching. The following protocol was used from Jackson ImmunoResearch\cite{jackson}:
 
 \begin{enumerate}
 \item Prepare and wash cells as above
@@ -241,7 +125,7 @@ The final resuspension volume should be adjusted to match cell density depending
 \item Resuspend cells in \SI{500}{\micro\litre} of the above
 \end{enumerate}
 
-\paragraph{Cell Mounting} Cells were mounted on \#1.5 slides for imaging. Work is still ongoing to optimise a poly-l-lysine protocol to hold the cells in place.
+\paragraph{Cell Mounting} Cells were mounted on \#1.5 slides for imaging. Work is still ongoing to optimise a poly-L-lysine protocol to hold the cells in place.
 
 \subsection{Image Processing}
 \label{sec:methods:imageprocessing}
@@ -263,29 +147,30 @@ Search Radius 	&	Radius in which to search for cluster in microns\\
 Minimum Size		&	Smallest cell size in square microns\\
 Maximum Size		&	Largest cell size in square microns\\
 Eccentricity		&	Minimum ratio of cell length to cell width\\
-Solidity			&	Minimum solidity\myfootnotemark.\\
+Solidity			&	Minimum solidity\\
 Maximum Brightness	&	Maximum total brightness of cell
 \end{tabular}
-\myfootnotetext{The solidity gives a measure of the curvature of the cell. It measures the proportion of the convex hull of the cell that is occupied by the cell itself. If it is less than 0.8 then the cell is curved, or T-shaped, and so probably not worth considering.}
 \\\\
+The solidity gives a measure of the curvature of the cell. It measures the proportion of the convex hull of the cell that is occupied by the cell itself. If it is less than 0.8 then the cell is curved, or T-shaped, and thus not considered.
+
 As its output the function gives an image mask to identify all cells identified as valid (\texttt{cell\_mask}), an image mask to identify all cells (\texttt{all\_cells}), and a series of other masks identifying all cells disqualified for being too small, large, round, bright, or not solid enough. This process is visualised in figure~\ref{fig:imageprocessing:celldetection}.
 
 \begin{figure}[p]
 \begin{center}
-\subfigure[Raw B\&W image]{
-	\includegraphics[scale=0.25]{\docroot matmeth/figs/slide1}
+\subfloat[Raw B\&W image]{
+	\includegraphics[scale=0.3]{\docroot matmeth/figs/slide1}
 	\label{fig:imageprocessing:raw}
 }
-\subfigure[Edge detection]{
-	\includegraphics[scale=0.25]{\docroot matmeth/figs/slide2}
+\subfloat[Edge detection]{
+	\includegraphics[scale=0.3]{\docroot matmeth/figs/slide2}
 	\label{fig:imageprocessing:edges}
 }\\
-\subfigure[Detected Cells]{
-	\includegraphics[scale=0.25]{\docroot matmeth/figs/slide3}
+\subfloat[Detected Cells]{
+	\includegraphics[scale=0.3]{\docroot matmeth/figs/slide3}
 	\label{fig:imageprocessing:cells}
 }
-\subfigure[Accepted Cells]{
-	\includegraphics[scale=0.25]{\docroot matmeth/figs/slide4}
+\subfloat[Accepted Cells]{
+	\includegraphics[scale=0.3]{\docroot matmeth/figs/slide4}
 	\label{fig:imageprocessing:accepted}
 }
 \caption{To generate the mask of cells, the script first performs edge detection using the Canny method\cite{canny} (figure~\ref{fig:imageprocessing:edges}). This is particularly effective for detecting edges in noisy images. The lines are then thickened and the gaps closed to give the outline of cells. These are filled in, and then the image is opened with a disk shaped element to remove any small blobs or bridges. This intermediate image is now \texttt{all\_cells} (figure~\ref{fig:imageprocessing:cells}). Subsequently, each constraint on cell shape or size is applied individually to determine which cells to reject (figure~\ref{fig:imageprocessing:accepted}).}
@@ -339,11 +224,11 @@ In order to obtain live imaging of the direct response to chemotactic proteins\m
 
 \begin{figure}[h!]
 \begin{center}
-\subfigure[Simple microfluidics device for step changes]{
+\subfloat[Simple microfluidics device for step changes]{
 \includegraphics[scale=1]{\docroot matmeth/figs/simplemicrofluidic.eps}
 \label{fig:microfluidics:simple}
 }
-\subfigure[Complex microfluidics device for smooth mixing]{
+\subfloat[Complex microfluidics device for smooth mixing]{
 \includegraphics[scale=1]{\docroot matmeth/figs/complexmicrofluidic.eps}
 \label{fig:microfluidics:complex}
 }

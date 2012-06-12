@@ -16,7 +16,8 @@
 \usepackage{hyperref}						% for urls
 \usepackage{seqsplit}						% for inserting linebreaks into DNA sequences 
 \usepackage[top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}                % See geometry.pdf to learn the layout options. There are lots.
-\usepackage{subfigure}
+%\usepackage{subfigure}
+\usepackage[font={small,sf}, labelfont=bf]{subfig}
 \usepackage{threeparttable}
 \usepackage{datatool}
 \usepackage{lipsum}
@@ -25,7 +26,8 @@
 \usepackage[pdftex]{graphicx}
 \usepackage{epstopdf}
 \usepackage{xspace}
-\usepackage{color}							% coloured text
+\usepackage[format=hang, justification=raggedright, singlelinecheck=false, font={small, sf}, labelfont=bf]{caption}
+\usepackage[usenames,dvipsnames]{xcolor}
 \input{\docroot rgb.tex}
 
 
@@ -62,6 +64,7 @@
 \newcommand{\dna}[1]{\texttt{\seqsplit{#1}}}	% DNA monotype
 
 \newcommand{\ecoli}{\textit{E. coli}\xspace}			% E. coli
+\newcommand{\ecolilong}{\textit{Escherichia coli}\xspace}		% escherichia coli
 
 \newcommand{\plasmidtable}[1]{%
 \DTLloaddb{#1}{\docroot #1.csv}
@@ -89,12 +92,13 @@
 
 \title{Development of Advanced Microscopy Techniques for Live Imaging of Dynamically Forming Chemotaxis Protein Clusters in \ecoli}
 \date{June 2012}
-\author{William Collins\\Cambridge Systems Biology Centre}
+\author{William A Collins\\Dr Karen Lipkow\\Cambridge Systems Biology Centre\\Department of Biochemistry}
 
 \begin{document}
 \maketitle
+\newpage
 \begin{abstract}
-The chemotaxis system in \ecoli is one of the better understood signalling pathways in bacteria, and is used as a springboard for research into similar pathways in other systems. Whilst much of the stoichiometry and kinetics of the pathway have been well established, the localisation of many of the proteins remains relatively unknown, yet has been shown through computer simulations to have a crucial influence on the dynamics of the system. Through advanced microscopy techniques and image processing we intend to prove the validity of some of these models and observe chemotaxis protein localisation in real time.
+The chemotaxis system in \ecoli is arguably the best understood signalling pathways in all biology, and is used as a springboard for research into similar pathways in other systems. Whilst much of the stoichiometry and kinetics of the pathway have been well established, the localisation of many of the proteins remains relatively unknown, yet has been shown through computer simulations to have a crucial influence on the dynamics of the system. Through advanced microscopy techniques and image processing we intend to prove the validity of some of these models and observe chemotaxis protein localisation in real time.
 
 
 The proposed experiments require the generation of new strains of bacteria. This was done with the pioneering new technique for DNA manipulation called Gibson Assembly, removing the need for multifarious restriction enzymes but requiring the complex design of primers.
@@ -104,7 +108,10 @@ We show here the image processing and microscopy set-up developed to meet the ch
 \end{abstract}
 \newpage
 \tableofcontents
+\listoffigures
+\listoftables
 \cleardoublepage
+
 %TC:fileinclude \subfile 1
 \subfile{introduction/introduction}
 \cleardoublepage
