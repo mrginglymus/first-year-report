@@ -95,9 +95,23 @@
 \author{William A Collins\\Dr Karen Lipkow\\Cambridge Systems Biology Centre\\Department of Biochemistry}
 
 \begin{document}
+
+\pagenumbering{roman}
+\setcounter{page}{1}
+
+
 \maketitle
 \newpage
+\tableofcontents
+\newpage
+\addcontentsline{toc}{section}{\numberline {}List of Figures}
+\listoffigures
+\addcontentsline{toc}{section}{\numberline {}List of Tables}
+\listoftables
+\cleardoublepage
+
 %TC:ignore
+\addcontentsline{toc}{section}{\numberline {}Summary}
 \begin{abstract}
 The chemotaxis system in \ecoli is arguably the best understood signalling pathways in all biology, and is used as a springboard for research into similar pathways in other systems. Whilst much of the stoichiometry and kinetics of the pathway have been well established, the localisation of many of the proteins remains relatively unknown, yet has been shown through computer simulations to have a crucial influence on the dynamics of the system. Through advanced microscopy techniques and image processing we intend to prove the validity of some of these models and observe chemotaxis protein localisation in real time.
 
@@ -108,11 +122,10 @@ The proposed experiments require the generation of new strains of bacteria. This
 We show here the image processing and microscopy set-up developed to meet the challenging requirements of real-time protein localisation. Also presented are some of the early results from imaging, showing tentative support for the proposed models. For future work we consider the prospects for automating and optimising primers, specifically for use in Gibson Assembly but also more generally for conventional PCR.
 \end{abstract}
 \newpage
-\tableofcontents
-\newpage
-\listoffigures
-\listoftables
-\cleardoublepage
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
 %TC:endignore
 %TC:fileinclude \subfile 1
 \subfile{introduction/introduction}
