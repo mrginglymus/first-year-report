@@ -13,8 +13,50 @@ Primarily EYFP was used for the proteins being imaged. However, a monomeric form
 
 \subsection{Inducer Calibration}
 
-Most fusion proteins were available, or could easily be made available, in both the pBAD33 or pTRC99a plasmid, induced by arabinose or IPTG respectively. As in some experiments we planned to induce two proteins using both, it was important to be able to balance the production of each, by performing inducer titres and timecourses. Three experiments were performed.
+Most fusion proteins were available, or could easily be made available, in both the pBAD33 or pTRC99a plasmid, induced by arabinose or IPTG respectively. As in some experiments we planned to induce two proteins using both, it was important to be able to balance the production of each, by performing titrating the inducer concentration. The expression of \textsl{CheZ-eYFP} was monitored in two strains, KL1001 and KL10019, induced by Arabinose and IPTG respectively (for details, see section~\ref{sec:plaspri}).
 
+Images are shown of each of four different concentrations of inducer \SI{3.5}{\hour} after induction in each strain.
+
+\begin{figure}[h!]
+\begin{center}
+\subfloat[0.001\% Arabinose]{
+	\includegraphics[width=.45\linewidth]{\docroot results/figs/A1-yfp.jpg}
+}
+\subfloat[0.005\% Arabinose]{
+	\includegraphics[width=.45\linewidth]{\docroot results/figs/A2-yfp.jpg}
+}\\
+\subfloat[0.01\% Arabinose]{
+	\includegraphics[width=.45\linewidth]{\docroot results/figs/A3-yfp.jpg}
+}
+\subfloat[0.05\% Arabinose]{
+	\includegraphics[width=.45\linewidth]{\docroot results/figs/A4-yfp.jpg}
+}
+\caption[Arabinose inducer titration]{Arabinose inducing \textsl{CheZ-eYFP} expression in KL1001. Colours inverted to improve printed contrast.}
+\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+\subfloat[\SI{5}{\micro\Molar} IPTG]{
+	\includegraphics[width=.45\linewidth]{\docroot results/figs/S5-yfp.jpg}
+}
+\subfloat[\SI{10}{\micro\Molar} IPTG]{
+	\includegraphics[width=.45\linewidth]{\docroot results/figs/S6-yfp.jpg}
+}\\
+\subfloat[\SI{20}{\micro\Molar} IPTG]{
+	\includegraphics[width=.45\linewidth]{\docroot results/figs/S7-yfp.jpg}
+}
+\subfloat[\SI{40}{\micro\Molar} IPTG]{
+	\includegraphics[width=.45\linewidth]{\docroot results/figs/S8-yfp.jpg}
+}
+\caption[IPTG inducer titration]{IPTG inducing \textsl{CheZ-eYFP} expression in KL1019. Colours inverted to improve printed contrast.}
+\end{center}
+\end{figure}
+
+
+
+
+\begin{comment}
 \paragraph{Inducement time.} Generally it is recommended to induce some time after inoculating fresh media with overnight cultures; however this is not necessary if the proteins being induced are not toxic. Two parallel growths were done, OD measurements taken every two hours, and images recorded 4 hours after induction and four hours after inoculation.
 \begin{center}
 \begin{tabular}{ccc}
@@ -40,7 +82,7 @@ t=0	&	Inoculate	&	Inoculate \& Induce\\
 \end{center}
 
 \paragraph{Time Course}	A selection of inducer concentration from the inducer titre were re-run with samples being removed and imaged at \SI{2}{\hour}, \SI{3}{\hour} and \SI{4}{\hour} to find optimal expression.
- 
+ \end{comment}
 
 \subsection{Cluster Sizing using Image Processing}
 
