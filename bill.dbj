@@ -27,10 +27,10 @@ End of customized bst file
 %--------------------
 %STYLE OF CITATIONS:
 %   %: (def) Numerical
-% ay,%: Author-year
+ ay,%: Author-year
 % alph,%: Alpha style, Jon90 or JWB90
 % alph,alf-1,%: Alpha style, Jon90
-  alph,alf-f,%: Alpha style, Jones90
+%  alph,alf-f,%: Alpha style, Jones90
 % cite,%: Cite key
 %--------------------
 %HTML OUTPUT (if non author-year citations)
@@ -40,7 +40,7 @@ End of customized bst file
 % html,htdes,%: Hypertext with keys
 %--------------------
 %AUTHOR--YEAR SUPPORT SYSTEM (if author-year citations)
-% nat,%: Natbib
+ nat,%: Natbib
 %   %: (def) Older Natbib
 % alk,%: Apalike
 % har,%: Harvard
@@ -69,13 +69,13 @@ End of customized bst file
 % pres,pres-sc,%: Presentaion, speaker in small caps
 %--------------------
 %ORDERING OF REFERENCES (if non-author/year and non-alph)
-%   %: (def) Alphabetical
-  seq-no,%: Citation order
+   %: (def) Alphabetical
+%  seq-no,%: Citation order
 % seq-yr,%: Year ordered
 % seq-yrr,%: Reverse year ordered
 %--------------------
 %ORDERING OF REFERENCES (if author-year citations)
-%   %: (def) Alphabetical
+   %: (def) Alphabetical
 % seq-lab,%: By label
 % seq-labc,%: By label and cite order
 % seq-key,%: By label and cite key
@@ -105,8 +105,8 @@ End of customized bst file
 % nm-revv1,%: First name reversed, with full names
 %--------------------
 %EDITOR NAMES IN COLLECTIONS (if author names reversed)
-    %: (def) Editor names NOT reversed
-% ed-rev,%: Editor names reversed
+%    %: (def) Editor names NOT reversed
+ ed-rev,%: Editor names reversed
 %--------------------
 %POSITION OF JUNIOR (if author names reversed)
   jnrlst,%: Junior comes last
@@ -114,7 +114,7 @@ End of customized bst file
 %--------------------
 %JUNIOR PART IN THE CITATION (if author-year citations)
 %   %: (def) No `junior' part in the citations
-% jnrlab,%: `Junior' in citations
+ jnrlab,%: `Junior' in citations
 %--------------------
 %PUNCTUATION BETWEEN AUTHOR NAMES:
     %: (def) Author names separated by commas
@@ -134,20 +134,20 @@ End of customized bst file
     x50,x0,%: Maximum of 50 authors
     m10,m0,%: Minimum of 10 authors
 %AUTHORS IN CITATIONS:
-%   %: (def) One author et al
-  mcite,%: Some other truncation scheme
+   %: (def) One author et al
+%  mcite,%: Some other truncation scheme
 %--------------------
 %MAX AUTHORS BEFORE ET AL: (if regular cite not selected)
 % mct-1,%: One et al
 % mct-2,%: One, Two et al
-  mct-3,%: One, Two, Three et al
+%  mct-3,%: One, Two, Three et al
 % mct-4,%: One, Two, Three, Four et al
 % mct-5,%: One, Two, Three, Four, Five et al
 % mct-6,%: One, Two, Three, Four, Five, Six et al
 %--------------------
 %MAX AUTHORS WITHOUT ET AL: (if regular cite not selected)
 % mct-x2,%: Two authors without truncating
-  mct-x3,%: Three authors
+%  mct-x3,%: Three authors
 % mct-x4,%: Four authors
 % mct-x5,%: Five authors
 % mct-x6,%: Six authors
@@ -188,17 +188,17 @@ End of customized bst file
 % xlab-it,%: Extra label italic
 %--------------------
 %LABEL WHEN AUTHORS MISSING (if author-year citations)
-% keyxyr,%: Year blank when KEY replaces missing author
+ keyxyr,%: Year blank when KEY replaces missing author
 %   %: (def) Year included when KEY replaces missing author
 %--------------------
 %MISSING DATE (if author-year citations)
 %   %: (def) Missing date set to ????
-% blkyear,%: Missing date left blank
+ blkyear,%: Missing date left blank
 %--------------------
 %DATE POSITION:
 %   %: (def) Date at end
-% dt-beg,%: Date after authors
-  dt-jnl,%: Date part of journal spec.
+ dt-beg,%: Date after authors
+%  dt-jnl,%: Date part of journal spec.
 % dt-end,%: Date at very end
 %--------------------
 %DATE FORMAT (if non author-year citations)
@@ -224,11 +224,11 @@ End of customized bst file
 % yr-brk,%: Year in brackets
 % yr-col,%: Year preceded by colon
 % yr-per,%: Year preceded by period
-% yr-com,%: Date preceded by comma
+ yr-com,%: Date preceded by comma
 % yr-blk,%: Year preceded by space
 %--------------------
 %INCLUDE MONTHS:
-%   %: (def) Date is year only
+   %: (def) Date is year only
 % aymth,%: Include month in date
 %--------------------
 %REVERSED DATE (if including month)
@@ -236,11 +236,11 @@ End of customized bst file
 % dtrev,%: Date as year month
 %--------------------
 %DATE PUNCTUATION (if date not at end)
-    %: (def) Date with standard block punctuation
+%    %: (def) Date with standard block punctuation
 % yrp-col,%: Colon after date
 % yrp-semi,%: Semi-colon after date
 % yrp-per,%: Period after date
-% yrp-x,%: No punct. after date
+ yrp-x,%: No punct. after date
 %--------------------
 %BLANK AFTER DATE:
     %: (def) Space after date
@@ -251,7 +251,7 @@ End of customized bst file
 % dtbf,%: Date in bold face
 %--------------------
 %TRUNCATE YEAR (if author-year citations)
-% note-yr,%: Year text full
+ note-yr,%: Year text full
 %   %: (def) Year truncated
 %--------------------
 %TITLE OF ARTICLE:
@@ -304,26 +304,26 @@ End of customized bst file
 % vol-2bf,%: Volume and number bold
 %--------------------
 %JOURNAL VOL AND NUMBER:
-    %: (def) Journal vol(num)
+%    %: (def) Journal vol(num)
 % vnum-sp,%: Journal vol (num)
 % vnum-cm,%: Journal vol, num
-% vnum-nr,%: Journal vol, no. num
+ vnum-nr,%: Journal vol, no. num
 % vnum-h,%: Journal vol, \# number
 % vnum-b,%: Journal vol number
 % vnum-x,%: Journal vol, without number
 %--------------------
 %VOLUME PUNCTUATION:
-    %: (def) Volume with colon
-% volp-sp,%: Volume with colon and space
+%    %: (def) Volume with colon
+ volp-sp,%: Volume with colon and space
 % volp-semi,%: Volume with semi-colon
 % volp-com,%: Volume with comma
 % volp-blk,%: Volume with blank
 %--------------------
 %YEAR IN JOURNAL SPECIFICATION:
-%   %: (def) Journal year like others
+   %: (def) Journal year like others
 % jdt-v,%: Journal vol(year)
 % jdt-vs,%: Journal vol (year)
-  jdt-p,%: Year with pages
+% jdt-p,%: Year with pages
 % jdt-pc,%: Year, comma, pages
 %--------------------
 %PAGE NUMBERS:
@@ -338,11 +338,11 @@ End of customized bst file
 %--------------------
 %WORD `PAGE' IN ARTICLES:
 %   %: (def) Article pages numbers only
-  jwdpg,%: Include `page' in articles
+%  jwdpg,%: Include `page' in articles
 %--------------------
 %POSITION OF PAGES:
-    %: (def) Pages given mid text
-% pp-last,%: Pages at end
+%    %: (def) Pages given mid text
+ pp-last,%: Pages at end
 %--------------------
 %WORD `VOLUME' IN ARTICLES:
     %: (def) Article volume as number only
@@ -414,12 +414,12 @@ End of customized bst file
 %   %: (def) No DOI
 %--------------------
 %`EDITOR' AFTER NAMES (EDITED BOOKS WITHOUT AUTHORS):
-    %: (def) Word `editor' after name
+%    %: (def) Word `editor' after name
 % edpar,%: `Name (editor),'
 % edpar,bkedcap,%: `Name (Editor),'
 % edparc,%: `Name, (editor)'
 % edparc,bkedcap,%: `Name, (Editor)'
-% edparxc,%: `Name (editor)'
+ edparxc,%: `Name (editor)'
 % edparxc,bkedcap,%: `Name (Editor)'
 %--------------------
 %EDITOR IN COLLECTIONS:
@@ -468,17 +468,17 @@ End of customized bst file
 % injnl,%: Add `in' before journal name
 %--------------------
 %FINAL PUNCTUATION:
-    %: (def) Period at very end
-% fin-bare,%: No period at end
+%    %: (def) Period at very end
+ fin-bare,%: No period at end
 %--------------------
 %ABBREVIATE WORD `PAGES' (if not using external language file)
-    %: (def) `Page(s)'
+%    %: (def) `Page(s)'
 % pp,%: `Page' abbreviated
-% ppx,%: `Page' omitted
+ ppx,%: `Page' omitted
 %--------------------
 %ABBREVIATE WORD `EDITORS':
-    %: (def) `Editor(s)'
-% ed,%: `Editor' abbreviated
+%    %: (def) `Editor(s)'
+ ed,%: `Editor' abbreviated
 %--------------------
 %OTHER ABBREVIATIONS:
     %: (def) No abbreviations

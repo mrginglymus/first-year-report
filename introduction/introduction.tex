@@ -5,20 +5,20 @@
 \section{Introduction}
 
 \subsection{Bacterial Chemotaxis as a Model System}
-The benefits of using model organisms in science are comprehensive. In the field of systems biology, we move a step deeper and in the same way study model systems. Amongst them, bacterial chemotaxis in \ecolilong is one of the most extensively studied. The stoichiometry is well established\cite{li04}, the structure of many of the constituent proteins have been determined\cite{zhou02, milligan87, stock89}, and the feedback loops involved described\cite{kentner09} and robustness tested\cite{yi00}. The \ecoli system has also been used as the basis for study of chemotaxis in other bacteria{hamadeh11}.
+The benefits of using model organisms in science are comprehensive. In the field of systems biology, we move a step deeper and in the same way study model systems. Amongst them, bacterial chemotaxis in \ecolilong is one of the most extensively studied. The stoichiometry is well established\citep{li04}, the structure of many of the constituent proteins have been determined\citep{zhou02, milligan87, stock89}, and the feedback loops involved described\citep{kentner09} and robustness tested\citep{yi00}. The \ecoli system has also been used as the basis for study of chemotaxis in other bacteria{hamadeh11}.
 
-In more recent times with the advent of more and more powerful computers, chemotaxis in \ecoli has presented itself as an ideal target for the development of advanced simulation packages, allowing researchers to postulate new and more detailed mechanisms of control\cite{lipkow05, lipkow06}. Together with advances in high resolution microscopy\cite{greenfield09} this has opened the door to new insights into the behaviour of the \ecoli chemotaxis network.
+In more recent times with the advent of more and more powerful computers, chemotaxis in \ecoli has presented itself as an ideal target for the development of advanced simulation packages, allowing researchers to postulate new and more detailed mechanisms of control\citep{lipkow05, lipkow06}. Together with advances in high resolution microscopy\citep{greenfield09} this has opened the door to new insights into the behaviour of the \ecoli chemotaxis network.
 
 The outcome of this research is the following model of chemotaxis:
 
 \begin{figure}[h!]
 \begin{center}
 \includegraphics[scale=1]{\docroot introduction/figs/chemotaxis-simple-network}
-\caption[Schematic of the chemotaxis system]{Schematic of the chemotaxis system. Note that protein labels are only loosely representative of respective locations in the cell. Figure from Sewitz \& Lipkow\cite{lipkowfigs}.}
+\caption[Schematic of the chemotaxis system]{Schematic of the chemotaxis system. Note that protein labels are only loosely representative of respective locations in the cell. Figure from \citet{lipkowfigs}.}
 \end{center}
 \end{figure}
 
-Transmembrane methyl-accepting chemotaxis proteins (MCPs), the chemoreceptors, sit in a cluster at one or both poles of the cell. The presence of repellents or attractants is transduced through a piston like motion\cite{hall11}, with the level of transduction modulated by the level of methylation. The methyltransferase CheR, localised to the MCP, constitutively methylates the MCPs. Phosphorylated methylesterase CheB competes with CheR to demthylate the MCPs. CheB activity is regulated by histidine kinase CheA, whose autophosphorylation is regulated by the activity of the  MCPs. Herein we find the first feedback mechanism, in which an increase in activity causes a decrease in sensitivity.
+Transmembrane methyl-accepting chemotaxis proteins (MCPs), the chemoreceptors, sit in a cluster at one or both poles of the cell. The presence of repellents or attractants is transduced through a piston like motion\citep{hall11}, with the level of transduction modulated by the level of methylation. The methyltransferase CheR, localised to the MCP, constitutively methylates the MCPs. Phosphorylated methylesterase CheB competes with CheR to demthylate the MCPs. CheB activity is regulated by histidine kinase CheA, whose autophosphorylation is regulated by the activity of the  MCPs. Herein we find the first feedback mechanism, in which an increase in activity causes a decrease in sensitivity.
 
 Phosphorylated CheA also phosphorylates CheY, a messenger protein which diffuses throughout the cell. Downstream of this there is a bistable-like system which regulates the response of the motors to CheYp, but this is independent of all activity upstream of CheYp. The last significant protein in the \ecoli chemotaxis pathway is the phosphatase CheZ, which removes the phosphate group from CheY.
 
@@ -30,7 +30,7 @@ Models of the chemotaxis system in which CheZ clusters at the polar clusters in 
 \begin{center}
 \subfloat[Proposed mechanism of clustering]{\includegraphics[scale=1]{\docroot introduction/figs/chezclustering}}\label{fig:intro:chemo:mech}\\
 \subfloat[Improvement in dynamic range from CheZ clustering]{\includegraphics[scale=1]{\docroot introduction/figs/chezdynamics}\label{fig:intro:chemo:clusternetwork}}
-\caption[Proposed mechanism of CheZ clustering]{The mechanism and effect of the proposed clustering of CheZ, from Sewitz \& Lipkow\cite{lipkowfigs}}
+\caption[Proposed mechanism of CheZ clustering]{The mechanism and effect of the proposed clustering of CheZ, from \citet{lipkowfigs}}
 \label{fig:intro:chemo}
 \end{center}
 \end{figure}
@@ -39,19 +39,19 @@ Models of the chemotaxis system in which CheZ clusters at the polar clusters in 
 \begin{center}
 \subfloat[Canonical chemotaxis network]{\includegraphics[scale=1]{\docroot introduction/figs/chemotaxis-local-network}}\\
 \subfloat[Chemotaxis network with hypothesised CheZ feedback loop]{\includegraphics[scale=1]{\docroot introduction/figs/chemotaxis-local-feedback}}
-\caption[Modified chemotaxis network]{The chemotaxis network with and without the proposed CheZ feedback loop, from Sewitz \& Lipkow\cite{lipkowfigs}}
+\caption[Modified chemotaxis network]{The chemotaxis network with and without the proposed CheZ feedback loop, from Sewitz \& Lipkow\citep{lipkowfigs}}
 \label{fig:intro:netwok}
 \end{center}
 \end{figure}
 
-This feedback loop is what is covered in the work presented in this report. CheZ forms clusters at the poles of the cells, as well as being found distributed throughout the cytoplasm. Models show that dynamic localisation of CheZ in response to chemotactic activity would increase the dynamic range of the system to match that observed in \ecoli\cite{lipkow06}. To verify this, it is necessary to demonstrate that a greater or lesser proportion of CheZ can be found in the polar clusters while the cell is responding to a chemotactic stimulant.
+This feedback loop is what is covered in the work presented in this report. CheZ forms clusters at the poles of the cells, as well as being found distributed throughout the cytoplasm. Models show that dynamic localisation of CheZ in response to chemotactic activity would increase the dynamic range of the system to match that observed in \ecoli\citep{lipkow06}. To verify this, it is necessary to demonstrate that a greater or lesser proportion of CheZ can be found in the polar clusters while the cell is responding to a chemotactic stimulant.
 
 \subsection{Microscopy}
 
 Microscopy is a rapidly changing field, with advancements coming from all areas. Improvements in optics are yielding diminishing returns in increasing optical resolution, but new illumination and image processing techniques are allowing for finer and finer imaging using otherwise standard equipment, and most manufacturers are now emphasising this area of development more and more in their brochures.
 
 \subsubsection{STORM/PALM super-resolution}
-In the context of our challenge - localising proteins and determining density - it would be ideal if we could locate each protein within the \ecoli cell. However, as an \ecoli cell is normally not more than \SI{1}{\micro\meter} in its smallest dimension, and the optical resolution of the microscope is on the order of \SI{200}{\nano\meter}, this is unfeasible using epifluorescent techniques. However, by activating a small subset of all the fluorophores stochastically, identifying each fluorescent point as a fluorescently labelled protein it is possible to build up a composite picture of all the proteins. This has already been demonstrated to work for \ecoli chemotaxis receptors\cite{greenfield09}.
+In the context of our challenge - localising proteins and determining density - it would be ideal if we could locate each protein within the \ecoli cell. However, as an \ecoli cell is normally not more than \SI{1}{\micro\meter} in its smallest dimension, and the optical resolution of the microscope is on the order of \SI{200}{\nano\meter}, this is unfeasible using epifluorescent techniques. However, by activating a small subset of all the fluorophores stochastically, identifying each fluorescent point as a fluorescently labelled protein it is possible to build up a composite picture of all the proteins. This has already been demonstrated to work for \ecoli chemotaxis receptors\citep{greenfield09}.
 
 This stochastic illumination can be achieved in two ways. In Stochastic Optical Reconstruction Microscopy (STORM), a photo-switching fluorophore is required. A weak activation laser is used such that only a few fluorophores at a time are activated; these are then read off by normal excitation illumination. By contrast, in Photo-Activated Localisation Microscopy (PALM) `normal' fluorophores are used but a very powerful bleaching laser forces all but a few of them back to the ground state before they have a chance to fluoresce, achieving the same effect.
 
@@ -61,7 +61,7 @@ The image processing techniques required to convert the set of images into a set
 
 \subsubsection{STED Microscopy}
 
-Stimulated Emission Depletion (STED) microscopy is an extension of confocal microscopy that improves the resolution from the norm of around \SI{200}{\nano\meter} to, depending on equipment used, less than \SI{10}{\nano\meter}\cite{rittweger09}. A normal confocal illumination source is used, and combined with a doughnut shaped depletion source. The doughnut has an outer radius larger than the illumination source, and an adjustable inner radius less than that of the illumination source. The result is an effective illumination source that is the size of the hole in the doughnut, hence a higher resolution.
+Stimulated Emission Depletion (STED) microscopy is an extension of confocal microscopy that improves the resolution from the norm of around \SI{200}{\nano\meter} to, depending on equipment used, less than \SI{10}{\nano\meter}\citep{rittweger09}. A normal confocal illumination source is used, and combined with a doughnut shaped depletion source. The doughnut has an outer radius larger than the illumination source, and an adjustable inner radius less than that of the illumination source. The result is an effective illumination source that is the size of the hole in the doughnut, hence a higher resolution.
 
 \subsubsection{TIRF Microscopy}
 As this project is looking at proteins localised near the membrane of the cell, Total Internal Reflectance Fluorescence (TIRF) should have been an ideal technique. By firing a laser at an extremely oblique angle at the sample an evanescent wave is created where the laser reflects inside the coverslip. This extends about \SI{100}{\nano\meter} into the sample, depending on the angle at which the laser is incident. Only fluorophores within this field are activated, removing a lot of background noise.
@@ -78,7 +78,7 @@ This results in a degree of cross-polarised light being emitted from the sample,
 \subsection{Gibson Assembly}
 
 
-Gibson Assembly was developed by Daniel Gibson\cite{gibson09} in 2009 whilst working with J. Craig Venter on his synthetic genome\cite{venter10}. In brief, it allows for sequence independent seamless assembly of multiple lengths of DNA. The process requires short (\SIrange{20}{40}{\base}) homologous overlaps between each length to be assembled. These can be created using PCR, as described in figure~\ref{fig:gibsonPCR}.
+Gibson Assembly was developed by Daniel Gibson\citep{gibson09} in 2009 whilst working with J. Craig Venter on his synthetic genome\citep{venter10}. In brief, it allows for sequence independent seamless assembly of multiple lengths of DNA. The process requires short (\SIrange{20}{40}{\base}) homologous overlaps between each length to be assembled. These can be created using PCR, as described in figure~\ref{fig:gibsonPCR}.
 \begin{figure}[p]
 \subfloat[Two ends of DNA to be joined, in green and blue.]{
 \shortstack[l]{
@@ -98,7 +98,7 @@ Gibson Assembly was developed by Daniel Gibson\cite{gibson09} in 2009 whilst wor
 }
 \label{fig:gibsonPCR:primer}
 }
-\caption[Primer design for Gibson Assembly]{Depiction of the primers required to create overlap between two strands of arbitrary DNA For each strand of DNA, another primer is required at its other end, which may be either a normal primer if no further assembly is required, or another extension primer as appropriate. Figure adapted from BBF RFC57\cite{rfc57}.}
+\caption[Primer design for Gibson Assembly]{Depiction of the primers required to create overlap between two strands of arbitrary DNA For each strand of DNA, another primer is required at its other end, which may be either a normal primer if no further assembly is required, or another extension primer as appropriate. Figure adapted from BBF RFC57\citep{rfc57}.}
 \label{fig:gibsonPCR}
 \end{figure}
 
@@ -162,12 +162,12 @@ Once this overlap has been created, the lengths of DNA may be assembled in a sin
 }
 \label{fig:gibson:5}
 }
-\caption[Overview of the Gibson Assembly Process]{Overview of the Gibson Assembly Process. Green and blue DNA extend represents the two templates. Pink DNA represents PCR extension, and orange DNA represents bases added during the Gibson Assembly Process. All steps occur in the same isothermal reaction. Figure adapted from BBF RFC 57\cite{rfc57}.}
+\caption[Overview of the Gibson Assembly Process]{Overview of the Gibson Assembly Process. Green and blue DNA extend represents the two templates. Pink DNA represents PCR extension, and orange DNA represents bases added during the Gibson Assembly Process. All steps occur in the same isothermal reaction. Figure adapted from BBF RFC 57\citep{rfc57}.}
 \label{fig:gibson}
 \end{figure}
 
 \subsection{Objective}
-It is the objective of this project to prove whether CheZ dynamically clusters to the pole of \ecoli cells in response to a chemotactic stimulant. This will be measured ultimately using homo-FRET. The stimulant will be a chemical attractant or repellent; or blue light at \SI{440}{\nano\meter}\cite{wright06}, which is a repellent to the cells. Levels of chemical chemotactic stimulant will be varied using a microfluidic device.
+It is the objective of this project to prove whether CheZ dynamically clusters to the pole of \ecoli cells in response to a chemotactic stimulant. This will be measured ultimately using homo-FRET. The stimulant will be a chemical attractant or repellent; or blue light at \SI{440}{\nano\meter}\citep{wright06}, which is a repellent to the cells. Levels of chemical chemotactic stimulant will be varied using a microfluidic device.
 
 The primary challenges of this project are threefold:
 \begin{enumerate}
