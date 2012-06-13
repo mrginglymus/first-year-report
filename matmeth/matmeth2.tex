@@ -17,6 +17,14 @@ The microscope used after trialling was as follows:
 \item{Andor iXon 897 Ultra 512x512 pixel \SI{16}{\micro\meter} EMCCD camera}
 \end{itemize}
 
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=1]{figs/microscope.eps}
+\caption[Microscope schematic]{Microscope schematic. Whilst camera is shown on bottom port of microscope it is in fact mounted on left port. Numbered locations are for LED/filter combinations, given in table~\ref{table:ledlighting}. Lettered locations are for emission filters or dichroics,  given in table~\ref{table:filterset}.}
+\label{fig:microscope}
+\end{center}
+\end{figure}
+
 An OptoSplit II system from Cairn was employed to visualise both channels of Homo- or Hetero- FRET measurements simultaneously. This unit is placed in the lightpath between the microscope and the camera. Within it, a dichroic and pair of filters project the same half of the image onto each half of the camera sensor in different wavelengths or polarisation orientations. It is also possible to block one light path and allow the other to fully occupy the camera sensor by means of adjusting mirrors and shutters.
 
 Inside the OptoSplit II is a dichroic and two filters (one in the case of anisotropy). Whilst there is already good wavelength filtering by the excitation and emission dichroics, the filters are required to clean up the signal and remove any longer wavelengths.
@@ -26,11 +34,11 @@ Inside the OptoSplit II is a dichroic and two filters (one in the case of anisot
 \begin{center}
 \begin{tabular}{l|c|c|l}
 \textbf{Fluorophore}	&	\textbf{LED wavelength}	&	\textbf{Filter}	&	\textbf{Location} \\\hline
-mCherry	&	White	&	560/40x	&	Back	\\
-YFP		&	\SI{505}{\nano\meter}		&	500/20x	&	Back\\
-GFP		&	\SI{470}{\nano\meter}		&	470/40x	&	Back\\
-Blue		&	White	&	440/10x	&	Back\\
-Bright Field		&	White	&	\SI{590}{\nano\meter}	&	Top
+mCherry	&	White	&	560/40x	&	(1)	\\
+YFP		&	\SI{505}{\nano\meter}		&	500/20x	&	(2)\\
+GFP		&	\SI{470}{\nano\meter}		&	470/40x	&	(3)\\
+Blue		&	White	&	440/10x	&	(3)\\
+Bright Field		&	White	&	\SI{590}{\nano\meter}	&	(4)
 \end{tabular}
 \caption[LED lighting system]{LED lighting system for microscope. White LEDs comprised LED and phosphorescent elements. Excitation filter specifications give central wavelength and width of filter, both in \si{\nano\meter}, with the x denoting excitation.}
 \label{table:ledlighting}
@@ -41,7 +49,7 @@ Only one blue (GFP or Blue) LED could be used at any one time. Lights from the b
 
 The white light for bright field has a red (\SI{590}{\nano\meter}) filter placed in front of it as the white LED requires a phosphorescent element to achieve the right spread of wavelengths. This phosphorescent element can be excited by fluorescence excitation, causing a high level of light to be reflected back through the lens and into the camera. The red filter blocks this transmission and allows for rapid switching between bright field and fluorescent excitation without having to block the light path.
 
-For anisotropy measurements, a rotating linear polariser could be inserted in front of the YFP LED.
+For anisotropy measurements, a rotating linear polariser could be inserted in front of the YFP LED (position (2)).
 
 The entire microscope is mounted on a ThorLabs PerformancePlus Series II breadboard fitted to a ThorLabs Active Isolation frame. This was felt necessary due to the presence of noisy machinery in adjacent rooms, high foot traffic, and small size of the samples being observed (\(\sim\)\SI{2.5}{\micro\meter} in the largest dimension).
 
@@ -50,12 +58,12 @@ The entire microscope is mounted on a ThorLabs PerformancePlus Series II breadbo
 \begin{center}
 \begin{tabular}{l|c|c|c|c|c}
 &	\multicolumn{2}{c|}{Filter Wheel}	&	\multicolumn{3}{c}{OptoSplit II}	\\
-\textbf{Description}	&	\textbf{Dichroic}	&	\textbf{Filter}		& \textbf{Dichroic}	&	\textbf{Filter 1}	&	\textbf{Filter 2}	\\\hline
-YFP		&	\SI{515}{\nano\meter}		&	535/30m	&	-	&	-	&	-	\\
+\textbf{Description}	&	\textbf{Dichroic} (b)	&	\textbf{Filter} (a)		& \textbf{Dichroic} (e)	&	\textbf{Filter} (d)	&	\textbf{Filter} (c)	\\\hline
 mCherry	&	\SI{585}{\nano\meter}		&	630/75m	&	-	&	-	&	-	\\
-GFP		&	\SI{495}{\nano\meter}		&	525/50m	&	-	&	-	&	-	\\
-YFP\(\rightarrow\)mCherry Fret	&	\SI{515}{\nano\meter}	&	-	&	\SI{565}{\nano\meter}	&	545/40m	&	630/75m	\\
+YFP		&	\SI{515}{\nano\meter}		&	535/30m	&	-	&	-	&	-	\\
 YFP Anisotropy	&	\SI{515}{\nano\meter}	&	535/30m	&	Polarising	&	Polarising	&	-	\\
+YFP\(\rightarrow\)mCherry Fret	&	\SI{515}{\nano\meter}	&	-	&	\SI{565}{\nano\meter}	&	545/40m	&	630/75m	\\
+GFP		&	\SI{495}{\nano\meter}		&	525/50m	&	-	&	-	&	-	\\
 Bright field		&	-	&	-	&	-	&	-	&	-	
 \end{tabular}
 \caption[Microscope filter set]{Filter set. Emission filter specifications give central wavelength and width of filter, both in \si{\nano\meter}, with the m denoting emission.}
@@ -68,7 +76,7 @@ Bright field		&	-	&	-	&	-	&	-	&	-
 
 \subsubsection{Standard Protocols}
 \paragraph{MiniPreps} were performed with either a Fermentas GeneJet kit (for sequencing) or boiling lysis protocol (for anything else).
-\paragraph{PCR} was performed with phusion polymerase according to the following scheme:
+\paragraph{PCR} was performed with Phusion\textregistered\xpsace polymerase according to the following scheme:
 
 \begin{center}
 \begin{tabular}{lcc}
