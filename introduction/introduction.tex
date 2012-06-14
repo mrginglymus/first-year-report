@@ -26,7 +26,7 @@ Despite the extensive coverage of research, there are many areas yet to be fully
 
 Models of the chemotaxis system in which CheZ clusters at the polar clusters in response to increases in CheYp provide this required dynamic range. The proposed mechanism for this is shown in figure~\ref{fig:intro:chemo}. An increase in CheZ localised to the polar cluster will decrease global levels of CheYp more effectively than CheZ distributed throughout the cells, giving a negative feedback loop. Simulations of this loop are shown in figure~\ref{fig:intro:chemo:clusternetwork}, showing that is increases the dynamic range of the system to match that seen in \ecoli\citep{lipkow06}. To verify this, it is necessary to demonstrate that a greater or lesser proportion of CheZ can be found in the polar clusters while the cell is responding to a chemotactic stimulant, and this task will be the focus of much of this report.
 
-\begin{figure}[h!]
+\begin{figure}
 \begin{center}
 \subfloat[Attractant: low CheYp]{
 	\includegraphics[scale=1, clip=true, trim=0 0 115 12]{\docroot introduction/figs/chezclustering}
@@ -42,13 +42,21 @@ Models of the chemotaxis system in which CheZ clusters at the polar clusters in 
 \end{figure}
 \begin{figure}
 \begin{center}
-\includegraphics[scale=1]{\docroot introduction/figs/chezdynamics}
-\caption[Effect of CheZ clustering]{The effect of CheZ clustering, from \citet{lipkowfigs}.}
+\subfloat[Constant CheZ activity]{
+	\includegraphics[scale=1]{\docroot introduction/figs/chezactivityold}
+	\label{fig:intro:chezact:old}
+}
+\subfloat[Dynamic CheZ activity]{
+	\includegraphics[scale=1]{\docroot introduction/figs/chezactivitynew}
+	\label{fig:intro:chezact:new}
+}
+\subfloat{\includegraphics[scale=1]{\docroot introduction/figs/chezactivitykey}}
+\caption[Effect of CheZ clustering]{The effect of CheZ clustering, from \citet{lipkowfigs}. In~\subref{fig:intro:chezact:old}, with CheZ not clustering, a series of stepwise increases in CheA activity will eventually saturate the level of CheYp, meaning the cell has no further capacity to deal with increase in repellent. In~\subref{fig:intro:chezact:new}, with CheZ dynamically clustering, the same series of stepwise increases in CheA activity does not cause saturation of CheYp - for each change in the activity of CheA there is a corresponding change in the level of CheYp, allowing the cell to detect changes in repellent even at high basal levels of CheA activity.}
 \label{fig:intro:chemo:clusternetwork}
 \end{center}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}
 \begin{center}
 \subfloat[Canonical chemotaxis network]{\includegraphics[scale=1]{\docroot introduction/figs/chemotaxis-local-network}}\\
 \subfloat[Chemotaxis network with hypothesised CheZ feedback loop]{\includegraphics[scale=1]{\docroot introduction/figs/chemotaxis-local-feedback}}
@@ -56,7 +64,7 @@ Models of the chemotaxis system in which CheZ clusters at the polar clusters in 
 \label{fig:intro:netwok}
 \end{center}
 \end{figure}
-
+\newpage
 \subsection{Microscopy}
 
 Microscopy is a rapidly changing field, with advancements coming from all areas. Improvements in optics are yielding diminishing returns in increasing optical resolution, but new illumination and image processing techniques are allowing for finer and finer imaging using otherwise standard equipment, and most manufacturers are now emphasising this area of development more and more in their brochures.
@@ -80,7 +88,7 @@ As this project is looking at proteins localised near the membrane of the cell, 
 
 TIRF allows you to image only the closest \SIrange{50}{200}{\nano\meter} of the sample, removing a lot of background noise; see figure~\ref{fig:advtech:tirf}. However, aside from requiring a laser this is also a very tricky technique to set up and does not always give tangible benefits, especially given that the chemotaxis clusters could be found anywhere in the polar hemispheres of the cell.
 
-\begin{figure}[h!]
+\begin{figure}
 \begin{center}
 \subfloat[STORM/PALM]{
 	\includegraphics[scale=1]{\docroot introduction/figs/stormpalm}
@@ -107,7 +115,7 @@ TIRF allows you to image only the closest \SIrange{50}{200}{\nano\meter} of the 
 \subsubsection{FRET Microscopy}
 As opposed to STORM/PALM microscopy, which measure the location of fluorophores and then infer the density, it is possible to measure the density of a population directly. F\"orster Resonance Energy Transfer (FRET) is more commonly used to determine the coincidence of two different fluorophores (Hetero-FRET), but it can also be used to determine the coincidence of two identical fluorophores (Homo-FRET).
 
-\begin{figure}[h!]
+\begin{figure}
 \begin{center}
 \subfloat[Normal fluorophore activity]{
 	\includegraphics[scale=1]{\docroot introduction/figs/fluorophore}
@@ -127,7 +135,7 @@ In figure~\subref{fig:fret:homofret}, we see a fluorophore being excited by ligh
 \end{figure}
 
 Rather than measuring the conversion of emission from one fluorophore to the emission of another by filtering out different wavelengths as in hetero-FRET, homo-FRET exploits the polarising properties of fluorophores, as shown in figure~\ref{fig:fret}. Homo-FRET results in a degree of cross-polarised light being emitted from the sample, which corresponds to the number of fluorophores in close proximity to each other. This technique does not require lasers, but does need monomeric fluorophores that do not spin too fast. If they do, it is likely that some will be excited by the polarised light, but by the time they fluoresce will have spun into a cross-polarised orientation, giving a false signal.
-
+\newpage
 \subsection{Gibson Assembly}
 
 
