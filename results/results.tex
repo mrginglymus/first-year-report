@@ -17,20 +17,20 @@ Primers for standard cloning with multiple restriction sites were designed (see 
 
 Gibson assembly worked on the first time, and was used with a perfect success rate for all subsequent exchanges. Plasmids were split in to two to ensure that PCR would be able to run their entire length. 
 
-\begin{figure}[h!]
+\begin{figure}
 \begin{center}
 \includegraphics[width=\textwidth]{\docroot results/figs/gibsonpcr.png}
 \caption[Overlap PCR]{PCR to create overlaps for Gibson Assembly. Desired bands circled in red. Whilst each of the five PCR reactions had a lot of misprimes and over-extensions, the desired bands were strong enough to be easily visible, and after gel extraction specific enough to perform Gibson assembly successfully.}
 \end{center}
 \end{figure}
-
+\newpage
 \subsection{Inducer Calibration}
 
 Most fusion proteins were available, or could easily be made available, in both the pBAD33 or pTRC99a plasmid, induced by arabinose or IPTG respectively. As in some experiments we planned to induce two proteins using both, it was important to be able to balance the production of each, by performing titrating the inducer concentration. The expression of \textsl{CheZ-eYFP} was monitored in two strains, KL1001 and KL10019, induced by Arabinose and IPTG respectively (for details, see section~\ref{sec:plaspri}).
 
 Images are shown of each of four different concentrations of inducer \SI{3.5}{\hour} after induction in each strain.
 
-\begin{figure}[h!]
+\begin{figure}
 \begin{center}
 \subfloat[0.001\% Arabinose]{
 	\includegraphics[width=.45\linewidth]{\docroot results/figs/A1-yfp.jpg}
@@ -48,7 +48,7 @@ Images are shown of each of four different concentrations of inducer \SI{3.5}{\h
 \end{center}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}
 \begin{center}
 \subfloat[\SI{5}{\micro\Molar} IPTG]{
 	\includegraphics[width=.45\linewidth]{\docroot results/figs/S5-yfp.jpg}
@@ -97,6 +97,7 @@ t=0	&	Inoculate	&	Inoculate \& Induce\\
 \paragraph{Time Course}	A selection of inducer concentration from the inducer titre were re-run with samples being removed and imaged at \SI{2}{\hour}, \SI{3}{\hour} and \SI{4}{\hour} to find optimal expression.
  \end{comment}
 
+\newpage
 \subsection{Cluster Sizing using Image Processing}
 
 The following section contains results from image processing based techniques as described in section~\ref{sec:methods:imageprocessing}.
@@ -139,24 +140,32 @@ These experiments were performed on a Zeiss confocal microscope, the use of whic
 \label{fig:results:zeiss}
 \end{center}
 \end{figure}
-
+\newpage
 \subsection{Advanced Microscopy}
-\subsection{PALM}
-\begin{figure}
+\subsubsection{PALM}
+
+
+\begin{figure}[h!]
 \begin{center}
 \subfloat[Epifluorescent image]{
-	\includegraphics[scale=1]{figs/PALMOriginal}
+	\setlength\fboxsep{0pt}
+	\setlength\fboxrule{1pt}
+	\fbox{
+		\includegraphics[height=.48\textwidth]{\docroot results/figs/PALMOriginal}
+	}
 	\label{fig:results:palm:original}
-}\\
+}
 \subfloat[PALM reconstruction]{
-	\includegraphics[width=\textwidth]{figs/PALMReconstruction}
+	\fbox{
+		\includegraphics[height=.48\textwidth]{\docroot results/figs/PALMReconstruction}
+	}
 	\label{fig:results:palm:reconstruction}
 }
-\caption[PALM reconstruction]{PALM reconstruction of image. From 17990 frames in non-optimal media}
+\caption[PALM reconstruction]{PALM reconstruction of image. From 17990 frames in non-optimal media.}
 \label{fig:results:palm}
 \end{center}
 \end{figure}
-
+\newpage
 \subsection{Microfluidics}
 
 In order to obtain live imaging of the response to chemotactic chemicals, we must be able to replace the media in which the cells are contained with media of differing concentrations of attractant or repellent. Inspired by Howard Berg and Steven Block's work\citep{berg84} we set out to create a microfluidics flow cell that would allow for precise exchange of media. Aladdin pumps from WPI-Europe were used due to their relatively well documented scripting capabilities and economy - precision was not as pressing concern as normally found in microfluidic applications. Two different microfluidic devices were required.
