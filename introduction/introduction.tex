@@ -18,20 +18,33 @@ The outcome of this research is the following model of chemotaxis:
 \end{center}
 \end{figure}
 
-Transmembrane methyl-accepting chemotaxis proteins (MCPs), the chemoreceptors, sit in a cluster at one or both poles of the cell. The presence of repellents or attractants is transduced through a piston like motion\citep{hall11}, with the level of transduction modulated by the level of methylation. The methyltransferase CheR, localised to the MCP, constitutively methylates the MCPs. Phosphorylated methylesterase CheB competes with CheR to demthylate the MCPs. CheB activity is regulated by histidine kinase CheA, whose autophosphorylation is regulated by the activity of the  MCPs. Herein we find the first feedback mechanism, in which an increase in activity causes a decrease in sensitivity.
+Transmembrane methyl-accepting chemotaxis proteins (MCPs), the chemoreceptors, sit in a cluster at one or both poles of the cell. The presence of repellents or attractants is transduced through a piston like motion\citep{hall11}, with the level of transduction modulated by the level of methylation. The methyltransferase CheR, localised to the MCP, constitutively methylates the MCPs. Phosphorylated methylesterase CheB competes with CheR to demthylate the MCPs. CheB activity is regulated by transfer of phosphorylatin from histidine kinase CheA, whose autophosphorylation is regulated by the activity of the  MCPs. Herein we find the first feedback mechanism, in which an increase in activity causes a decrease in sensitivity. Autophosphorylation of CheA increases in response to an increase in repellent or decrease in attractant.
 
-Phosphorylated CheA also phosphorylates CheY, a messenger protein which diffuses throughout the cell. Downstream of this there is a bistable-like system which regulates the response of the motors to CheYp, but this is independent of all activity upstream of CheYp. The last significant protein in the \ecoli chemotaxis pathway is the phosphatase CheZ, which removes the phosphate group from CheY.
+Phosphorylated CheA also transfers its phosphorylation to CheY, a messenger protein which diffuses throughout the cell. Downstream of this there is a bistable-like system which regulates the response of the motors to CheYp, but this is independent of all activity upstream of CheYp. The last significant protein in the \ecoli chemotaxis pathway is the phosphatase CheZ, which removes the phosphate group from CheY.
 
-Despite the extensive coverage of research, there are many areas yet to be fully resolved. Amongst these is that simulations of the system as described above make it apparent that it does not have the same dynamic range as \ecoli do; that is, \ecoli can respond to small changes as well at already high concentrations as low concentrations. Another feedback loop is therefore required to allow the system to retain sensitivity as concentrations change.
+Despite the extensive coverage of research, there are many areas yet to be fully resolved. Amongst these is that simulations of the system above without the methyl feedback do not have the same dynamic range as \ecoli without methyl feedback do; that is, \ecoli can respond to small changes as well at already high concentrations as low concentrations even without the methyl feedback system. Therefore, there must be another feedback loop modulating the chemotaxis response to allow the system to retain sensitivity as concentrations change.
 
-Models of the chemotaxis system in which CheZ clusters at the polar clusters in response to changes in CheYp provide this required dynamic range, see figures~\ref{fig:intro:chemo} and~\ref{fig:intro:netwok}.
+Models of the chemotaxis system in which CheZ clusters at the polar clusters in response to increases in CheYp provide this required dynamic range. The proposed mechanism for this is shown in figure~\ref{fig:intro:chemo}. An increase in CheZ localised to the polar cluster will decrease global levels of CheYp more effectively than CheZ distributed throughout the cells, giving a negative feedback loop. Simulations of this loop are shown in figure~\ref{fig:intro:chemo:clusternetwork}, showing that is increases the dynamic range of the system to match that seen in \ecoli\citep{lipkow06}. To verify this, it is necessary to demonstrate that a greater or lesser proportion of CheZ can be found in the polar clusters while the cell is responding to a chemotactic stimulant, and this task will be the focus of much of this report.
 
 \begin{figure}[h!]
 \begin{center}
-\subfloat[Proposed mechanism of clustering]{\includegraphics[scale=1]{\docroot introduction/figs/chezclustering}}\label{fig:intro:chemo:mech}\\
-\subfloat[Improvement in dynamic range from CheZ clustering]{\includegraphics[scale=1]{\docroot introduction/figs/chezdynamics}\label{fig:intro:chemo:clusternetwork}}
-\caption[Proposed mechanism of CheZ clustering]{The mechanism and effect of the proposed clustering of CheZ, from \citet{lipkowfigs}}
+\subfloat[Attractant: low CheYp]{
+	\includegraphics[scale=1, clip=true, trim=0 0 115 12]{\docroot introduction/figs/chezclustering}
+	\label{fig:intro:chemo:mech1}
+}
+\subfloat[Repellent: high CheYp]{
+	\includegraphics[scale=1, clip=true, trim=190 0 0 12]{\docroot introduction/figs/chezclustering}
+	\label{fig:intro:chemo:mech2}
+}
+\caption[Proposed mechanism of clustering]{Proposed mechanism of clustering, from \citet{lipkowfigs}. In~\subref{fig:intro:chemo:mech1} the presence of an attractant maintains a low level of CheYp, and there is no oligomerisation of CheZ. Some CheZ is bound to CheA\textsubscript{short}. In~\subref{fig:intro:chemo:mech2}, the repellent maintains a high level of CheYp. This allows the CheZ to oligomerise. When one CheZ dimer in an oligomer binds to a CheA\textsubscript{short}, the entire oligomer is kept localised at the cluster.}
 \label{fig:intro:chemo}
+\end{center}
+\end{figure}
+\begin{figure}
+\begin{center}
+\includegraphics[scale=1]{\docroot introduction/figs/chezdynamics}
+\caption[Effect of CheZ clustering]{The effect of CheZ clustering, from \citet{lipkowfigs}.}
+\label{fig:intro:chemo:clusternetwork}
 \end{center}
 \end{figure}
 
@@ -43,8 +56,6 @@ Models of the chemotaxis system in which CheZ clusters at the polar clusters in 
 \label{fig:intro:netwok}
 \end{center}
 \end{figure}
-
-This feedback loop is what is covered in the work presented in this report. CheZ forms clusters at the poles of the cells, as well as being found distributed throughout the cytoplasm. Models show that dynamic localisation of CheZ in response to chemotactic activity would increase the dynamic range of the system to match that observed in \ecoli\citep{lipkow06}. To verify this, it is necessary to demonstrate that a greater or lesser proportion of CheZ can be found in the polar clusters while the cell is responding to a chemotactic stimulant.
 
 \subsection{Microscopy}
 
