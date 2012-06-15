@@ -4,7 +4,7 @@
 %%
 %% The original source files were:
 %%
-%% merlin.mbs  (with options: `ay,nat,nm-rev,ed-rev,jnrlst,jnrlab,nmlm,x50,x0,m10,m0,keyxyr,blkyear,dt-beg,yr-par,xmth,yr-com,yrp-x,note-yr,vol-bf,vnum-nr,volp-sp,pp-last,num-xser,jnm-x,isbn,issn,doi,edparxc,fin-bare,ppx,ed,xedn,amper,and-xcom,etal-xc,etal-it,nfss,')
+%% merlin.mbs  (with options: `ay,nat,nm-rev,ed-rev,jnrlst,jnrlab,nmlm,x50,x0,m10,m0,mcite,mct-1,mct-x3,keyxyr,blkyear,dt-beg,yr-par,xmth,yr-com,yrp-x,note-yr,vol-bf,vnum-nr,volp-sp,pp-last,num-xser,jnm-x,isbn,issn,doi,edparxc,fin-bare,ppx,ed,xedn,amper,and-xcom,etal-xc,etal-it,nfss,')
 %% ----------------------------------------
 %% *** First year report ***
 %% 
@@ -1229,27 +1229,48 @@ FUNCTION {chop.word}
   if$
 }
 FUNCTION {format.lab.names}
-{ 's :=
-  "" 't :=
-  s #1 "{vv~}{ll}{, jj}" format.name$
-  s num.names$ duplicate$
-  #2 >
-    { pop$
-      " " * bbl.etal emphasize *
-    }
-    { #2 <
-        'skip$
-        { s #2 "{ff }{vv }{ll}{ jj}" format.name$ "others" =
+{'s :=
+ "" 't :=
+  #1 'nameptr :=
+  s num.names$ 'numnames :=
+  numnames 'namesleft :=
+    { namesleft #0 > }
+    { s nameptr
+      "{vv~}{ll}{, jj}" format.name$
+      't :=
+      nameptr #1 >
+        {
+          nameptr #2 =
+          numnames #3 > and
+            { "others" 't :=
+              #1 'namesleft := }
+            'skip$
+          if$
+          namesleft #1 >
+            { ", " * t * }
             {
-              " " * bbl.etal emphasize *
+              s nameptr "{ll}" format.name$ duplicate$ "others" =
+                { 't := }
+                { pop$ }
+              if$
+              t "others" =
+                {
+                  " " * bbl.etal emphasize *
+                }
+                {
+                  "\&"
+                  space.word * t *
+                }
+              if$
             }
-            { " \& " * s #2 "{vv~}{ll}" format.name$
-              * }
           if$
         }
+        't
       if$
+      nameptr #1 + 'nameptr :=
+      namesleft #1 - 'namesleft :=
     }
-  if$
+  while$
 }
 
 FUNCTION {author.key.label}

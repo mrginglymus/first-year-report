@@ -7,19 +7,19 @@
 \subsection{Bacterial Chemotaxis as a Model System}
 The benefits of using model organisms in biology are comprehensive. In the field of systems biology, we move a step deeper and study model systems. Amongst them, bacterial chemotaxis in \ecolilong is one of the most extensively studied. The stoichiometry is well established~\citep{li04}, the structure of all major constituent proteins have been determined~\citep{zhou02, milligan87, stock89}, and the feedback loops involved described~\citep{kentner09} and robustness tested~\citep{yi00}. The \ecoli system has also been used as the basis for study of chemotaxis in other bacteria{hamadeh11}.
 
-In more recent times with the advent of more and more powerful computers, chemotaxis in \ecoli has presented itself as an ideal target for the development of advanced simulation packages, allowing researchers to postulate new and more detailed mechanisms of control~\citep{lipkow05}. Together with advances in high resolution microscopy~\citep{greenfield09} this has opened the door to new insights into the behaviour of the \ecoli chemotaxis network.
+In more recent times with the advent of more and more powerful computers, chemotaxis in \ecoli has presented itself as an ideal target for the development of advanced simulations~\citep{bray93, lipkow05, miller10}, allowing researchers to postulate new and more detailed mechanisms of control. Together with advances in high resolution microscopy~\citep{greenfield09} this has opened the door to new insights into the behaviour of the \ecoli chemotaxis network.
 
 The outcome of this research is the following model of chemotaxis (Figure~\ref{fig:chemo:bubble}):
 
 \paragraph{Transmembrane Methyl-accepting chemotaxis proteins} (MCPs) sit in a cluster at one or both poles of the cell. The presence of repellents or attratants is tranduced through a piston like motion~\citep{hall11}. Each MCP has four methylation sites. The level of transduction of the signal through the MCP is modulated by the number of methylated sites. MCP activity is increased by repellent and decreased by attractant, and more methyl sites give better transduction.
 
-\paragraph{CheA and CheW proteins} sit at the base of the MCPs. CheA is a histidine kinase, and in its active form may autophosphorylate in response to a transduced signal from an MCP.
+\paragraph{CheA and CheW proteins} sit at the base of the MCPs. CheA is a histidine kinase, and in its active form may autophosphorylate in response to a transduced signal from an MCP \citep{sourjik10}.
 
 \paragraph{CheB and CheR proteins} are a methylesterase and a methyltransferase, respectively. CheR binds loosely to the MCPs and constitutively adds methyl groups to them. CheB, which diffuses freely, must first receive a phosphate group from phosphorylated CheA (CheAp) before it may remove a methyl group from the MCPs. Thus a negative feedback loop is formed, whereby an increase in MCP activity will cause methyl groups to be removed from the MCPs, thus decreasing their efficacy in transducing signals.
 
 \paragraph{CheY protein} diffuses freely throughout the cell, and is the messenger protein responsible for carrying information from the polar clusters to the motor clusters. It carries this information by receiving the phosphate group from CheAp.
 
-\paragraph{Motor clusters} are located at various points along the side of the cell, and usually number between 3 and 5. A complex bi-stable like system regulates the direction of spin of the motor. Normally the motor turns counter clockwise. However, when a critical level of phosphrylated CheY (CheYp) is reached, the motor will spin clockwise, causing a tumble in the bacteria.
+\paragraph{Motor clusters} are located at various points along the side of the cell, and usually number between 5 and 8 \citep{wadhams04}. A complex bi-stable like system regulates the direction of spin of the motor. Normally the motor turns counter clockwise. However, when a critical level of phosphrylated CheY (CheYp) is reached, the motor will spin clockwise, causing a tumble in the bacteria.
 
 \paragraph{CheZ protein} is found diffusing freely throughout the cell and bound to CheA\textsubscript{short} (a truncated form of CheA) at the polar clusters, and dephosphorylates CheZ.
 

@@ -134,11 +134,11 @@ End of customized bst file
     x50,x0,%: Maximum of 50 authors
     m10,m0,%: Minimum of 10 authors
 %AUTHORS IN CITATIONS:
-   %: (def) One author et al
-%  mcite,%: Some other truncation scheme
+%   %: (def) One author et al
+  mcite,%: Some other truncation scheme
 %--------------------
 %MAX AUTHORS BEFORE ET AL: (if regular cite not selected)
-% mct-1,%: One et al
+ mct-1,%: One et al
 % mct-2,%: One, Two et al
 %  mct-3,%: One, Two, Three et al
 % mct-4,%: One, Two, Three, Four et al
@@ -147,7 +147,7 @@ End of customized bst file
 %--------------------
 %MAX AUTHORS WITHOUT ET AL: (if regular cite not selected)
 % mct-x2,%: Two authors without truncating
-%  mct-x3,%: Three authors
+  mct-x3,%: Three authors
 % mct-x4,%: Four authors
 % mct-x5,%: Five authors
 % mct-x6,%: Six authors
