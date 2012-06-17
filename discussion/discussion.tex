@@ -13,25 +13,24 @@ Manual calibration of TIRF is achieved by shifting the laser across the back foc
 
 We had in fact achieved oblique fluorescence microscopy, where the laser enters at a steep angle just short of total internal reflectance. This penetrates to a much greater depth than TIRF, but does not illuminate as much of the background as epifluorescence, resulting in a much better contrast to background.
 
-We were not able to check the results in the Nikon against those in the Leica due to timing issues; we did doubt whether we had achieved TIRF in Leica either. However, after our experience with the Nikon system we decided that it would be unwise to pursue TIRF further:
+We were not able to check the results in the Nikon against those in the Leica; we did doubt whether we had achieved TIRF in Leica either. However, after our experience with the Nikon system we decided that it would be unwise to pursue TIRF further for two main reasons:
 
-\begin{itemize}
-	\item Due to the difficulty in setting up TIRF it would be difficult to accurately obtain the same penetration depth each experiment
-	\item The penetration depth of the evanescent wave is a function of what it encounters - this will give uneven penetration across the image
-	\item The power of the evanescent wave decays rapidly over the distance it penetrates, giving further rise to uneven illumination
-	\item Ensuring that the polar clusters are within the evanescent wave proved troublesome, as the wave only penetrated a few hundred nanometers, whilst the cells were around one micron across. Assuming the cell was lying flat, the cluster could be well out of reach of the wave. We did investigate the possibility of forcing the cells into standing head on, but as this is not a standard technique it would have distracted from the aims of the experiments
-	\item Perhaps most significantly, we were interested in the fraction of proteins in the cluster to those in the cell, and this required illumination of the entire cell. This would be highly unworkable if the system required recalibration between each method of illumination
-\end{itemize}
+\begin{enumerate}
+	\item Our work is highly quantitative. From what we had seen in the demonstrations, TIRF had several properties that could make it less quantitative than required, such as uneven penetration depth and illumination, and a highly complex and hard to reproduce set up procedure.
+	\item The clusters can be located, and indeed move around, anywhere on the polar hemisphere of the cell. An illumination penetration depth of only \SI{200}{\nano\meter} will mean that a lot of clusters may not be seen, whatever the orientation of the cell. 
+\end{enumerate}
 
 \subsubsection{Super-resolution microscopy}
 
 \paragraph{STED microscopy} Whilst an improvement on confocal in terms of resolution, it did not offer significant enough improvement for our purposes to give any tangible benefit, whilst also being hugely more expensive.
 
-\paragraph{Localisation Microscopy} We were only able to obtain a brief demo of a Leica GSD system. However, the system worked extremely well on KL1005 cells without any special preparation. Unfortunately, there is little evidence yet that localisation like systems are suitable for our purposes. Despite being considerably cheaper than confocal microscopes, we still considered it too much of a risk to invest serious time or money in presently.
+\paragraph{Localisation Microscopy} We were only able to obtain a brief demo of a Leica GSD system. However, the system worked extremely well on KL1005 cells without any special preparation. However, there is still some question as to whether localisation microscopy could provide the required resolution for our purposes. Also, even with the fastest cameras on the market, the time resolution would not be adequate for the live imaging that we have planned. However, the technique and technologies are still improving, and so in the future this could be a viable and beneficial method to employ.
 
 \subsubsection{Final Microscope Setup}
 
-We agreed on our final choice of microscope after trying many different combinations. The Nikon was chosen for its high degree of modularity, giving us plenty of room to expand when necessary. The 100X TIRF lens is one of the best in its class, and the 40X has a low numerical aperture to make it suitable for anisotropy measurements~\citep{lakowicz}. The Andor camera met the right balance of sensor size and speed - a large sensor both costs more and takes longer to read out. The field of view of the chosen camera was around \SI{82}{\micro\meter} on a 100X objective; more than enough to view objects not usually more than \SI{1.5}{\micro\meter} long. The Andor camera also had very high sensitivity, which was critical for our application due to the rapid imaging required and low intensity of emission of our cells.
+We agreed on our final choice of microscope after trying many different combinations. The Nikon was chosen for its high degree of modularity, giving us plenty of room to expand when necessary. The 100X TIRF lens is one of the best in its class, and the 40X has a low numerical aperture to make it suitable for anisotropy measurements~\citep{lakowicz}. The Andor camera met the right balance of sensor size and speed - a large sensor both costs more and takes longer to read out. The field of view of the chosen camera was around \SI{82}{\micro\meter} on a 100X objective; more than enough to view objects not usually more than \SI{2.5}{\micro\meter} long. The Andor camera also had very high sensitivity, which was critical for our application due to the rapid imaging required and low intensity of emission of our cells.
+
+A LED lighting system was used primarily as the easiest way to mix two wavelengths of light without using lasers, as required for blue light repellent with imaging. As a side bonus, LEDs have better stability, are cheaper to install and maintain, and do not require mechanical shutters to do extremely fast switching times. 
 
 \subsection{Cluster Sizing using Image Processing}
 

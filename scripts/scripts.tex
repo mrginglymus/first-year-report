@@ -3,7 +3,7 @@
 \begin{document}
 
 \section{Scripts}
-
+\label{sec:scripts}
 This appendix contains links to and brief descriptions of all the scripts mentioned throughout this report:
 
 \subsection{Cluster Spotting}
@@ -22,6 +22,44 @@ Files required from this repository are:
 \texttt{cluster\_gui.fig}	&	
 \end{tabular}
 
+\subsubsection{cell\_finder.m}\ \\
+\texttt{[ cell\_mask, all\_cells, masks ] = cell\_finder( image, pixel\_size, search\_radius, minimum\_size, maximum\_size, eccentricity, solidity, max\_brightness ) }
+\\\\
+This function takes as its input the image of the cells, along with the following parameters:
+\\\\
+\begin{tabular}{rl}
+Pixel Size		&	Length of pixel in microns\\
+Search Radius 	&	Radius in which to search for cluster in microns\\
+Minimum Size		&	Smallest cell size in square microns\\
+Maximum Size		&	Largest cell size in square microns\\
+Eccentricity		&	Minimum ratio of cell length to cell width\\
+Solidity			&	Minimum solidity\\
+Maximum Brightness	&	Maximum total brightness of cell
+\end{tabular}
+\\\\
+The solidity gives a measure of the curvature of the cell. It measures the proportion of the convex hull of the cell that is occupied by the cell itself. If it is less than 0.8 then the cell is curved, or T-shaped, and thus not considered.
+
+As its output the function gives an image mask to identify all cells identified as valid (\texttt{cell\_mask}), an image mask to identify all cells (\texttt{all\_cells}), and a series of other masks identifying all cells disqualified for being too small, large, round, bright, or not solid enough.
+
+\subsubsection{cluster\_finder.m}\ \\
+\texttt{[ cluster\_fraction, com\_pass, com\_fail ] = cluster\_finder( image, cell\_mask, all\_cells, pixel\_size, threshold, search\_radius, min\_cluster\_size, max\_cluster\_size ) }
+\\\\
+This function takes as its inputs the image of the cells, and the first two cell masks as described in the previous function. Along with these it takes the following parameters:
+\\\\
+\begin{tabular}{rl}
+Pixel Size		&	Length of pixel in microns\\
+Threshold		&	Minimum intensity for peak of cluster, relative to mean cell intensity\\
+Search Radius 	&	Radius in which to search for cluster in microns\\
+Minimum cluster size	&	Smallest radius of cluster in microns\\
+Maximum cluster size	&	Maximum radius of cluster in microns
+\end{tabular}
+\\\\
+As its output it provides a vector containing, for each cluster, the fraction of protein in the whole cell that was found in the cluster. It also contains two vectors containing the centres of mass of each identified cluster and each cluster that failed to meet the given constraints.
+
+\subsubsection{Other files}
+All other files listed above are non-scriptable interactive programs and so function definitions are not given here.
+
+
 \subsection{Anisotropy/OptoSplit}
 \label{sec:scripts:anisotropy}
 Repository location: \url{https://github.com/mrginglymus/anisotropy}\\
@@ -36,6 +74,8 @@ Files required from this repository are:
 \texttt{optosplit.m}	&	Converts a 3D set of images (XYt) into a 4D set of images (XYCt) based on an image, an alignment file from the above script or an alignment file from ImageJ
 \end{tabular}
 
+As these tools are still in active development, specific details of operation are not given as they are likely to change soon.
+
 \subsection{MicroManager Scripts}
 \label{sec:scripts:micromanager}
 
@@ -49,5 +89,7 @@ Files available from this repository are:
 \texttt{BlueLight.bsh}	&	Script for running experiments using blue light activation of the chemotaxis response \\
 \texttt{Microscope.cfg}	&	Micro-Manager config file for our microscope
 \end{tabular}
+
+As these tools are still in active development, specific details of operation are not given as they are likely to change soon.
 
 \end{document}

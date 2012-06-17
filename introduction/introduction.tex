@@ -9,6 +9,8 @@ The benefits of using model organisms in biology are comprehensive. In the field
 
 In more recent times with the advent of more and more powerful computers, chemotaxis in \ecoli has presented itself as an ideal target for the development of advanced simulations~\citep{bray93, lipkow05, miller10}, allowing researchers to postulate new and more detailed mechanisms of control. Together with advances in high resolution microscopy~\citep{greenfield09} this has opened the door to new insights into the behaviour of the \ecoli chemotaxis network.
 
+\subsubsection{Canonical model}
+
 The outcome of this research is the following model of chemotaxis (Figure~\ref{fig:chemo:bubble}):
 
 \paragraph{Transmembrane Methyl-accepting chemotaxis proteins} (MCPs) sit in a cluster at one or both poles of the cell. The presence of repellents or attratants is tranduced through a piston like motion~\citep{hall11}. Each MCP has four methylation sites. The level of transduction of the signal through the MCP is modulated by the number of methylated sites. MCP activity is increased by repellent and decreased by attractant, and more methyl sites give better transduction.
@@ -34,11 +36,17 @@ Thus, from beginning to end, a repellent binding to an MCP will cause an increas
 \end{center}
 \end{figure}
 
-Despite the extensive coverage of research, there are many areas yet to be fully resolved. Amongst these is that simulations of the system above without the methyl feedback do not have the same dynamic range as \ecoli without methyl feedback do; that is, \ecoli can respond to small changes as well at already high concentrations as low concentrations even without the methyl feedback system. Therefore, there must be another feedback loop modulating the chemotaxis response to allow the system to retain sensitivity as concentrations change.
+\subsubsection{CheZ clustering}
 
-Models of the chemotaxis system in which CheZ clusters at the polar clusters in response to increases in CheYp provide this required dynamic range. The proposed mechanism for this is shown in Figure~\ref{fig:intro:chemo}. An increase in CheZ localised to the polar cluster will decrease global levels of CheYp more effectively than CheZ distributed throughout the cells, giving a negative feedback loop. Simulations of this loop are shown in Figure~\ref{fig:intro:chemo:clusternetwork}, showing that is increases the dynamic range of the system to match that seen in \ecoli~\citep{lipkow06}. To verify this, it is necessary to demonstrate that a greater or lesser proportion of CheZ can be found in the polar clusters while the cell is responding to a chemotactic stimulant, and this task will be the focus of much of this report.
+One phenomena of the many that are yet to be resolved in the \ecoli chemotaxis system is that in strains without methyl adaptation enzymes (CheR and CheB), some negative feedback is still observed~\citep{stock85}. In the canonical model there is nothing to support this observation - the methyl based feedback loop is the only one. Therefore, there must be some other negative feedback loop at play.
 
-\begin{figure}
+CheZ is commonly described as diffusing freely throughout the cell as a homodimer. However, CheZ has been reported to form oligomers in the presence of CheYp~\citep{blat95, blat98}. These oligomers show higher activity in the presence of CheA\textsubscript{short}, found mostly in the chemotactic clusters.
+
+Models of the chemotaxis system (without methyl adaptation) which model CheZ both as freely diffusing homodimers and as more active clustered oligomers, allowing interchange between both states (Figure~\ref{fig:intro:chemo}), have shown the same characteristics as the observed properties of \ecoli without methyl adaptation enzymes (Figure~\ref{fig:intro:chemo:clusternetwork})~\citep{lipkowfigs}, lending credence to the hypothesis that dynamic CheZ clustering provides the missing negative feedback loop (Figure~\ref{fig:intro:netwok}).
+
+To verify this, it is necessary to demonstrate that a greater or lesser proportion of CheZ can be found in the polar clusters while the cell is responding to a chemotactic repellent or attractant respectively. This task, along with the associated challenges in microscopy, will be the focus of much of this report.
+
+\begin{figure}[p]
 \begin{center}
 \subfloat[Attractant: low CheYp]{
 	\includegraphics[scale=1, clip=true, trim=0 0 115 12]{\docroot introduction/figs/chezclustering}
@@ -48,11 +56,11 @@ Models of the chemotaxis system in which CheZ clusters at the polar clusters in 
 	\includegraphics[scale=1, clip=true, trim=190 0 0 12]{\docroot introduction/figs/chezclustering}
 	\label{fig:intro:chemo:mech2}
 }
-\caption[Proposed mechanism of clustering]{Proposed mechanism of clustering, modified from \citet{lipkow06}. In~\subref{fig:intro:chemo:mech1} the presence of an attractant maintains a low level of CheYp, and there is no oligomerisation of CheZ. Some CheZ is bound to CheA\textsubscript{short}. In~\subref{fig:intro:chemo:mech2}, the repellent maintains a high level of CheYp. This allows the CheZ to oligomerise. When one CheZ dimer in an oligomer binds to a CheA\textsubscript{short}, the entire oligomer is kept localised at the cluster.}
+\caption[Proposed mechanism of clustering]{Proposed mechanism of clustering, modified from \citet{lipkow06}. In~\subref{fig:intro:chemo:mech1} the presence of an attractant maintains a low level of CheYp, and there is no oligomerisation of CheZ. Some CheZ is bound to CheA\textsubscript{short}. In~\subref{fig:intro:chemo:mech2}, the repellent maintains a high level of CheYp. This allows the CheZ to oligomerise, and, when bound to CheA\textsubscript{short}, become more efficacious in removing the phosphate group from CheYp.}
 \label{fig:intro:chemo}
 \end{center}
 \end{figure}
-\begin{figure}
+\begin{figure}[p]
 \begin{center}
 \subfloat[Constant CheZ activity]{
 	\includegraphics[scale=1]{\docroot introduction/figs/chezactivityold.png}
