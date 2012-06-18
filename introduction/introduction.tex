@@ -5,7 +5,7 @@
 \section{Introduction}
 
 \subsection{Bacterial Chemotaxis as a Model System}
-The benefits of using model organisms in biology are comprehensive. In the field of systems biology, we move a step deeper and study model systems. Amongst them, bacterial chemotaxis in \ecolilong is one of the most extensively studied. The stoichiometry is well established~\citep{li04}, the structure of all major constituent proteins have been determined~\citep{zhou02, milligan87, stock89}, and the feedback loops involved described~\citep{kentner09} and robustness tested~\citep{yi00}. The \ecoli system has also been used as the basis for study of chemotaxis in other bacteria{hamadeh11}.
+The benefits of using model organisms in biology are comprehensive. In the field of systems biology, we move a step deeper and study model systems. Amongst them, bacterial chemotaxis in \ecolilong is one of the most extensively studied. The stoichiometry is well established~\citep{li04}, the structure of all major constituent proteins have been determined~\citep{zhou02, milligan87, stock89}, and the feedback loops involved described~\citep{kentner09} and robustness tested~\citep{yi00}. The \ecoli system has also been used as the basis for study of chemotaxis in other bacteria~\citep{hamadeh11}.
 
 In more recent times with the advent of more and more powerful computers, chemotaxis in \ecoli has presented itself as an ideal target for the development of advanced simulations~\citep{bray93, lipkow05, miller10}, allowing researchers to postulate new and more detailed mechanisms of control. Together with advances in high resolution microscopy~\citep{greenfield09} this has opened the door to new insights into the behaviour of the \ecoli chemotaxis network.
 
@@ -13,15 +13,15 @@ In more recent times with the advent of more and more powerful computers, chemot
 
 The outcome of this research is the following model of chemotaxis (Figure~\ref{fig:chemo:bubble}):
 
-\paragraph{Transmembrane Methyl-accepting chemotaxis proteins} (MCPs) sit in a cluster at one or both poles of the cell. The presence of repellents or attratants is tranduced through a piston like motion~\citep{hall11}. Each MCP has four methylation sites. The level of transduction of the signal through the MCP is modulated by the number of methylated sites. MCP activity is increased by repellent and decreased by attractant, and more methyl sites give better transduction.
+\paragraph{Transmembrane Methyl-accepting Chemotaxis Proteins} (MCPs) sit in a cluster at one or both poles of the cell. The presence of repellents or attractants is thought to be transduced through a piston like motion~\citep{hall11}. Each MCP has four to five methylation sites. The level of transduction of the signal through the MCP is modulated by the number of methylated sites. MCP activity, as defined by its ability to activate CheA, is increased by repellent and decreased by attractant. It is also increased with the number of methylated sites.
 
-\paragraph{CheA and CheW proteins} sit at the base of the MCPs. CheA is a histidine kinase, and in its active form may autophosphorylate in response to a transduced signal from an MCP \citep{sourjik10}.
+\paragraph{CheA and CheW proteins} sit at the base of the MCPs. CheA is a histidine kinase, and in its active form can autophosphorylate in response to a transduced signal from an MCP \citep{sourjik10}.
 
-\paragraph{CheB and CheR proteins} are a methylesterase and a methyltransferase, respectively. CheR binds loosely to the MCPs and constitutively adds methyl groups to them. CheB, which diffuses freely, must first receive a phosphate group from phosphorylated CheA (CheAp) before it may remove a methyl group from the MCPs. Thus a negative feedback loop is formed, whereby an increase in MCP activity will cause methyl groups to be removed from the MCPs, thus decreasing their efficacy in transducing signals.
+\paragraph{CheB and CheR proteins} are a methylesterase and a methyltransferase, respectively. CheR binds loosely to the MCPs and constitutively adds methyl groups to them. CheB, which diffuses freely, must first receive a phosphate group from phosphorylated CheA (CheAp) before it may remove a methyl group from the MCPs. Thus a negative feedback loop is formed, whereby an increase in MCP activity will cause methyl groups to be removed from the MCPs, thus decreasing their efficacy in activating CheA.
 
 \paragraph{CheY protein} diffuses freely throughout the cell, and is the messenger protein responsible for carrying information from the polar clusters to the motor clusters. It carries this information by receiving the phosphate group from CheAp.
 
-\paragraph{Motor clusters} are located at various points along the side of the cell, and usually number between 5 and 8 \citep{wadhams04}. A complex bi-stable like system regulates the direction of spin of the motor. Normally the motor turns counter clockwise. However, when a critical level of phosphrylated CheY (CheYp) is reached, the motor will spin clockwise, causing a tumble in the bacteria.
+\paragraph{Motor clusters} are located at various points along the side of the cell, and usually number between 5 and 8 \citep{wadhams04}. A complex bi-stable like system regulates the direction of spin of the motor, regulated by the level of CheYp. Normally the motor turns counter clockwise, but rising leves of CheYp can trigger a reversal, causing a tumble in the bacteria.
 
 \paragraph{CheZ protein} is found diffusing freely throughout the cell and bound to CheA\textsubscript{short} (a truncated form of CheA) at the polar clusters, and dephosphorylates CheZ.
 
@@ -87,12 +87,14 @@ To verify this, it is necessary to demonstrate that a greater or lesser proporti
 \newpage
 \subsection{Microscopy}
 
-Microscopy is a rapidly changing field, with advancements coming from all areas. Improvements in optics are yielding diminishing returns in increasing optical resolution, but new illumination and image processing techniques are allowing for finer and finer imaging using otherwise standard equipment, and most manufacturers are now emphasising this area of development more and more in their brochures.
+Microscopy is a rapidly changing field, with advancements coming from all areas. Improvements in optics are yielding diminishing returns in increasing optical resolution as optical resolution (r) is limited not only by the numerical aperture of the lens but the wavelength of light being used:
+\[ r = \dfrac{0.61\lambda}{NA}\]
+However, new illumination and image processing techniques are allowing for finer and finer imaging using otherwise standard equipment, and most manufacturers are now emphasising this area of development more and more in their brochures.
 
 \subsubsection{Localisation Microscopy}
-In the context of our challenge - localising proteins and determining density - it would be ideal if we could locate each protein within the \ecoli cell. However, as an \ecoli cell is normally not more than \SI{1}{\micro\meter} in its smallest dimension, and the optical resolution of the microscope is on the order of \SI{200}{\nano\meter}, this is unfeasible using epifluorescent techniques. However, by activating a small subset of all the fluorophores stochastically, identifying each fluorescent point as a fluorescently labelled protein it is possible to build up a composite picture of all the proteins. This has already been demonstrated to work for \ecoli chemotaxis receptors~\citep{greenfield09}.
+In the context of our challenge - localising proteins and determining density - it would be ideal if we could locate each protein within the \ecoli cell. However, as an \ecoli cell is normally not more than \SI{1}{\micro\meter} in its smallest dimension, and the optical resolution of the microscope is on the order of \SI{200}{\nano\meter}, this is unfeasible using epifluorescent or confocal techniques. However, by activating a small subset of all the fluorophores stochastically and identifying each fluorescent point as a fluorescently labelled protein, it is possible to build up a composite picture of all the proteins. This has already been demonstrated to work for \ecoli chemotaxis receptors~\citep{greenfield09}.
 
-This stochastic illumination can be achieved in three ways. In Stochastic Optical Reconstruction Microscopy (STORM) or Photo-Activated Localisation Microscopy (PALM), a photo-switching fluorophore is required. A weak activation laser is used such that only a few fluorophores at a time are activated; these are then read off by normal excitation illumination. In Ground State Depletion Microscopy (GSD), `normal' fluorophores are used but a very powerful bleaching laser forces all but a few of them back to the ground state before they have a chance to fluoresce, achieving the same effect (Figure~\ref{fig:advtech:stormpalm}).
+This stochastic illumination can be achieved in three ways. In Stochastic Optical Reconstruction Microscopy (STORM) or Photo-Activated Localisation Microscopy (PALM), a photo-switching fluorophore is required. A weak activation laser is used such that only a few fluorophores at a time are activated; these are then read off by normal excitation illumination. In Ground State Depletion microscopy (GSD), standard fluorophores are used but a very powerful bleaching laser forces all but a few of them back to the ground state before they have a chance to fluoresce, achieving the same effect (Figure~\ref{fig:advtech:stormpalm}).
 
 STORM, PALM and GSD all require highly sensitive and very fast cameras. They do not require very high resolution optics however, as all that is taken from the optics is the location of a 2D Gaussian. Even so, the higher the resolution the more fluorophores can be imaged simultaneously and the shorter each capture takes. The number of frames required for an image to be built up varies depending on how many fluorophores are being imaged - the more frames the better - but 10,000 is considered to be a reasonable number. Even with some of the fastest cameras available today this would take several seconds.
 
@@ -122,16 +124,16 @@ As this project is looking at proteins localised near the membrane of the cell, 
 }
 \caption[Three advanced microscopy techniques]{Depiction of three advanced microscopy techniques.
 
-\subref{fig:advtech:stormpalm}: Localisation Microscopy. A small subset of the fluorophores fluoresce. In (i) we see a representation of what the image miht look like under epifluorescence. Thousands of images are taken of different subsets of fluorophores (ii). The images may then be processed and each fluorophore localised, allowing for the detection of otherwise unresolvable fine structures (iii).
+\subref{fig:advtech:stormpalm}: Localisation Microscopy. A small subset of the fluorophores fluoresce. In (i) we see a representation of what the image might look like under epifluorescence. Thousands of images are taken of different subsets of fluorophores (ii). The images may then be processed and each fluorophore localised, allowing for the detection of otherwise unresolvable fine structures (iii).
 
-\subref{fig:advtech:sted}: STED microscopy. Colours are representative. The activation laser (green) is focussed to its smallest size, around \SI{200}{\nano\meter}. A high power redder laser (red) is formed into a doughnut shape and superimposed. This redder laser depletes any excited fluorophores before they can fluoresce, except in the gap in the middle. This gives an effective excitation spot size down to less than \SI{10}{\nano\meter}~\citep{rittweger09}.
+\subref{fig:advtech:sted}: STED microscopy. Colours are representative. The activation laser (green) is focussed to its smallest size, around \SI{200}{\nano\meter}. A high power laser of longer wavelength (red) is formed into a doughnut shape and superimposed. This redder laser depletes any excited fluorophores before they can fluoresce, except in the gap in the middle. This gives an effective excitation spot size down to less than \SI{10}{\nano\meter}~\citep{rittweger09}.
 
 \subref{fig:advtech:tirf}: TIRF microscopy. The laser (red) is shone at an extremely oblique angle at the sample through the coverslip (blue). The laser totally internally reflects, forming a decaying evanescent wave (red gradient) in the sample (yellow). The wave is strongest closest to the coverslip, and penetrates further the less oblique the angle, reaching a maximum just before the laser stops reflecting internally, usually at around \SI{200}{\nano\meter}.}
 \end{center}
 \end{figure}
 
 \subsubsection{FRET Microscopy}
-As opposed to localisaiton microscopy, which measure the location of fluorophores and then infer the density, it is possible to measure the density of a population directly. F\"orster Resonance Energy Transfer (FRET) is more commonly used to determine the coincidence of two different fluorophores (Hetero-FRET), but it can also be used to determine the coincidence of two identical fluorophores (Homo-FRET).
+As opposed to localisation microscopy, which measure the location of fluorophores and then infer the density, it is possible to measure the density of a population directly. F\"orster Resonance Energy Transfer (FRET) is more commonly used to determine the coincidence of two different fluorophores (Hetero-FRET), but it can also be used to determine the coincidence of two identical fluorophores (Homo-FRET), at a distance of around \SI{5}{\nano\meter}~\citep{akrap11}.
 
 \begin{figure}
 \begin{center}
@@ -176,7 +178,7 @@ Gibson Assembly was developed by Daniel Gibson~\citep{gibson09} in 2009 whilst w
 }
 \label{fig:gibsonPCR:primer}
 }
-\caption[Primer design for Gibson Assembly]{Depiction of the primers required to create overlap between two strands of arbitrary DNA For each strand of DNA, another primer is required at its other end, which may be either a normal primer if no further assembly is required, or another extension primer as appropriate. Figure adapted from BBF RFC57~\citep{rfc57}.}
+\caption[Primer design for Gibson Assembly]{Depiction of PCR primers required to create overlap between two strands of arbitrary DNA For each strand of DNA, another primer is required at its other end, which may be either a normal primer if no further assembly is required, or another extension primer as appropriate. Figure adapted from BBF RFC57~\citep{rfc57}.}
 \label{fig:gibsonPCR}
 \end{figure}
 
@@ -247,16 +249,17 @@ Once this overlap has been created, the lengths of DNA may be assembled in a sin
 \subsection{Objective}
 It is the objective of this project to test whether CheZ dynamically clusters to the pole of \ecoli cells in response to a chemotactic stimulant. A significant portion of this project will be devoted to determining the most appropriate microscopy technique. The stimulant will be a chemical attractant or repellent; or blue light at \SI{440}{\nano\meter}~\citep{wright06}, which is a repellent to the cells. Levels of chemical chemotactic stimulant will be varied using a microfluidic device.
 
-The primary challenges of this project are threefold:
+The primary challenges of this project are fourfold:
 \begin{enumerate}
 \item Determine the most appropriate microscopy technique and implement it
 \item Design and implement a microfluidics set-up for media exchange
 \item Design and create \ecoli strains with the necessary protein fusions
+\item Improve the ease and efficiency of DNA assembly by developing computer aided design tools
 \end{enumerate}
 
 The secondary challenges of this project include
 \begin{enumerate}
-\item Replicate homo-FRET results for clustering of Tar proteins
+\item Replicate homo-FRET results for clustering of Tar proteins as a positive control
 \item Develop image processing tools for high throughput cluster identification
 \item Develop image processing tools for high throughput anisotropy
 \end{enumerate}

@@ -35,7 +35,7 @@ The entire microscope is mounted on a ThorLabs PerformancePlus Series II breadbo
 \begin{figure}[p]
 \begin{center}
 \includegraphics[scale=1]{\docroot matmeth/figs/microscope.eps}
-\caption[Microscope schematic]{Microscope schematic. Whilst camera is shown on bottom port of microscope for ease of presentation it is in fact mounted on left port. Numbered locations are for LED/filter combinations, given in Table~\ref{table:ledlighting}. Lettered locations are for emission filters or dichroics,  given in Table~\ref{table:filterset}. The light from the LEDs in position 1 and 2 are combined by the dichroic 515DCXR, and then combined with the light from the LED in position 3 by the dichroic T495LPXR.}
+\caption[Microscope schematic]{Microscope schematic. Whilst the camera is shown on bottom port of microscope for ease of presentation it is in fact mounted on the left port. Numbered locations are for LED/filter combinations, given in Table~\ref{table:ledlighting}. Lettered locations are for emission filters or dichroics,  given in Table~\ref{table:filterset}. The light from the LEDs in position 1 and 2 are combined by the dichroic 515DCXR, and then combined with the light from the LED in position 3 by the dichroic T495LPXR. Image generated using templates from Cairn Research.}
 \label{fig:microscope}
 \end{center}
 \end{figure}
@@ -113,6 +113,10 @@ Hold				&	\SI{4}{\degreeCelsius}		&	\(\infty\)
 
 \paragraph{Transformation} was performed on \ce{CaCl2} competent cells using a protocol modified from~\citet{transform}, then plated onto LB Agar plates with appropriate antibiotic.
 
+\subsubsection{Chemicals}
+
+Unless specified otherwise, chemicals were from Sigma Aldrich, of the highest grade available.
+
 \subsubsection{Gibson Assembly}
 
 Gibson Assembly can be performed in volumes from about \SIrange{5}{20}{\micro\litre}. Initially, larger volumes were used but as efficiency became apparent smaller volumes were used to economise. Roughly equimolar concentrations of gel purified overlapping DNA were added to the 1.33X Gibson Master Mix in a \SI{50}{\micro\litre} tube on ice. This was incubated for \SI{1}{\hour} at \SI{50}{\degreeCelsius}, before being returned to ice. \SIrange{5}{10}{\micro\litre} was then used to transform cells.
@@ -160,9 +164,9 @@ Nuclease free water		&			&	...\\\hline
 The following protocol was followed for preparing cells for microscopy.
 
 \begin{enumerate}
-\item Prepare \SI{2}{\milli\litre} overnight culture with appropriate antibiotic.
-\item Inoculate \SI{20}{\micro\litre} overnight culture in \SI{2}{\milli\litre} fresh LB withappropraite antibiotic and inducer.
-\item Pellet the cells in a \SI{1.5}{\milli\litre} microcentrifuge tube for \SI{10}{\minute} at \SI{1600}{\grav}.
+\item Prepare \SI{2}{\milli\litre} overnight culture with appropriate antibiotic (\SI{100}{\micro\gram\per\milli\litre} ampicillin and/or \SI{34}{\micro\gram\per\milli\litre} chloramphenicol).
+\item Inoculate \SI{20}{\micro\litre} overnight culture in \SI{2}{\milli\litre} fresh LB with appropraite antibiotic and inducer (\SI{25}{\micro\molar} IPTG or 0.01\% arabinose, unless stated otherwise).
+\item Pellet the cells in a \SI{1.5}{\milli\litre} microcentrifuge tube for \SI{10}{\minute} at \SI{16000}{\grav}.
 \item Aspirate off supernatant
 \item Resuspend in \SI{500}{\micro\litre} PBS, with or without \SI{2}{\milli\Molar} \ce{CoSO4}.
 \item \paragraph{If fixing}
@@ -194,7 +198,7 @@ The final resuspension volume was be adjusted to match cell density depending on
 
 \subsection{Image Processing}
 \label{sec:method:imageproc}
-Unless otherwise stated, all image processing has been done in Matlab. All processing scripts are open source and have been made publicly available, see section~\ref{sec:scripts:clusters}. Details of the process of the scripts are given in section~\ref{sec:results:imageprocessing}.
+Unless otherwise stated, all image processing has been done in MATLAB version 2011b. All processing scripts are open source and have been made publicly available, see section~\ref{sec:scripts:clusters}. Details of the process of the scripts are given in section~\ref{sec:results:imageprocessing}.
 
 \subsection{MicroManager}
 

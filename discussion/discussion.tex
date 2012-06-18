@@ -13,10 +13,11 @@ Manual calibration of TIRF is achieved by shifting the laser across the back foc
 
 We had in fact achieved oblique fluorescence microscopy, where the laser enters at a steep angle just short of total internal reflectance. This penetrates to a much greater depth than TIRF, but does not illuminate as much of the background as epifluorescence, resulting in a much better contrast to background.
 
-We were not able to check the results in the Nikon against those in the Leica; we did doubt whether we had achieved TIRF in Leica either. However, after our experience with the Nikon system we decided that it would be unwise to pursue TIRF further for two main reasons:
+We were not able to check the results in the Nikon against those in the Leica; we did doubt whether we had achieved TIRF in Leica either. However, after our experience with the Nikon system we decided that it would be unwise to pursue TIRF further for three main reasons:
 
 \begin{enumerate}
 	\item Our work is highly quantitative. From what we had seen in the demonstrations, TIRF had several properties that could make it less quantitative than required, such as uneven penetration depth and illumination, and a highly complex and hard to reproduce set up procedure.
+	\item To determine the fraction of CheZ in the cluster compared to the entire cell it is necessary to easily visualise the whole cell, which TIRF did not allow.
 	\item The clusters can be located, and indeed move around, anywhere on the polar hemisphere of the cell. An illumination penetration depth of only \SI{200}{\nano\meter} will mean that a lot of clusters may not be seen, whatever the orientation of the cell. 
 \end{enumerate}
 
@@ -34,7 +35,7 @@ A LED lighting system was used primarily as the easiest way to mix two wavelengt
 
 \subsection{Cluster Sizing using Image Processing}
 
-Results from the epifluoresence microscopy (section~\ref{sec:results:cs:epi}) are very inadequate, due to a very low cell count. The experiments were mostly useful for developing and testing the image processing scripts, to maximise speed and accuracy.
+Results from the epifluoresence microscopy (section~\ref{sec:results:cs:epi}) are not of the highest quality, due to a very low cell count, although they still fall within the 5\% p-value required by most tests. The experiments were mostly useful for developing and testing the image processing scripts, to maximise speed and accuracy.
 
 The results from the confocal microscopy (section~\ref{sec:results:cs:confocal}) are much more encouraging. Thanks to a much higher cell count the results are far more informative, showing a small but definite increase in CheZ clustering, with a p value of 0.0349\%. More repeats need to be done to verify this result, but the preliminary indication is that the experiments support the hypothesis of dynamic CheZ clustering.
 

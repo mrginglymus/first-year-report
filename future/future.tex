@@ -44,7 +44,7 @@ As the lower bound is governed by specificity, it makes sense to design for this
 
 \paragraph{Secondary structures/self priming} is a problem caused by near palindromic sequences. This will affect specificity as it can alter the sequence presented by the primer. When considering this, the rule generally compares the Gibbs free energy of the secondary structure to some threshold. However, this does not consider the location of the secondary structure. As above - if it is at the 5' end, will it be a problem at all? Whilst designing primers with very specific secondary structures could be difficult, it would allow a great deal more flexibility should it be shown that 5' secondary structures may be ignored.
 
-As been said, there are already tools to help you with primer design - BLAST for specificity, MFold for secondary structures and a bewildering array of melting temperature calculators. However, aside from melting temperature calculators they all require a great deal of manual manipulation to convert the results into sensible outputs, and subsequently for you to know exactly what changes to make to fix any problems. You must then return to each tool with your modified design, to be repeated \emph{ad nauseam}.
+As been said, there are already tools to help you with primer design - BLAST for specificity, MFold for secondary structures and a bewildering array of melting temperature calculators. However, aside from melting temperature calculators they all require a great deal of manual manipulation to convert the results into sensible outputs, and subsequently for you to know exactly what changes to make to fix any problems. You must then return to each tool with your modified design, to be repeated as necessary - often a great many times.
 
 \subsubsection{The Implementation}
 
@@ -58,6 +58,6 @@ Whilst a great deal of time will be spent developing the framework under which t
 
 The two main benefits that the tool will provide are in time taken to design primers, and their eventual cost. At the same time, efficacy of the primers should not be decreased, if not actually improved as a result of modified rules. Whilst time and cost savings are trivial to demonstrate, it will require more work to prove that there is no decrease in efficacy.
 
-A test for this would likely take the form of a large scale construction requiring multiple fragments to be assembled, performed with primers designed using old rules and primers designed using new rules. The exact form of this test is yet to be designed as it is a long way in the future.
+A test for this would likely take the form of a large scale construction requiring multiple fragments to be assembled, performed with primers designed using old rules and primers designed using new rules. The exact form of this test is yet to be designed and will take place in the third year of this PhD.
 
 \end{document}

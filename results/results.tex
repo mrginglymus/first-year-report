@@ -3,7 +3,12 @@
 \begin{document}
 
 \section{Results}
+
+Presented here are the results of investigations into different advanced microscopy techniques and development and application of image processing tools to determine CheZ fraction. Further to this we present the adaptation of our existing library of protein fusions for homo-FRET, and the preliminary work towards using the technique to directly measure density of CheZ in the chemotactic cluster.
+
 \subsection{Localisation Microscopy (GSD)}
+
+GSD is a technique that does not have stringent requirements on fluorophores, as compared to STORM/PALM like techniques. As such, we were able to use existing strains in a Leica demo unit at a workshop run by Leica (Figure~\ref{fig:results:palm}).
 
 \begin{figure}[h!]
 \begin{center}
@@ -21,12 +26,15 @@
 	}
 	\label{fig:results:palm:reconstruction}
 }
-\caption[GSD reconstruction]{GSD reconstruction of image. From 17990 frames in non-optimal media.}
+\caption[GSD reconstruction]{GSD reconstruction of image. From 17990 frames in non-optimal medium.}
 \label{fig:results:palm}
 \end{center}
 \end{figure}
 \newpage
 \subsection{STED}
+
+STED offers an improved resolution using an imaging technique similar to confocal microscopy - direct, pixel by pixel imaging of the cell (Figure~\ref{fig:results:sted}).
+
 \begin{figure}[h!]
 \begin{center}
 \subfloat[Confocal microscopy]{
@@ -43,44 +51,6 @@
 \end{figure}
 \newpage
 
-\subsection{Fluorescent Proteins}
-
-Primarily EYFP was used for the proteins being imaged. However, a monomeric form was required for anisotropy~\citep{vaknin07}. This is achieved through the A206K mutation. Another monomeric EYFP variant, known as Venus and also containing the A206K mutation, was described as being a better FRET receiver~\citep{nagai02} as well as a generally improved fluorophore, and therefore ideal for our homo-FRET experiments. However, only the monomeric EYFP variant was available to us, and we have not yet had time to perform the five amino acid substitutions required for Venus.
-
-Site directed mutagenesis was initially to be used to create the mutations from EYFP to Venus, but this was not followed through due to cost and also after receiving what was described as Venus, but which, after sequencing, turned out to be EYFP with the A206K mutation.
-
-Primers for standard cloning with multiple restriction sites were designed (see section~\ref{sec:plaspri}); however, after repeated cloning attempts we failed to obtain a final construct, and after several weeks this assembly method was abandoned.
-
-With kind support from other sources (see section~\ref{sec:plaspri:plas}) we built up a library of many fluorescent protein-chemotaxis protein fusions. However, it was still necessary to exchange many of these. Many fluorescent proteins (e.g. CFP, YFP, BFP) are derivatives of GFP through only a few amino acid substitutions~\citep{tsien98}. In most modernly used GFP derivatives, these all lie between amino acid 64 and amino acid 206, inclusive. Therefore, through careful design of PCR primers Gibson assembly can be used to exchange one GFP derivative for another with the same set of primers (see section~\ref{sec:plaspri:pri}).
-
-Gibson assembly worked on the first time, and was used with a perfect success rate for all subsequent exchanges. Backbones were split in to two to ensure that PCR would be able to run their entire length. Whilst each of the five PCR reactions had a lot of misprimes and over-extensions, the desired bands were strong enough to be easily visible, and after gel extraction specific enough to perform Gibson assembly successfully (Figure~\ref{fig:results:gibson}).
-
-\begin{figure}
-\begin{center}
-\subfloat[eYFP-A206K]{
-	\includegraphics[width=0.35\textwidth]{\docroot results/figs/A206K}
-	\label{fig:results:gibson:A206K}
-}
-\subfloat[pVS49]{
-	\includegraphics[width=0.35\textwidth]{\docroot results/figs/pVS49split}
-	\label{fig:results:gibson:49}
-}
-\subfloat[pVS289]{
-	\includegraphics[width=0.35\textwidth]{\docroot results/figs/pVS289split}
-	\label{fig:results:gibson:289}
-}
-\\
-\subfloat[PCR Gel]{
-	\includegraphics[width=0.7\textwidth]{\docroot results/figs/gibsonpcr.png}
-	\label{fig:results:gibson:pcr}
-}
-\caption[PCR results for Gibson Assembly]{PCR to create overlaps for Gibson Assembly. Desired bands circled in red.  The first band is from the plasmid in Figure~\subref{fig:results:gibson:A206K}, between primers WAC13 and 14. The second and third bands are from the plasmid in Figure~\subref{fig:results:gibson:49}, between primers WAC7 and 12, and between WAC8 and 11 respectively. The fourth and fifth bands are from the plasmid in Figure~\subref{fig:results:gibson:289}, between primers WAC9 and 12, and between WAC10 and 11 respectively.
-
-From the bands in lanes 1, 2 and 3 we can create pWAC1 with Gibson Assembly, and pWAC4 from lanes 1, 4 and 5.}
-\label{fig:results:gibson}
-\end{center}
-\end{figure}
-\newpage
 
 \subsection{Image Processing}
 \label{sec:results:imageprocessing}
@@ -111,7 +81,7 @@ This script outputs a black and white map of all objects in an image that can be
 	\includegraphics[scale=0.64]{\docroot results/figs/slide4}
 	\label{fig:imageprocessing:accepted}
 }
-\caption[Depiction of cell detection]{To generate the mask of cells, the script first performs edge detection using the Canny method~\citep{canny} (Figure~\subref{fig:imageprocessing:edges}). This is particularly effective for detecting edges in noisy images. The lines are then thickened and the gaps closed to give the outline of cells. These are filled in, and then the image is opened with a disk shaped element to remove any small blobs or bridges. This intermediate image is now \texttt{all\_cells} (Figure~\subref{fig:imageprocessing:cells}). Subsequently, each constraint on cell shape or size is applied individually to determine which cells to reject (Figure~\subref{fig:imageprocessing:accepted}). Images shown here have been cropped and inverted for clarity in print.}
+\caption[Depiction of cell detection]{\subref{fig:imageprocessing:raw} The original greyscale image. \subref{fig:imageprocessing:edges} To generate the mask of cells, the script first performs edge detection using the Canny method~\citep{canny}. This is particularly effective for detecting edges in noisy images. The lines are then thickened and the gaps closed to give the outline of cells. \subref{fig:imageprocessing:cells} The outlines are filled in, and then the image is opened with a disk shaped element to remove any small blobs or bridges. This intermediate image is now \texttt{all\_cells}. \subref{fig:imageprocessing:accepted} Subsequently, each constraint on cell shape or size is applied individually to determine which cells to reject. Images shown here have been cropped and inverted for clarity in print.}
 \label{fig:imageprocessing:celldetection}
 \end{center}
 \end{figure}
@@ -119,7 +89,7 @@ This script outputs a black and white map of all objects in an image that can be
 \paragraph{Cluster Finder}\ \\
 This script takes the output of the cell finder along with the original image to search in each cell for a cluster.
 
-Before searching for clusters, the script subtracts low frequency background noise using a rolling ball average. The script then loops through each cell, trying to locate each cluster. Because the clusters are on the order of the resolution of the microscope (\SI{200}{\nano\meter}), they can be approximated as a 2D Gaussian. To do this, the script finds the brightest pixel not yet masked in the cell, and attempts to fit a 2D Gaussian curve using non-linear optimisation as shown in Figure~\ref{fig:imageprocessing:clusterdetection}, and masks off the surrounding area from further search. The 2D Gaussian curve is then used to approximate the proportion of fluorescent proteins detected within the cluster compared to the entire cell. This continues until no pixels brighter than the threshold can be found, and the script moves on to the next cell.
+Before searching for clusters, the script subtracts low frequency background noise using a rolling ball average. The script then loops through each cell, trying to locate each cluster. Because the clusters are on the order of the resolution of the microscope (both \(\sim\)\SI{200}{\nano\meter}), they can be approximated as a 2D Gaussian. To do this, the script finds the brightest pixel not yet masked in the cell, and attempts to fit a 2D Gaussian curve using non-linear optimisation as shown in Figure~\ref{fig:imageprocessing:clusterdetection}, and masks off the surrounding area from further search. The 2D Gaussian curve is then used to approximate the proportion of fluorescent proteins detected within the cluster compared to the entire cell (Figure~\ref{figs:improc:sideview}). This continues until no pixels brighter than the threshold can be found, and the script moves on to the next cell.
 
 \begin{figure}[h!]
 \begin{center}
@@ -158,7 +128,7 @@ The two images are extracted with a \(\simeq10\%\) safety border. A mean is take
 
 This provides the six data points required to align all future images taken until the OptoSplit II is adjusted again - the size of the image, and both of the locations.
 
-Again, all scripts are available online, see section~\ref{sec:scripts:anisotropy}.
+Again, all scripts are available online, see appendix~\ref{sec:scripts:anisotropy}.
 
 \newpage
 \subsection{CheZ Fraction using Image Processing}
@@ -166,6 +136,8 @@ Again, all scripts are available online, see section~\ref{sec:scripts:anisotropy
 Calculating the CheZ fraction (the fraction of CheZ that is located in the chemotactic cluster as a proportion of all the CheZ in the cell) is a direct way to monitor the localisation of CheZ. As we are expecting an increase in CheZ clustering in response to an increase in repellent, we should see a corresponding increase in the CheZ fraction.
 
 In each experiment, cultures of each strain were grown, induced and prepared for microscopy with and without \ce{CoSO4}, a repellent. Multiple images were taken of each, and run through the image processing described in section~\ref{sec:results:imageprocessing}.
+
+Cells shown here are KL1005; \textsl{\(\Delta\)RBYZ)} with YFP tagged CheZ and mCherry tagged CheY. Removal of CheR and CheB removes the methyl adaptation system. Removal of CheZ and replacement with YFP tagged CheZ helps maintain the stoichiometry of the system. As a result of the natural arrangements of the operon no \textsl{\(\Delta\)RBZ} strain exists and so CheY has to be re-introduced too, as it is required in the proposed mechanism for CheZ cluster formation. CheZ-eYFP is an N-terminal fusion as this is believed to be less disruptive than C-termain fusions to oligomerisation.
 
 \subsubsection{Epifluorescence Microscopy}
 \label{sec:results:cs:epi}
@@ -182,7 +154,7 @@ These experiments were performed on a Nikon microscope on loan from the manufact
 	\includegraphics[scale=0.65, trim=0 30 0 310, clip=true]{\docroot results/figs/nikonb.eps}
 	\label{fig:results:nikon:cobalt}
 }
-\caption[Image processing results on Nikon microscope]{Histograms of CheZ cluster fraction (fraction of CheZ protein in cell localised in the polar cluster). Solid red line marks mean average, dashed lines \(\pm\sigma\). \(p\) value \(=4.4\%\) using the Student's t-test. Microscope: Nikon Ti-E widefield (demo).}
+\caption[Image processing results on Nikon microscope]{Histograms of CheZ cluster fraction (fraction of CheZ protein in cell localised in the polar cluster). Solid red line marks mean average, dashed lines \(\pm\sigma\). \(p\) value \(=4.4\%\) using the Student's t-test. Microscope: Nikon Ti-E widefield (demo). Strain: KL1005 \textsl{\(\Delta\)RBYZ, CheZ-eYFP, CheY-mCherry}.}
 \label{fig:results:nikon}
 \end{center}
 \end{figure}
@@ -201,17 +173,53 @@ These experiments were performed on a Zeiss confocal microscope, the use of whic
 	\includegraphics[scale=0.65, trim=0 20 0 260, clip=true]{\docroot results/figs/zeiss.eps}
 	\label{fig:results:zeiss:cobalt}
 }
-\caption[Image processing results on Zeiss confocal microscope]{Histograms of CheZ cluster fraction (fraction of CheZ protein in cell localised in the polar cluster). Solid red line marks mean average, dashed lines \(\pm\sigma\). \(p\) value \(=0.0349\%\) using the Student's t-test. Microscope: Zeiss confocal.}
+\caption[Image processing results on Zeiss confocal microscope]{Histograms of CheZ cluster fraction (fraction of CheZ protein in cell localised in the polar cluster). Solid red line marks mean average, dashed lines \(\pm\sigma\). \(p\) value \(=0.0349\%\) using the Student's t-test. Microscope: Zeiss confocal. Strain: KL1005 \textsl{\(\Delta\)RBYZ, CheZ-eYFP, CheY-mCherry}.}
 \label{fig:results:zeiss}
 \end{center}
 \end{figure}
 
 \cleardoublepage
 
+\subsection{Fluorescent Proteins}
+
+Primarily EYFP was used for the proteins being imaged. However, a monomeric form was required for anisotropy~\citep{vaknin07}. This is achieved through the A206K mutation. Another monomeric EYFP variant, known as Venus and also containing the A206K mutation, was described as being a better FRET receiver~\citep{nagai02} as well as a generally improved fluorophore, and therefore ideal for our homo-FRET experiments. However, only the monomeric (A206K) EYFP variant was available to us.
+
+Site directed mutagenesis was initially to be used to create the mutations from EYFP to Venus, but this was not followed through due to cost and also after receiving what was described as Venus, but which, after sequencing, turned out to be EYFP with the A206K mutation.
+
+Primers for standard cloning with multiple restriction sites were designed (see appendix~\ref{sec:plaspri}); however, after repeated cloning attempts we failed to obtain a final construct, and after several weeks this assembly method was abandoned.
+
+With kind support from other sources (see appendix~\ref{sec:plaspri:plas}) we built up a library of many fluorescent protein-chemotaxis protein fusions. However, it was still necessary to exchange many of these. Many fluorescent proteins (e.g. CFP, YFP, BFP) are derivatives of GFP through only a few amino acid substitutions~\citep{tsien98}. In most modernly used GFP derivatives, these all lie between amino acid 64 and amino acid 206, inclusive. Therefore, through careful design of PCR primers Gibson assembly can be used to exchange one GFP derivative for another with the same set of primers (see appendix~\ref{sec:plaspri:pri}).
+
+Gibson assembly worked on the first time, and was used with a perfect success rate for all subsequent exchanges. Backbones were split in to two to ensure that PCR would be able to run their entire length. Whilst each of the five PCR reactions had a lot of misprimes and over-extensions, the desired bands were strong enough to be easily visible, and after gel extraction specific enough to perform Gibson assembly successfully (Figure~\ref{fig:results:gibson}). After transformation, all assemblies were sequenced. All showed the A206K mutation and no other changes to the coding sequence.
+
+\begin{figure}
+\begin{center}
+\subfloat[eYFP-A206K]{
+	\includegraphics[width=0.35\textwidth]{\docroot results/figs/A206K}
+	\label{fig:results:gibson:A206K}
+}
+\subfloat[pVS49]{
+	\includegraphics[width=0.35\textwidth]{\docroot results/figs/pVS49split}
+	\label{fig:results:gibson:49}
+}
+\subfloat[pVS289]{
+	\includegraphics[width=0.35\textwidth]{\docroot results/figs/pVS289split}
+	\label{fig:results:gibson:289}
+}
+\\
+\subfloat[PCR Gel]{
+	\includegraphics[width=0.7\textwidth]{\docroot results/figs/gibsonpcr.png}
+	\label{fig:results:gibson:pcr}
+}
+\caption[PCR results for Gibson Assembly]{PCR to create overlaps for Gibson Assembly. \subref{fig:results:gibson:A206K}, \subref{fig:results:gibson:49} and \subref{fig:results:gibson:289}: schematics of plasmid templates. \subref{fig:results:gibson:pcr}: agarose gel of PCR products, with desired bands circled n red. pWAC1 was created by Gibson Assembly from circled, gel purified bands from lanes 3, 4 and 5; pWAC4 from lanes 3, 5 and 6.}
+\label{fig:results:gibson}
+\end{center}
+\end{figure}
+\newpage
 
 \subsection{Microfluidics}
 
-In order to obtain live imaging of the response to chemotactic chemicals, we must be able to replace the media in which the cells are contained with media of differing concentrations of attractant or repellent. Inspired by Howard Berg and Steven Block's work~\citep{berg84} we set out to create a microfluidics flow cell that would allow for precise exchange of media. Aladdin pumps from WPI-Europe were used due to their relatively well documented scripting capabilities and economy - precision was not as pressing concern as normally found in microfluidic applications. Two different microfluidic devices were required.
+In order to obtain live imaging of the response to chemotactic chemicals, we must be able to replace the media in which the cells are contained with media of differing concentrations of attractant or repellent. Inspired by Howard Berg and Steven Block's work~\citep{berg84} we set out to create a microfluidics flow cell that would allow for precise exchange of media. Aladdin pumps from WPI-Europe were used due to their relatively well documented scripting capabilities and economy - precision was not as pressing concern as normally found in microfluidic applications. Two different microfluidic devices are required.
 
 \begin{figure}[h!]
 \begin{center}
@@ -228,7 +236,7 @@ In order to obtain live imaging of the response to chemotactic chemicals, we mus
 \end{center}
 \end{figure}
 
-The first, in Figure~\ref{fig:microfluidics:simple}, is a simple Y shaped splitter with only one syringe active at any time. One syringe would be filled with a plain buffer, and the other with buffer with attractant/repellent at a set concentration. This allows for rapid switching on and off of the attractant/repellent.
+The first, in Figure~\ref{fig:microfluidics:simple}, is a simple Y shaped splitter with only one syringe active at any time. One syringe will be filled with a plain buffer, and the other with buffer with attractant/repellent at a set concentration. This allows for rapid switching on and off of the attractant/repellent.
 
 The second, in Figure~\ref{fig:microfluidics:complex}, is a more complex splitter to allow for thorough mixing of the two inputs. This takes the form of a zig-zag style channel between the two inputs and the chamber containing bacteria. Again, one syringe would be filled with a plain media, and the other with media with attractant/repellent at a set concentration. By varying the relative rates of the two pumps but keeping the total constant, the concentration of attractant/repellent can be varied between zero and the aforementioned concentration. A potential drawback of this system is firstly the lag between changing pump speeds and observing a change in concentration in the bacterial chamber, and secondly the smoothing of a step change in concentration due to forward and backward diffusion of the attractant/repellent.
 
@@ -236,7 +244,7 @@ We received flow cells of the design in Figure~\ref{fig:microfluidics:simple} co
 
 \subsection{Inducer Calibration}
 
-Most fusion proteins were available, or could easily be made available, in both the pBAD33 or pTRC99a plasmid, induced by arabinose or IPTG respectively. As in some experiments we planned to induce two proteins, one from each plasmid, it was important to be able to balance the production of each, by performing titrating the inducer concentration. The expression of \textsl{CheZ-eYFP} was monitored in two strains, KL1001 and KL1019, induced by Arabinose and IPTG respectively (for details, see section~\ref{sec:plaspri}).
+Most fusion proteins were available, or could easily be made available, in both the pBAD33 or pTRC99a plasmid, induced by arabinose or IPTG respectively. As in some experiments we planned to induce two proteins, one from each plasmid, it was important to be able to balance the production of each, by performing titrating the inducer concentration. The expression of \textsl{CheZ-eYFP} was monitored in two strains, KL1001 and KL1019, induced by Arabinose and IPTG respectively (for details, see appendix~\ref{sec:plaspri}).
 
 Images are shown of each of four different concentrations of inducer \SI{3.5}{\hour} after induction in each strain.
 
@@ -307,4 +315,6 @@ t=0	&	Inoculate	&	Inoculate \& Induce\\
 \paragraph{Time Course}	A selection of inducer concentration from the inducer titre were re-run with samples being removed and imaged at \SI{2}{\hour}, \SI{3}{\hour} and \SI{4}{\hour} to find optimal expression.
  \end{comment}
 \newpage
+\subsection{Homo-FRET}
+Some preliminary work has been done towards homo-FRET measurements. However, the microscopy system and cells require extensive calibration before good quantitative results can be taken. The Cairn OptoSplit must be set up to completely separate the two polarisations of light, and aligned to minimise distortion between the two images. As such, while some images have been taken they will not yield good quantitative results and so are not presented here.
 \end{document}
